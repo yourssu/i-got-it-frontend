@@ -1,4 +1,5 @@
 import './App.scss'
+import './styles/color.scss'
 import './styles/Font.css'
 
 function App() {
