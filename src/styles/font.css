@@ -1,0 +1,27 @@
+@font-face {
+  font-family: 'NeoDunggeunmo';
+  font-weight: normal;
+  font-style: normal;
+  src: url('https://cdn.jsdelivr.net/gh/webfontworld/neodgm/NeoDunggeunmo.eot');
+  src: url('https://cdn.jsdelivr.net/gh/webfontworld/neodgm/NeoDunggeunmo.eot?#iefix')
+      format('embedded-opentype'),
+    url('https://cdn.jsdelivr.net/gh/webfontworld/neodgm/NeoDunggeunmo.woff2') format('woff2'),
+    url('https://cdn.jsdelivr.net/gh/webfontworld/neodgm/NeoDunggeunmo.woff') format('woff'),
+    url('https://cdn.jsdelivr.net/gh/webfontworld/neodgm/NeoDunggeunmo.ttf') format('truetype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'DOSMyungjo';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_eight@1.0/DOSMyungjo.woff')
+    format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'GothicA1-Light';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2205@1.0/GothicA1-Light.woff2')
+    format('woff2');
+  font-style: normal;
+}
