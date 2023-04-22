@@ -30,7 +30,7 @@ const CreateLetter = () => {
     navigate('/mypage')
   }
 
-  const onInput = (event: any) => {
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setMessage(event.target.value)
   }
 
@@ -50,7 +50,7 @@ const CreateLetter = () => {
           required
           maxLength={133}
           value={message}
-          onInput={onInput}
+          onChange={handleChange}
         />
         <Dialog1
           onConfirm={handleConfirm}
