@@ -1,10 +1,12 @@
 import { useNavigate } from 'react-router-dom'
+import { useState } from 'react'
 import Header from '../../components/Header/Header'
 import BoxButton from '../../components/Button/BoxButton'
 import Letter from '../../images/letter'
 
 const CreateLetter = () => {
   const navigate = useNavigate()
+  const [message, setMessage] = useState('')
   const onCickBack = () => {
     navigate('/create')
   }
@@ -12,6 +14,10 @@ const CreateLetter = () => {
   const handleSubmit = (event: any) => {
     event.preventDefault()
     navigate('')
+  }
+
+  const onInput = (event: any) => {
+    setMessage(event.target.value)
   }
 
   return (
@@ -29,11 +35,13 @@ const CreateLetter = () => {
           placeholder="나에게 전하는 한마디를 입력하세요."
           required
           maxLength={133}
+          value={message}
+          onInput={onInput}
         />
         <BoxButton
           type="submit"
           text="작성 완료"
-          isDisabled={true}
+          isDisabled={!message}
         />
       </form>
     </>

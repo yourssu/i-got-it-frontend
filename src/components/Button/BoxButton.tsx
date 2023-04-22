@@ -4,7 +4,7 @@ interface Iprops {
   text: string
   type: 'button' | 'submit' | 'reset' | undefined
   onClick?: () => void
-  isDisabled?: true
+  isDisabled?: boolean
 }
 
 const BoxButton = (props: Iprops) => {
