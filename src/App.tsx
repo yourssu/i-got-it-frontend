@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './App.scss'
-import Home from './pages/Home'
+import Home from './pages/Home/Home'
 import './styles/color.scss'
 import './styles/Font.css'
 import Login from './pages/Login'
