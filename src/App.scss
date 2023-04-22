@@ -1,14 +1,8 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-  // font-family: 'NeoDunggeunmo';
-  // font-family: 'DOSMyungjo';
-  // font-family: 'GothicA1-Light';
-  // font-family: 'Stylish', sans-serif;
-  width: 390px;
-  height: 100%;
-  min-height: 100%;
+  width: 100%;
+  max-width: 480px;
+  // height: 100%;
   background-color: antiquewhite; // test
+  margin: 0 auto;
+  // transform: translate(0);
 }
