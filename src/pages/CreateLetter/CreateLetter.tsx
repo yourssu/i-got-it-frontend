@@ -33,6 +33,7 @@ const CreateLetter = () => {
         <BoxButton
           type="submit"
           text="작성 완료"
+          isDisabled={true}
         />
       </form>
     </>
