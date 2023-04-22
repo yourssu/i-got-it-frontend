@@ -1,4 +1,5 @@
 import BoxButton from '../../components/Button/BoxButton'
+import Header from '../../components/Header/Header'
 import './Create.scss'
 import { useNavigate } from 'react-router-dom'
 
@@ -18,13 +19,7 @@ const Create = () => {
 
   return (
     <>
-      <header className="header">
-        <button
-          type="button"
-          className="back-button"
-          onClick={onClickBack}
-        ></button>
-      </header>
+      <Header onClick={onClickBack} />
       <form
         className="create-form"
         onSubmit={handleSubmit}
