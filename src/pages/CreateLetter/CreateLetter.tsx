@@ -22,12 +22,12 @@ const CreateLetter = () => {
 
   const handleConfirm = (email: string) => {
     console.log(email)
-    setShowDialog(false)
-    // navigate('')
+    // email 처리 로직
+    navigate('/mypage')
   }
 
   const handleReject = () => {
-    setShowDialog(false)
+    navigate('/mypage')
   }
 
   const onInput = (event: any) => {

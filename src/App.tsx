@@ -6,6 +6,7 @@ import './styles/Font.css'
 import Login from './pages/Login'
 import Create from './pages/Create/Create'
 import CreateLetter from './pages/CreateLetter/CreateLetter'
+import MyPage from './pages/MyPage/MyPage'
 
 function App() {
   return (
@@ -27,6 +28,10 @@ function App() {
           <Route
             path="/create-letter"
             element={<CreateLetter />}
+          />
+          <Route
+            path="/mypage"
+            element={<MyPage />}
           />
         </Routes>
       </BrowserRouter>
