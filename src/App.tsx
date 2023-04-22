@@ -3,7 +3,9 @@ import './App.scss'
 import Home from './pages/Home/Home'
 import './styles/color.scss'
 import './styles/Font.css'
-import Login from './pages/Login'
+import Login from './pages/Login/Login'
+import KakaoRedirect from './pages/atoms/KakaoRedirect'
+import Nickname from './pages/Nickname'
 
 function App() {
   return (
@@ -17,6 +19,14 @@ function App() {
           <Route
             path="/login"
             element={<Login />}
+          />
+          <Route
+            path="/callback/kakaotalk"
+            element={<KakaoRedirect />}
+          />
+          <Route
+            path="/nickname"
+            element={<Nickname />}
           />
         </Routes>
       </BrowserRouter>
