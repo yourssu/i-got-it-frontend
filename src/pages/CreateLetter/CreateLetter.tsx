@@ -4,17 +4,30 @@ import Header from '../../components/Header/Header'
 import BoxButton from '../../components/Button/BoxButton'
 import Letter from '../../images/Letter'
 import './CreateLetter.scss'
+import Dialog1 from '../../components/Dialog/Dialog1'
 
 const CreateLetter = () => {
   const navigate = useNavigate()
   const [message, setMessage] = useState('')
+  const [showDialog, setShowDialog] = useState(false)
+
   const onCickBack = () => {
     navigate('/create')
   }
 
   const handleSubmit = (event: any) => {
     event.preventDefault()
-    navigate('')
+    setShowDialog(true)
+  }
+
+  const handleConfirm = (email: string) => {
+    console.log(email)
+    setShowDialog(false)
+    // navigate('')
+  }
+
+  const handleReject = () => {
+    setShowDialog(false)
   }
 
   const onInput = (event: any) => {
@@ -38,6 +51,11 @@ const CreateLetter = () => {
           maxLength={133}
           value={message}
           onInput={onInput}
+        />
+        <Dialog1
+          onConfirm={handleConfirm}
+          onReject={handleReject}
+          showDialog={showDialog}
         />
         <BoxButton
           type="submit"
