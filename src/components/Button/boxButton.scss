@@ -9,4 +9,9 @@
   font-size: 16px;
   background-color: var(--button-pointed);
   border-radius: 0;
+
+  &:disabled {
+    color: var(--button-disabled);
+    background-color: var(--button-disabled-background);
+  }
 }

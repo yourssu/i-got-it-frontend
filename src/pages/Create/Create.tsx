@@ -11,7 +11,7 @@ const Create = () => {
 
   const handleSubmit = (event: any) => {
     event.preventDefault()
-    navigate('/create-resolution')
+    navigate('/create-letter')
 
     console.log(event.target)
     console.log('결심 제출 완료')
