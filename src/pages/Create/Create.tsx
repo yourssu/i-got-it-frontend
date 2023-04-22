@@ -36,6 +36,7 @@ const Create = () => {
             type="radio"
             name="date"
             id="date3"
+            defaultChecked
           />
           <label
             htmlFor="date3"
