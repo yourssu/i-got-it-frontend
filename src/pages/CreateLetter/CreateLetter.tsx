@@ -2,7 +2,8 @@ import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import Header from '../../components/Header/Header'
 import BoxButton from '../../components/Button/BoxButton'
-import Letter from '../../images/letter'
+import Letter from '../../images/Letter'
+import './CreateLetter.scss'
 
 const CreateLetter = () => {
   const navigate = useNavigate()
@@ -23,12 +24,12 @@ const CreateLetter = () => {
   return (
     <>
       <Header onClick={onCickBack} />
-      <div>결심한 나에게 편지쓰기</div>
-      <div>내가 쓴 편지는 오직 미래의 나만 볼 수 있어요.</div>
       <form
         className="create-letter-form"
         onSubmit={handleSubmit}
       >
+        <div className="letter-title">결심한 나에게 편지쓰기</div>
+        <div className="letter-description">내가 쓴 편지는 오직 미래의 나만 볼 수 있어요.</div>
         <Letter />
         <input
           type="text"
