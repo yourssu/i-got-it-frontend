@@ -15,7 +15,11 @@ const Home = () => {
       <div className="home-description">{`말로만 다짐하는 사람들을 위한 
       본격 공개 처형 프로젝트`}</div>
       <div className="recommend"> ↘ 아가리에 다짐을 외쳐보세요 ↙ </div>
-      <BoxButton onClick={onClick} />
+      <BoxButton
+        type="button"
+        text="결심하기"
+        onClick={onClick}
+      />
     </div>
   )
 }

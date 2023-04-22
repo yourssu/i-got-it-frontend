@@ -1,0 +1,72 @@
+.header {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.back-button {
+  width: 40px;
+  height: 44px;
+  background-image: url('./../../images/leftButton.svg');
+  border: none;
+  background-color: transparent;
+}
+
+.title {
+  font-family: 'NeoDunggeunmo';
+  color: var(--text-secondary);
+  font-weight: 400;
+  font-size: 20px;
+}
+
+.description {
+  // font-family: "Pretendard";
+  color: var(--text-teritary);
+  font-weight: 400;
+  font-size: 12px;
+}
+
+.wrapper-date-button {
+  text-align: center;
+}
+
+input[type='radio'] {
+  display: none;
+}
+
+@mixin checked {
+  color: var(--button-pointed);
+  border-color: var(--button-pointed);
+}
+
+input[type='radio']:checked + label {
+  @include checked();
+}
+
+.button-date {
+  width: 165px;
+  height: 48px;
+  font-family: 'NeoDunggeunmo';
+  font-weight: 400;
+  font-size: 16px;
+  color: var(--button-disabled);
+  border: 1px solid;
+  border-radius: 0;
+  border-color: var(--button-disabled);
+  border-width: 3px;
+  background-color: transparent;
+  display: inline-block;
+
+  &:hover {
+    @include checked;
+  }
+
+  &:focus {
+    @include checked;
+  }
+}
+
+.create-form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
