@@ -30,6 +30,8 @@ function App() {
           <Route
             path="/nickname"
             element={<Nickname />}
+          />
+          <Route
             path="/create"
             element={<Create />}
           />
