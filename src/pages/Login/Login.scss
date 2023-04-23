@@ -1,0 +1,40 @@
+.home-title {
+  font-family: 'DOSMyungjo';
+  font-weight: 900;
+  font-size: 54px;
+  color: var(--pointColor-pink100);
+}
+
+.title-description-bubble {
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.bubble {
+  margin-right: 30px;
+}
+
+.title-description {
+  display: flex;
+  flex-direction: column;
+  margin-left: 40px;
+  position: absolute;
+  top: 20px;
+  color: var(--text-secondary);
+  font-family: 'GothicA1-Light';
+}
+
+.kakao-button {
+  background-color: #FEE500;
+  color: black;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  position: relative;
+  .kakao-logo {
+    height: 20px;
+    position: absolute;
+    left: 20px;
+  }
+}
