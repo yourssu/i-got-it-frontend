@@ -1,4 +1,4 @@
-button {
+.box-button {
   width: 374px;
   height: 56px;
   display: flex;
@@ -6,6 +6,12 @@ button {
   justify-content: center;
   color: var(--text-white);
   font-family: 'NeoDunggeunmo';
+  font-size: 16px;
   background-color: var(--button-pointed);
   border-radius: 0;
+
+  &:disabled {
+    color: var(--button-disabled);
+    background-color: var(--button-disabled-background);
+  }
 }

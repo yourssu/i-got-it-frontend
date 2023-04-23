@@ -1,14 +1,24 @@
-import './boxButton.scss'
+import './BoxButton.scss'
 
 interface Iprops {
+  text: string
+  type: 'button' | 'submit' | 'reset' | undefined
   onClick?: () => void
+  isDisabled?: boolean
 }
 
 const BoxButton = (props: Iprops) => {
-  const { onClick } = props
+  const { text, type, onClick, isDisabled } = props
   return (
     <div>
-      <button onClick={onClick}>결심하기</button>
+      <button
+        className="box-button"
+        onClick={onClick}
+        type={type}
+        disabled={isDisabled}
+      >
+        {text}
+      </button>
     </div>
   )
 }
