@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import BoxButton from '../../components/Button/BoxButton'
 import Header from '../../components/Header/Header'
 import './Create.scss'
@@ -5,6 +6,7 @@ import { useNavigate } from 'react-router-dom'
 
 const Create = () => {
   const navigate = useNavigate()
+  const [resolution, setLesolution] = useState('')
   const onClickBack = () => {
     navigate('/')
   }
@@ -15,6 +17,14 @@ const Create = () => {
 
     console.log(event.target)
     console.log('결심 제출 완료')
+  }
+
+  const onClickClear = () => {
+    setLesolution('')
+  }
+
+  const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setLesolution(event.target.value)
   }
 
   return (
@@ -62,10 +72,13 @@ const Create = () => {
             rows={2}
             cols={40}
             maxLength={33}
+            value={resolution}
+            onChange={handleChange}
           />
           <button
             type="button"
             className="clear-button"
+            onClick={onClickClear}
           />
         </div>
         <BoxButton
