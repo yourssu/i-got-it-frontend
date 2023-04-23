@@ -6,6 +6,9 @@ import './styles/Font.css'
 import Login from './pages/Login/Login'
 import KakaoRedirect from './pages/atoms/KakaoRedirect'
 import Nickname from './pages/Nickname'
+import Create from './pages/Create/Create'
+import CreateLetter from './pages/CreateLetter/CreateLetter'
+import MyPage from './pages/MyPage/MyPage'
 
 function App() {
   return (
@@ -27,6 +30,16 @@ function App() {
           <Route
             path="/nickname"
             element={<Nickname />}
+            path="/create"
+            element={<Create />}
+          />
+          <Route
+            path="/create-letter"
+            element={<CreateLetter />}
+          />
+          <Route
+            path="/mypage"
+            element={<MyPage />}
           />
         </Routes>
       </BrowserRouter>
