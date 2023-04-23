@@ -6,7 +6,7 @@
 }
 
 .description {
-  // font-family: "Pretendard";
+  font-family: 'Pretendard';
   color: var(--text-teritary);
   font-weight: 400;
   font-size: 12px;
@@ -61,4 +61,32 @@ input[type='radio']:checked + label {
   flex-direction: column;
   align-items: flex-start;
   padding-left: 24px;
+  padding-right: 24px;
+}
+
+.input-wrapper {
+  display: flex;
+  position: relative;
+}
+
+.create-input {
+  margin-top: 8px;
+  border-radius: 0;
+  border-color: var(--button-disabled);
+  background-color: transparent;
+  padding: 12px 30px 30px 16px;
+  caret-color: var(--pointColor-pink100);
+  &:focus {
+    border-color: black;
+    outline: none;
+  }
+}
+
+.clear-button {
+  position: absolute;
+  top: 18px;
+  right: 10px;
+  width: 12px;
+  height: 12px;
+  background-image: url('../../images/ic_cancle.svg');
 }

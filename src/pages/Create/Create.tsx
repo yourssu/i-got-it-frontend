@@ -54,12 +54,20 @@ const Create = () => {
         </div>
         <label className="title">결심</label>
         <div className="description">결심은 공개되어서 남들에게 보여요!</div>
-        <input
-          type="text"
-          placeholder="가나다가나다"
-          required
-          maxLength={33}
-        />
+        <div className="input-wrapper">
+          <textarea
+            className="create-input"
+            placeholder="가나다가나다가나다가나다가나다가나다가나다가나다가나다가나다"
+            required
+            rows={2}
+            cols={40}
+            maxLength={33}
+          />
+          <button
+            type="button"
+            className="clear-button"
+          />
+        </div>
         <BoxButton
           type="submit"
           text="다음"
