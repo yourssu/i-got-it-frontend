@@ -53,7 +53,7 @@ const CreateLetter = () => {
             maxLength={133}
             value={message}
             onChange={handleChange}
-            cols={24}
+            cols={17}
             rows={10}
           />
         </div>
