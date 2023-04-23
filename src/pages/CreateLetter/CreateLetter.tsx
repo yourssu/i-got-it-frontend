@@ -30,7 +30,7 @@ const CreateLetter = () => {
     navigate('/mypage')
   }
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     setMessage(event.target.value)
   }
 
@@ -43,15 +43,20 @@ const CreateLetter = () => {
       >
         <div className="letter-title">결심한 나에게 편지쓰기</div>
         <div className="letter-description">내가 쓴 편지는 오직 미래의 나만 볼 수 있어요.</div>
-        <Letter />
-        <input
-          type="text"
-          placeholder="나에게 전하는 한마디를 입력하세요."
-          required
-          maxLength={133}
-          value={message}
-          onChange={handleChange}
-        />
+        <div className="letter-wrapper">
+          <Letter />
+          <textarea
+            className="letter-input"
+            placeholder={`나에게 전하는 한마디를
+            입력하세요.`}
+            required
+            maxLength={133}
+            value={message}
+            onChange={handleChange}
+            cols={24}
+            rows={10}
+          />
+        </div>
         <Dialog1
           onConfirm={handleConfirm}
           onReject={handleReject}
