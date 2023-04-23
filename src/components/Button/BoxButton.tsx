@@ -10,16 +10,14 @@ interface Iprops {
 const BoxButton = (props: Iprops) => {
   const { text, type, onClick, isDisabled } = props
   return (
-    <div>
-      <button
-        className="box-button"
-        onClick={onClick}
-        type={type}
-        disabled={isDisabled}
-      >
-        {text}
-      </button>
-    </div>
+    <button
+      className="box-button"
+      onClick={onClick}
+      type={type}
+      disabled={isDisabled}
+    >
+      {text}
+    </button>
   )
 }
 

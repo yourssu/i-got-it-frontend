@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import BoxButton from '../../components/Button/BoxButton'
 import Header from '../../components/Header/Header'
 import './Create.scss'
@@ -5,6 +6,7 @@ import { useNavigate } from 'react-router-dom'
 
 const Create = () => {
   const navigate = useNavigate()
+  const [resolution, setLesolution] = useState('')
   const onClickBack = () => {
     navigate('/')
   }
@@ -15,6 +17,14 @@ const Create = () => {
 
     console.log(event.target)
     console.log('결심 제출 완료')
+  }
+
+  const onClickClear = () => {
+    setLesolution('')
+  }
+
+  const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setLesolution(event.target.value)
   }
 
   return (
@@ -54,12 +64,23 @@ const Create = () => {
         </div>
         <label className="title">결심</label>
         <div className="description">결심은 공개되어서 남들에게 보여요!</div>
-        <input
-          type="text"
-          placeholder="가나다가나다"
-          required
-          maxLength={33}
-        />
+        <div className="input-wrapper">
+          <textarea
+            className="create-input"
+            placeholder="가나다가나다가나다가나다가나다가나다가나다가나다가나다가나다"
+            required
+            rows={2}
+            cols={40}
+            maxLength={33}
+            value={resolution}
+            onChange={handleChange}
+          />
+          <button
+            type="button"
+            className="clear-button"
+            onClick={onClickClear}
+          />
+        </div>
         <BoxButton
           type="submit"
           text="다음"

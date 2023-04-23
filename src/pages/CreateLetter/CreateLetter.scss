@@ -6,14 +6,40 @@
 }
 
 .letter-description {
-  // font-family: "Pretendard";
+  font-family: 'Pretendard';
   color: var(--text-teritary);
   font-weight: 400;
   font-size: 12px;
+  margin-top: 4px;
 }
 
 .create-letter-form {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+.letter-wrapper {
+  display: flex;
+  position: relative;
+  padding-top: 30px;
+  margin: 0px auto;
+  overflow-x: hidden;
+}
+
+.letter-input {
+  position: absolute;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  padding-top: 30px;
+  padding-left: 60px;
+  font-family: 'Pretendard';
+  font-weight: 400;
+  font-size: 15px;
+  color: var(--text-teritary);
+  white-space: pre-line;
+  line-height: 1.5;
 }

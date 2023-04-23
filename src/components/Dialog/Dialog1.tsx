@@ -28,7 +28,8 @@ const Dialog1 = ({
         <Dialog.Content className="DialogContent">
           <Dialog.Title className="DialogTitle">작심편지를 메일로 보내드려요</Dialog.Title>
           <Dialog.Description className="DialogDescription">
-            정.확.한. 메일 주소를 입력하신다면요. 메일 주소를 입력해 주세요.
+            {`정.확.한. 메일 주소를 입력하신다면요.
+            메일 주소를 입력해 주세요.`}
           </Dialog.Description>
           <fieldset className="Fieldset">
             <input

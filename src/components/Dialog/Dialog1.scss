@@ -7,7 +7,6 @@ fieldset
 }
 
 .DialogOverlay {
-  background-color: var(--blackA9);
   position: fixed;
   inset: 0;
   animation: overlayShow 150ms cubic-bezier(0.16, 1, 0.3, 1);
@@ -15,15 +14,11 @@ fieldset
 
 .DialogContent {
   background-color: white;
-  // border-radius: 6px;
   box-shadow: hsl(206 22% 7% / 35%) 0px 10px 38px -10px, hsl(206 22% 7% / 20%) 0px 10px 20px -15px;
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 35vw;
-  max-width: 450px;
-  max-height: 85vh;
   padding: 25px;
   animation: contentShow 150ms cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -32,16 +27,21 @@ fieldset
 }
 
 .DialogTitle {
+  font-family: 'NeoDunggeunmo';
+  font-weight: 400;
+  font-size: 18px;
   margin: 0;
-  font-weight: 500;
-  color: var(--mauve12);
-  font-size: 17px;
+  color: var(--text-primary);
 }
 
 .DialogDescription {
-  margin: 10px 0 20px;
-  color: var(--mauve11);
+  font-family: 'Pretendard';
+  font-weight: 400;
   font-size: 15px;
+  margin: 10px 0px 10px 16px;
+  color: var(--text-secondary);
+  font-size: 15px;
+  white-space: pre-line;
   line-height: 1.5;
 }
 
@@ -49,6 +49,7 @@ fieldset
   display: flex;
   align-items: center;
   justify-content: center;
+  text-align: center;
 }
 
 .dialog-button {
@@ -66,7 +67,7 @@ fieldset
   display: flex;
   gap: 20px;
   align-items: center;
-  margin-bottom: 15px;
+  margin: 12px 16px 12px 16px;
 }
 
 .Input {
@@ -75,14 +76,14 @@ fieldset
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border-radius: 4px;
+  border: 1px solid var(--text-primary);
+  border-radius: 8px;
   padding: 0 10px;
   font-size: 15px;
   line-height: 1;
-  color: var(--violet11);
-  box-shadow: 0 0 0 1px var(--violet7);
   height: 35px;
 }
+
 .Input:focus {
   box-shadow: 0 0 0 2px var(--violet8);
 }

@@ -1,0 +1,14 @@
+.header {
+  display: flex;
+  justify-content: flex-start;
+  padding-bottom: 16px;
+}
+
+.back-button {
+  width: 40px;
+  height: 44px;
+  background-image: url('../../images/leftButton.svg');
+  border: none;
+  background-color: transparent;
+  margin-left: 8px;
+}
