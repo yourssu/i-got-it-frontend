@@ -5,11 +5,22 @@ import { useNavigate } from 'react-router-dom'
 const Nickname = () => {
   const navigate = useNavigate()
   const [nickname, setNickname] = useState<string>('')
+  let checkNickname = true
 
   const handleSubmit = () => {
     // 서버에 보내주는 로직
-    setNickname('')
-    navigate('/')
+    const words = nickname.split('')
+
+    for(let item of words) {
+      if(!item.match(/[ㄱ-ㅎ가-힣0-9a-z,._]/)) {
+        checkNickname = false
+      }
+    }
+
+    if(checkNickname) {
+      setNickname('')
+      navigate('/')
+    }
   }
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
