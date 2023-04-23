@@ -3,22 +3,16 @@
   font-weight: 900;
   font-size: 54px;
   color: var(--pointColor-pink100);
-} // Home.scss와 동일
+}
 
 .title-description-bubble {
-  // position: absolute;
   display: flex;
   justify-content: center;
   position: relative;
-  // background-color: darkgoldenrod;
-  //height: 200px;
 }
 
 .bubble {
-  // background-color: wheat;
   margin-right: 30px;
-  // position: relative;
-  // position: absolute;
 }
 
 .title-description {
@@ -29,7 +23,6 @@
   top: 20px;
   color: var(--text-secondary);
   font-family: 'GothicA1-Light';
-  // position: relative;
 }
 
 .kakao-button {
