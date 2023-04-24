@@ -1,9 +1,27 @@
 import MenuHeader from '../../components/Header/MenuHeader'
+import ToastDemo from '../../components/Toast/ToastDemo'
 import './Mypage.scss'
+import { useState } from 'react'
 
-const onClickMenu = () => {}
+const ToastMessages = {
+  ENVELOPE: `뱉은 말은 결심할 때 설정한\n기한 후에 확인 가능해요.`,
+}
 
 const MyPage = () => {
+  const [openToast, setOpenToast] = useState(false)
+  const [title, setTitle] = useState('')
+
+  const onClickMenu = () => {}
+
+  const showToast = ($title: string) => {
+    setOpenToast(true)
+    setTitle($title)
+  }
+
+  const onClickEnvelope = () => {
+    showToast(ToastMessages.ENVELOPE)
+  }
+
   return (
     <>
       <MenuHeader onClick={onClickMenu} />
@@ -21,6 +39,13 @@ const MyPage = () => {
           <button
             type="button"
             className="envelop"
+            onClick={onClickEnvelope}
+          />
+
+          <ToastDemo
+            title={title}
+            open={openToast}
+            setOpen={setOpenToast}
           />
         </div>
         <div className="d-day">뱉은 말 회수까지</div>
