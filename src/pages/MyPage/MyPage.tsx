@@ -17,6 +17,10 @@ const MyPage = () => {
         <div className="resolution">
           결심들어가는곳 결심들어가는곳 결심들어가는곳 결심들어가는곳💨💨💨
         </div>
+        <button
+          type="button"
+          className="envelop"
+        />
       </div>
     </>
   )
