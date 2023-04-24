@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import * as Toast from '@radix-ui/react-toast'
 import './App.scss'
 import Home from './pages/Home/Home'
 import './styles/color.scss'
@@ -13,38 +14,41 @@ import MyPage from './pages/MyPage/MyPage'
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
-        <Routes>
-          <Route
-            path="/"
-            element={<Home />}
-          />
-          <Route
-            path="/login"
-            element={<Login />}
-          />
-          <Route
-            path="/callback/kakaotalk"
-            element={<KakaoRedirect />}
-          />
-          <Route
-            path="/nickname"
-            element={<Nickname />}
-          />
-          <Route
-            path="/create"
-            element={<Create />}
-          />
-          <Route
-            path="/create-letter"
-            element={<CreateLetter />}
-          />
-          <Route
-            path="/mypage"
-            element={<MyPage />}
-          />
-        </Routes>
-      </BrowserRouter>
+      <Toast.Provider>
+        <BrowserRouter>
+          <Routes>
+            <Route
+              path="/"
+              element={<Home />}
+            />
+            <Route
+              path="/login"
+              element={<Login />}
+            />
+            <Route
+              path="/callback/kakaotalk"
+              element={<KakaoRedirect />}
+            />
+            <Route
+              path="/nickname"
+              element={<Nickname />}
+            />
+            <Route
+              path="/create"
+              element={<Create />}
+            />
+            <Route
+              path="/create-letter"
+              element={<CreateLetter />}
+            />
+            <Route
+              path="/mypage"
+              element={<MyPage />}
+            />
+          </Routes>
+        </BrowserRouter>
+        <Toast.Viewport className="ToastViewport" />
+      </Toast.Provider>
     </div>
   )
 }
