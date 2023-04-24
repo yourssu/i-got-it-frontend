@@ -8,7 +8,7 @@ type UserNameTagType = {
 
 const UserNameTag = ({ position, writer, img }: UserNameTagType) => {
   return (
-    <div className={`wrapper-tag ${position}`}>
+    <div className={`tag-wrapper ${position}`}>
       <span className="tag-name">{writer}</span>
       <img className="tag-image" src={img} alt="name-tag" />
     </div>

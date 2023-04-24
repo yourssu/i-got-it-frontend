@@ -4,7 +4,7 @@ import NameTag2 from '../../images/Cheer/name_tag_2.svg'
 import NameTag3 from '../../images/Cheer/name_tag_3.svg'
 import UserNameTag from './UserNameTag'
 import CommentBubble from './CommnetBubble'
-import './Cheer.scss'
+import './CheerRelay.scss'
 import { dummy } from './dummy'
 
 const Cheer = () => {

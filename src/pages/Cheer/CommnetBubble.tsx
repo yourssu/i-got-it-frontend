@@ -9,7 +9,7 @@ type CommentBubbleType = {
 
 const CommentBubble = ({position, comment} : CommentBubbleType)=> {
   return (
-    <div className="wrapper-bubble">
+    <div className="bubble-wrapper">
       <img className="bubble-locker" src={Locker} alt={Locker} />
       <span className="bubble-comment">{comment.length > 8 ? comment.substring(0, 8) + "..." : comment}</span>
       <img className={`bubble-img-${position}`} src={Bubble} alt='speech-bubble' />
