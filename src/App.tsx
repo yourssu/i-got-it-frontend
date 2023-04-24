@@ -5,7 +5,7 @@ import './styles/color.scss'
 import './styles/Font.css'
 import Login from './pages/Login/Login'
 import KakaoRedirect from './pages/atoms/KakaoRedirect'
-import Nickname from './pages/Nickname'
+import Nickname from './pages/Nickname/Nickname'
 import Create from './pages/Create/Create'
 import CreateLetter from './pages/CreateLetter/CreateLetter'
 import MyPage from './pages/MyPage/MyPage'
@@ -30,6 +30,8 @@ function App() {
           <Route
             path="/nickname"
             element={<Nickname />}
+          />
+          <Route
             path="/create"
             element={<Create />}
           />
