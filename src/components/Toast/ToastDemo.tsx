@@ -14,7 +14,7 @@ const ToastDemo = ({ title, open, setOpen }: Iprop) => {
       className="ToastRoot"
       open={open}
       onOpenChange={setOpen}
-      duration={100000000}
+      // duration={100000000}  // 테스트용 코드
     >
       <Toast.Title className="ToastTitle">{title}</Toast.Title>
     </Toast.Root>
