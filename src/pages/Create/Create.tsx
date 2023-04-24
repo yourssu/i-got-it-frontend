@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import BoxButton from '../../components/Button/BoxButton'
-import Header from '../../components/Header/Header'
 import './Create.scss'
 import { useNavigate } from 'react-router-dom'
+import BackHeader from '../../components/Header/BackHeader'
 
 const Create = () => {
   const navigate = useNavigate()
@@ -29,7 +29,7 @@ const Create = () => {
 
   return (
     <>
-      <Header onClick={onClickBack} />
+      <BackHeader onClick={onClickBack} />
       <form
         className="create-form"
         onSubmit={handleSubmit}

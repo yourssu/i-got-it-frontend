@@ -1,10 +1,10 @@
 import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
-import Header from '../../components/Header/Header'
 import BoxButton from '../../components/Button/BoxButton'
 import Letter from '../../images/Letter'
 import './CreateLetter.scss'
 import Dialog1 from '../../components/Dialog/Dialog1'
+import BackHeader from '../../components/Header/BackHeader'
 
 const CreateLetter = () => {
   const navigate = useNavigate()
@@ -36,7 +36,7 @@ const CreateLetter = () => {
 
   return (
     <>
-      <Header onClick={onCickBack} />
+      <BackHeader onClick={onCickBack} />
       <form
         className="create-letter-form"
         onSubmit={handleSubmit}

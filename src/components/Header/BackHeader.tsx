@@ -1,10 +1,10 @@
-import './Header.scss'
+import './BackHeader.scss'
 
 interface Iprops {
   onClick?: () => void
 }
 
-const Header = (props: Iprops) => {
+const BackHeader = (props: Iprops) => {
   const { onClick } = props
   return (
     <header className="header">
@@ -17,4 +17,4 @@ const Header = (props: Iprops) => {
   )
 }
 
-export default Header
+export default BackHeader
