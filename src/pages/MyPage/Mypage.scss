@@ -1,3 +1,9 @@
+.resolution-wrapper {
+  display: block;
+  text-align: center;
+  overflow-x: hidden;
+}
+
 .yellow-star {
   width: 350px;
   height: 218px;
@@ -46,4 +52,19 @@
   background-image: url('../../images/envelope.svg');
   background-repeat: no-repeat;
   margin-top: 8px;
+}
+
+.d-day {
+  font-family: 'Pretendard';
+  font-weight: 800;
+  font-size: 20px;
+  margin-top: 55px;
+}
+
+.letter-line {
+  width: 400px;
+  height: 25px;
+  margin-top: 23px;
+  background-image: url('../../images/letter_line.svg');
+  background-repeat: no-repeat;
 }
