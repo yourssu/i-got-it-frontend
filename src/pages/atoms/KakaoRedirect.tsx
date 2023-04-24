@@ -10,6 +10,7 @@ const KakaoRedirect = () => {
     console.log(params.get('code'))
   }, [])
 
+  // 기존 사용자인지 신규 사용자인지 구분 후 페이지 이동 로직 추가해야함.
   return <Navigate to="/" />
 }
 
