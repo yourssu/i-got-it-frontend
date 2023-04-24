@@ -1,5 +1,13 @@
+import MenuHeader from '../../components/Header/MenuHeader'
+
+const onClickMenu = () => {}
+
 const MyPage = () => {
-  return <div></div>
+  return (
+    <>
+      <MenuHeader onClick={onClickMenu} />
+    </>
+  )
 }
 
 export default MyPage
