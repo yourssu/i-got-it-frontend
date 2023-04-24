@@ -1,8 +1,18 @@
 #root {
   width: 100%;
-  max-width: 480px;
-  // height: 100%;
-  // background-color: antiquewhite; // test
+  max-width: 390px;
+  @media screen and (max-width: 480px) {
+    width: 100%;
+  }
   margin: 0 auto;
-  // transform: translate(0);
+  min-height: calc(var(--vh, 1vh) * 100);
+  overflow: auto;
+}
+
+.App {
+  min-height: calc(var(--vh, 1vh) * 100);
+  transform: rotate(0);
+  background-color: white;
+  display: flex;
+  width: 390px;
 }
