@@ -1,7 +1,7 @@
 .show-menu {
   width: 240px;
   height: 100%;
-  background-color: white;
+  background-color: var(--text-white);
   position: absolute;
   left: 0px;
   transition: 0.5s;
@@ -11,7 +11,7 @@
 .hide-menu {
   width: 240px;
   height: 100%;
-  background-color: white;
+  background-color: var(--text-white);
   position: absolute;
   left: -376px;
   transition: 0.5s;
@@ -19,10 +19,22 @@
 
 ul {
   list-style: none;
+  padding-left: 24px;
 }
 
 .nickname {
+  font-family: 'NeoDunggeunmo';
+  font-weight: 400;
+  font-size: 20px;
+  color: var(--text-primary);
+  padding-top: 61px;
+  padding-bottom: 4px;
 }
 
 .menu-content {
+  font-family: 'Pretendard';
+  font-weight: 400;
+  font-size: 15px;
+  color: var(--text-primary);
+  padding-top: 28px;
 }
