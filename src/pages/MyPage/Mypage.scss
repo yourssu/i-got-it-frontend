@@ -1,0 +1,72 @@
+.resolution-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  overflow-x: hidden;
+}
+
+.yellow-star {
+  width: 350px;
+  height: 218px;
+  display: block;
+  background-image: url('../../images/yello_star.svg');
+  background-size: auto;
+  background-repeat: no-repeat;
+  text-align: center;
+  margin: 0px auto;
+}
+
+.nickname-resolution {
+  font-family: 'GothicA1';
+  font-weight: 700;
+  font-size: 24px;
+  color: var(--pointColor-red100);
+  -webkit-text-stroke: 1px var(--text-primary);
+  padding-top: 39px;
+}
+
+.resolution-line {
+  width: 210px;
+  height: 15px;
+  margin-left: 70px;
+  background-image: url('../../images/resolution_line.svg');
+  background-repeat: no-repeat;
+}
+
+#resolution-line2 {
+  margin-top: -10px;
+}
+
+.resolution {
+  font-family: 'NeoDunggeunmo';
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 18px;
+  margin-top: 12px;
+  display: inline-block;
+  width: 290px;
+}
+
+.envelop {
+  width: 240px;
+  height: 125px;
+  background-image: url('../../images/envelope.svg');
+  background-repeat: no-repeat;
+  margin-top: 8px;
+}
+
+.d-day {
+  font-family: 'Pretendard';
+  font-weight: 800;
+  font-size: 20px;
+  margin-top: 55px;
+}
+
+.letter-line {
+  width: 400px;
+  height: 25px;
+  margin-top: 23px;
+  background-image: url('../../images/letter_line.svg');
+  background-repeat: no-repeat;
+}
