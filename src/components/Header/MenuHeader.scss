@@ -1,0 +1,13 @@
+.menu-header {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.menu-button {
+  width: 24px;
+  height: 24px;
+  background-image: url('../../images/ic_hamburger.svg');
+  border: none;
+  background-color: transparent;
+  margin: 10px 0px 10px 16px;
+}
