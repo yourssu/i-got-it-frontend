@@ -79,7 +79,9 @@ const MenuContent = ({
             showDialog={showDialog2}
             onClose={onCloseList2}
           />
-          <li className="menu-content">문의 및 제안</li>
+          <li className="menu-content">
+            <a href="https://pf.kakao.com/_viUxkxj">문의 및 제안</a>
+          </li>
           <li className="menu-content">이용약관</li>
           <li className="menu-content">로그아웃</li>
         </ul>
