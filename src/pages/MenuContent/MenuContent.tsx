@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import './MenuContent.scss'
 import IntroductionDialog from '../../components/Dialog/IntroductionDialog/IntroductionDialog'
 import ProducerDialog from '../../components/Dialog/ProducerDialog/ProducerDialog'
+import { useNavigate } from 'react-router-dom'
 
 const MenuContent = ({
   openMenu,
@@ -11,6 +12,7 @@ const MenuContent = ({
   setOpenMenu: (openMenu: boolean) => void
 }) => {
   const outside = useRef<any>() // type 변경해야 함
+  const navigate = useNavigate()
   const [showDialog1, setShowDialog1] = useState(false)
   const [showDialog2, setShowDialog2] = useState(false)
 
@@ -39,6 +41,10 @@ const MenuContent = ({
   const onCloseList2 = () => {
     setShowDialog2(false)
     setOpenMenu(true)
+  }
+
+  const onClickList3 = () => {
+    navigate('/terms')
   }
 
   useEffect(() => {
@@ -82,7 +88,12 @@ const MenuContent = ({
           <li className="menu-content">
             <a href="https://pf.kakao.com/_viUxkxj">문의 및 제안</a>
           </li>
-          <li className="menu-content">이용약관</li>
+          <li
+            className="menu-content"
+            onClick={onClickList3}
+          >
+            이용약관
+          </li>
           <li className="menu-content">로그아웃</li>
         </ul>
       </div>

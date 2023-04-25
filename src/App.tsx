@@ -10,6 +10,7 @@ import Nickname from './pages/Nickname/Nickname'
 import Create from './pages/Create/Create'
 import CreateLetter from './pages/CreateLetter/CreateLetter'
 import MyPage from './pages/MyPage/MyPage'
+import Terms from './pages/Terms_of_Service/Terms'
 
 function App() {
   return (
@@ -44,6 +45,10 @@ function App() {
             <Route
               path="/mypage"
               element={<MyPage />}
+            />
+            <Route
+              path="/terms"
+              element={<Terms />}
             />
           </Routes>
         </BrowserRouter>
