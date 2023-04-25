@@ -1,40 +1,116 @@
-.home-title {
-  font-family: 'DOSMyungjo';
-  font-weight: 900;
-  font-size: 54px;
-  color: var(--pointColor-pink100);
-}
-
-.title-description-bubble {
-  display: flex;
-  justify-content: center;
-  position: relative;
-}
-
-.bubble {
-  margin-right: 30px;
-}
-
-.title-description {
+.login-wrapper {
+  min-width: 390px;
   display: flex;
   flex-direction: column;
-  margin-left: 40px;
-  position: absolute;
-  top: 20px;
-  color: var(--text-secondary);
-  font-family: 'GothicA1-Light';
-}
-
-.kakao-button {
-  background-color: #FEE500;
-  color: black;
-  border-radius: 12px;
-  font-size: 1.1rem;
-  font-weight: 500;
+  align-items: center;
   position: relative;
-  .kakao-logo {
-    height: 20px;
+
+  .twinkle1 {
     position: absolute;
-    left: 20px;
+    top: 10px;
+    left: 32px;
+  }
+
+  .twinkle2 {
+    position: absolute;
+    top: 60px;
+    right: 22px;
+  }
+
+  .title-description-bubble {
+    display: flex;
+    margin-top: 70px;
+    justify-content: center;
+    position: relative;
+    margin-bottom: 17px;
+
+    .bubble {
+      margin-right: 30px;
+    }
+    
+    .title-description {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      margin-left: 40px;
+      position: absolute;
+      top: 30px;
+      color: var(--text-secondary);
+      font-family: 'GothicA1-Light';
+      font-weight: 400;
+      font-size: 16px;
+    }
+  }
+
+  .home-title {
+    font-family: 'DOSMyungjo';
+    font-weight: 900;
+    font-size: 54px;
+    color: var(--pointColor-pink100);
+    text-shadow: 4px 0 var(--text-primary);
+  }
+
+  .home-description {
+    margin-top: 32px;
+    font-family: 'NeoDunggeunmo';
+    font-weight: 100;
+    white-space: pre-line;
+    font-size: 20px;
+    text-align: center;
+    color: var(--text-primary);
+  }
+
+  .login-character {
+    margin: 20px 0px 30px 0px;
+  }
+
+  .login-bottom-wrapper {
+    position: fixed;
+    bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+
+    .count-users {
+      color: var(--text-teritary);
+      font-weight: 400;
+      font-size: 15px;
+      font-family: 'Pretendard';
+      margin-bottom: 10px;
+    }
+    .kakao-button {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 50px;
+      background-color: #FEE500;
+      border-radius: 12px;
+      margin-bottom: 8px;
+      .kakao-logo {
+        height: 20px;
+        margin-right: 8px;
+      }
+  
+      .kakao-label {
+        color: rgba(0, 0, 0, 0.85);
+        font-size: medium;
+        font-weight: normal;
+      }
+    }
+
+    .link {
+      color: var(--pointColor-blue80);
+      text-decoration: none;
+    }
+  
+    .terms-of-service {
+      color: var(--text-teritary);
+      font-weight: 400;
+      font-size: 12px;
+      font-family: 'Pretendard';
+    }
   }
 }
