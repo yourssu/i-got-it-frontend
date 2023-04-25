@@ -1,5 +1,6 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import './MenuContent.scss'
+import IntroductionDialog from '../../components/Dialog/IntroductionDialog/IntroductionDialog'
 
 const MenuContent = ({
   openMenu,
@@ -9,11 +10,23 @@ const MenuContent = ({
   setOpenMenu: (openMenu: boolean) => void
 }) => {
   const outside = useRef<any>() // type 변경해야 함
+  const [showDialog1, setShowDialog1] = useState(false)
 
   const handleClose = async (e: any) => {
-    if (!outside.current.contains(e.target)) {
+    if (!outside.current.contains(e.target) && showDialog1 === false) {
+      // => Dialog가 떠있을 때 menu bar가 닫기지 않게 함
       setOpenMenu(false)
     }
+  }
+
+  const onClickList1 = () => {
+    setShowDialog1(true)
+    setOpenMenu(true)
+  }
+
+  const onCloseList1 = () => {
+    setShowDialog1(false)
+    setOpenMenu(true) // 다이얼로그가 외부 영역으로 인식되어 Menu가 닫기는 현상 방지
   }
 
   useEffect(() => {
@@ -29,7 +42,16 @@ const MenuContent = ({
       <div ref={outside}>
         <ul className={openMenu ? 'show-menu' : 'hide-menu'}>
           <li className="nickname">닉네임</li>
-          <li className="menu-content">아가릿!이 궁금해요</li>
+          <li
+            className="menu-content"
+            onClick={onClickList1}
+          >
+            아가릿!이 궁금해요
+          </li>
+          <IntroductionDialog
+            showDialog={showDialog1}
+            onClose={onCloseList1}
+          />
           <li className="menu-content">만든 사람들</li>
           <li className="menu-content">문의 및 제안</li>
           <li className="menu-content">이용약관</li>
