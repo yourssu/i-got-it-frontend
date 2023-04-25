@@ -2,30 +2,29 @@
   background-color: rgba(0, 0, 0, 0.5);
   position: fixed;
   inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.menu-list {
+  pointer-events: initial;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 240px;
+  height: 100%;
+  padding-left: 24px;
+  background-color: var(--text-white);
+  transition: transform 0.3s;
 }
 
 .show-menu {
-  width: 240px;
-  height: 100%;
-  background-color: var(--text-white);
-  position: absolute;
-  left: 0px;
-  transition: 0.5s;
-  margin: 0px;
+  transform: translateX(0);
 }
 
 .hide-menu {
-  width: 240px;
-  height: 100%;
-  background-color: var(--text-white);
-  position: absolute;
-  left: -376px;
-  transition: 0.5s;
-}
-
-ul {
-  list-style: none;
-  padding-left: 24px;
+  transform: translateX(-370px);
 }
 
 .nickname {

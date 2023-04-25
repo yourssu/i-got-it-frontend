@@ -38,9 +38,14 @@ const MenuContent = ({
   })
 
   return (
-    <div className="menu-wrapper">
+    <div
+      style={{
+        opacity: openMenu ? 1 : 0,
+      }}
+      className="menu-wrapper"
+    >
       <div ref={outside}>
-        <ul className={openMenu ? 'show-menu' : 'hide-menu'}>
+        <ul className={openMenu ? 'menu-list show-menu' : 'menu-list hide-menu'}>
           <li className="nickname">닉네임</li>
           <li
             className="menu-content"
