@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import BoxButton from '../../components/Button/BoxButton'
 import { useNavigate } from 'react-router-dom'
+import './Nickname.scss'
 
 const Nickname = () => {
   const navigate = useNavigate()
@@ -20,6 +21,8 @@ const Nickname = () => {
     if(checkNickname) {
       setNickname('')
       navigate('/')
+    } else {
+      // 토스트 메시지 띄우기
     }
   }
 
@@ -27,15 +30,16 @@ const Nickname = () => {
     setNickname(event.target.value)
   }
   return (
-    <div>
-      <div>
-        <p>야호! 마음 먹었군요!</p>
-        <p>마음 먹어 주셔서 감사해요</p>
+    <div className="nickname-wrapper">
+      <div className="nickname-description">
+        <span>야호! 마음 먹었군요!</span>
+        <span>마음 먹어 주셔서 감사해요</span>
       </div>
-      <div>
-        <label className="title">닉네임을 입력하세요.</label>
-          <div className="description">최대 3자까지, 한글, 영어, 숫자, (, . _) 가능</div>
+      <div className="nickname-input-wrapper">
+        <label className="nickname-input-title">닉네임을 입력하세요.</label>
+          <div className="nickname-rule">최대 3자까지, 한글, 영어, 숫자, (, . _) 가능</div>
           <input
+            className="nickname-input"
             type="text"
             placeholder="닉네임"
             required
@@ -43,6 +47,7 @@ const Nickname = () => {
             value={nickname}
             onChange={handleChange}
           />
+          <div className="nickname-warning">닉네임은 이후 수정이 불가하니 신중히 정해주세요!</div>
           <BoxButton
             type="submit"
             text="저장"

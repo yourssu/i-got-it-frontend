@@ -1,5 +1,4 @@
 .login-wrapper {
-  min-width: 390px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -50,7 +49,7 @@
     text-shadow: 4px 0 var(--text-primary);
   }
 
-  .home-description {
+  .home-title-description {
     margin-top: 32px;
     font-family: 'NeoDunggeunmo';
     font-weight: 100;

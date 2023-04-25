@@ -38,7 +38,7 @@ const Login = () => {
         </div>
       </div>
       <div className="home-title">아가릿!</div>
-      <div className="home-description">{`말로만 다짐하는 사람들을 위한 
+      <div className="home-title-description">{`말로만 다짐하는 사람들을 위한 
       본격 공개 처형 프로젝트`}</div>
       <img className="login-character" src={character} alt={character} />
       <div className="login-bottom-wrapper">
