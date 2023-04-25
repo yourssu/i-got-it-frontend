@@ -6,28 +6,29 @@ import './Nickname.scss'
 const Nickname = () => {
   const navigate = useNavigate()
   const [nickname, setNickname] = useState<string>('')
-  let checkNickname = true
+  const [checkNickname, setCheckNickname] = useState<boolean>(false)
 
   const handleSubmit = () => {
     // 서버에 보내주는 로직
-    const words = nickname.split('')
-
-    for(let item of words) {
-      if(!item.match(/[ㄱ-ㅎ가-힣0-9a-z,._]/)) {
-        checkNickname = false
-      }
-    }
-
-    if(checkNickname) {
-      setNickname('')
-      navigate('/')
-    } else {
-      // 토스트 메시지 띄우기
-    }
+    setNickname('')
+    navigate('/')
   }
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setNickname(event.target.value)
+    const words = event.target.value.split('')
+    console.log(event.target.value.length)
+    if(event.target.value.length != 0) {
+      setCheckNickname(true)
+    } else if (event.target.value.length == 0) {
+      setCheckNickname(false)
+    }
+    for(let item of words) {
+      if(!item.match(/[ㄱ-ㅎ가-힣0-9a-z,._]/)) {
+        setCheckNickname(false)
+        break;
+      }
+    }
   }
   return (
     <div className="nickname-wrapper">
@@ -39,7 +40,7 @@ const Nickname = () => {
         <label className="nickname-input-title">닉네임을 입력하세요.</label>
           <div className="nickname-rule">최대 3자까지, 한글, 영어, 숫자, (, . _) 가능</div>
           <input
-            className="nickname-input"
+            className={`nickname-input ${!checkNickname && nickname != '' ? 'negative' : 'positive'}`}
             type="text"
             placeholder="닉네임"
             required
@@ -51,7 +52,7 @@ const Nickname = () => {
           <BoxButton
             type="submit"
             text="저장"
-            isDisabled={!nickname}
+            isDisabled={!checkNickname}
             onClick={handleSubmit}
           />
       </div>

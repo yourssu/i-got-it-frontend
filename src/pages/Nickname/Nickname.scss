@@ -37,14 +37,18 @@
       height: 48px;
       padding: 0px 15px;
       margin: 10px 0px;
+    }
 
-      .positive {
-        border-color: black;
-      }
+    .nickname-input:focus {
+      outline: none;
+    }
 
-      .negative {
-        border-color: #FF5252;
-      }
+    .positive {
+      border-color: black;
+    }
+
+    .negative {
+      border-color: #FF5252;
     }
 
     .nickname-warning {
