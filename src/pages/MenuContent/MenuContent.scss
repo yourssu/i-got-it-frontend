@@ -1,0 +1,28 @@
+.show-menu {
+  width: 240px;
+  height: 100%;
+  background-color: white;
+  position: absolute;
+  left: 0px;
+  transition: 0.5s;
+  margin: 0px;
+}
+
+.hide-menu {
+  width: 240px;
+  height: 100%;
+  background-color: white;
+  position: absolute;
+  left: -376px;
+  transition: 0.5s;
+}
+
+ul {
+  list-style: none;
+}
+
+.nickname {
+}
+
+.menu-content {
+}
