@@ -11,7 +11,13 @@ const IntroductionDialog = ({
   return (
     <Dialog.Root open={showDialog}>
       <Dialog.Portal>
-        <Dialog.Overlay className="DialogOverlay" />
+        <Dialog.Overlay
+          onClick={(e) => {
+            e.stopPropagation
+            onClose()
+          }}
+          className="DialogOverlay"
+        />
         <Dialog.Content className={styles.DialogContent}>
           <button
             className={styles.closeButton}
