@@ -3,6 +3,7 @@ import './MenuContent.scss'
 import IntroductionDialog from '../../components/Dialog/IntroductionDialog/IntroductionDialog'
 import ProducerDialog from '../../components/Dialog/ProducerDialog/ProducerDialog'
 import { useNavigate } from 'react-router-dom'
+import BasicDialog from '../../components/Dialog/BasicDialog/BasicDialog'
 
 const MenuContent = ({
   openMenu,
@@ -15,9 +16,10 @@ const MenuContent = ({
   const navigate = useNavigate()
   const [showDialog1, setShowDialog1] = useState(false)
   const [showDialog2, setShowDialog2] = useState(false)
+  const [showLogout, setShowLogout] = useState(false)
 
   const handleClose = async (e: any) => {
-    if (!outside.current.contains(e.target) && !showDialog2 && !showDialog1) {
+    if (!outside.current.contains(e.target) && !showDialog2 && !showDialog1 && !showLogout) {
       // => Dialog가 떠있을 때 menu bar가 닫기지 않게 함
       setOpenMenu(false)
     }
@@ -45,6 +47,19 @@ const MenuContent = ({
 
   const onClickList3 = () => {
     navigate('/terms')
+  }
+
+  const onClickLogout = () => {
+    setShowLogout(true)
+  }
+
+  const onClickConfirmLogout = () => {
+    // logout 처리 로직
+  }
+
+  const onClickRejectLogout = () => {
+    setShowLogout(false)
+    setOpenMenu(true)
   }
 
   useEffect(() => {
@@ -94,7 +109,20 @@ const MenuContent = ({
           >
             이용약관
           </li>
-          <li className="menu-content">로그아웃</li>
+          <li
+            className="menu-content"
+            onClick={onClickLogout}
+          >
+            로그아웃
+          </li>
+          <BasicDialog
+            showDialog={showLogout}
+            title="로그아웃 하시겠습니까?"
+            onConfirm={onClickConfirmLogout}
+            onReject={onClickRejectLogout}
+            confirm="넹"
+            reject="그.럴.리.가"
+          />
         </ul>
       </div>
     </div>
