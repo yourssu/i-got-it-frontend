@@ -71,7 +71,7 @@ const Login = () => {
           로그인 시{' '}
           <a
             className="link"
-            href="/"
+            href="/terms"
           >
             서비스 이용약관
           </a>

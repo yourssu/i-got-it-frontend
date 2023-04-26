@@ -4,6 +4,8 @@ import { QueryClient, QueryClientProvider } from 'react-query'
 import { ReactQueryDevtools } from 'react-query/devtools'
 import App from './App'
 import './index.css'
+import { CookiesProvider } from 'react-cookie'
+import { RecoilRoot } from 'recoil'
 
 const queryClient = new QueryClient()
 
@@ -16,7 +18,11 @@ window.addEventListener('resize', () => setScreenSize())
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <QueryClientProvider client={queryClient}>
-    <App />
+    <RecoilRoot>
+      <CookiesProvider>
+        <App />
+      </CookiesProvider>
+    </RecoilRoot>
     <ReactQueryDevtools />
   </QueryClientProvider>
 )
