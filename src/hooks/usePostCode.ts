@@ -1,5 +1,5 @@
-import { useMutation } from "react-query"
-import { postCode } from "../API/postCode"
+import { useMutation } from 'react-query'
+import { postCode } from '../API/postCode'
 
 export const usePostCode = () => {
   return useMutation(postCode, {
@@ -9,6 +9,6 @@ export const usePostCode = () => {
     },
     onError: (err) => {
       console.log(err)
-    }
+    },
   })
 }
