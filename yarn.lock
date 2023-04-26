@@ -1313,10 +1313,10 @@ use-callback-ref@^1.3.0:
   dependencies:
     tslib "^2.0.0"
 
-use-long-press@^3.0.4:
-  version "3.0.4"
-  resolved "https://registry.yarnpkg.com/use-long-press/-/use-long-press-3.0.4.tgz#e330805b9d241e8de59411209e78f3df691850aa"
-  integrity sha512-+/qkbuRjsrzi30aSIE6lrq0+7TSGKUg6drbk/jSNqJqeWWRIjj5/XQoA9YzQC+IVVwkmcknK8MLi/HtAfNFvPA==
+use-long-press@^3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/use-long-press/-/use-long-press-3.1.0.tgz#0cfe4145ba8c36ccc60bd6fc7e36a7c2692a7fdf"
+  integrity sha512-SSCCgsIlGql/gWRf5v/5CoWxUkSccFuLiMO2tjggUdf0qt5FGb/TD1l0aJ2j+G3J0BT2a7jsJQIDsmUiUuhRTg==
 
 use-sidecar@^1.1.2:
   version "1.1.2"

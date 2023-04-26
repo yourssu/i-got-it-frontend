@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import NameTag1 from '../../images/Cheer/name_tag_1.svg'
 import NameTag2 from '../../images/Cheer/name_tag_2.svg'
 import NameTag3 from '../../images/Cheer/name_tag_3.svg'
@@ -8,15 +8,16 @@ import './CheerRelay.scss'
 import { dummy } from './dummy'
 import { useRecoilState } from 'recoil'
 import { cheerCommentState } from '../../State/cheerCommentState'
-import DeleteCheerDialog from '../../components/Dialog/DeleteCheerDialog/DeleteCheerDialog'
 import SelectedCheerDialog from '../../components/Dialog/SelectedCheerDialog/SelectedCheerDialog'
+import BasicDialog from '../../components/Dialog/BasicDialog/BasicDialog'
 
 const Cheer = () => {
   const imgPath = [NameTag1, NameTag2, NameTag3]
-  const [, setCommentState] = useRecoilState(cheerCommentState)
+  const [commentState, setCommentState] = useRecoilState(cheerCommentState)
 
   const handleConfirm = () => {
     // 삭제시키는 로직 들어갈 예정
+    console.log('삭제')
     setCommentState(-1)
   }
 
@@ -68,11 +69,12 @@ const Cheer = () => {
           )
         }
       })}
-      <DeleteCheerDialog
-        dialogTitle="말풍선을 삭제하시겠어요?"
-        dialogDescription="한 번 삭제하면 다시 되돌릴 수 없어요!"
-        confirmText="삭제"
-        rejectText="취소"
+      <BasicDialog
+        showDialog={commentState != -1}
+        title="말풍선을 삭제하시겠어요?"
+        description="한 번 삭제하면 다시 되돌릴 수 없어요!"
+        confirm="삭제"
+        reject="취소"
         onConfirm={handleConfirm}
         onReject={handleReject}
       />
