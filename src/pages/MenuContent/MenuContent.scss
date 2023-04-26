@@ -1,0 +1,45 @@
+.menu-wrapper {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.menu-list {
+  pointer-events: initial;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 240px;
+  height: 100%;
+  padding-left: 24px;
+  background-color: var(--text-white);
+  transition: transform 0.3s;
+}
+
+.show-menu {
+  transform: translateX(0);
+}
+
+.hide-menu {
+  transform: translateX(-370px);
+}
+
+.nickname {
+  font-family: 'NeoDunggeunmo';
+  font-weight: 400;
+  font-size: 20px;
+  color: var(--text-primary);
+  padding-top: 61px;
+  padding-bottom: 4px;
+}
+
+.menu-content {
+  font-family: 'Pretendard';
+  font-weight: 400;
+  font-size: 15px;
+  color: var(--text-primary);
+  padding-top: 28px;
+}
