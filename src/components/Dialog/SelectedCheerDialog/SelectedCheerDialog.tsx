@@ -6,19 +6,16 @@ import { selectedCheerState } from '../../../State/selectedCheerState'
 
 const SelectedCheerDialog = () => {
   const [selectedCheer] = useRecoilState(selectedCheerState)
-  console.log(selectedCheer.comment)
 
   return (
-    <Dialog.Root open={selectedCheer.writer != '' || selectedCheer.comment != ''}>
+    <Dialog.Root open={selectedCheer.writer != ''}>
       <Dialog.Portal>
         <Dialog.Overlay className={styles.DialogOverlay} />
         <Dialog.Content className={styles.DialogContent}>
-          <Dialog.Description className={styles.DialogDescription}>
-            <div className={styles.cheer}>
-              <span className={styles.comment}>{selectedCheer.comment}</span>
-              <span className={styles.writer}>~~{selectedCheer.writer}~~</span>
-            </div>
-          </Dialog.Description>
+          <div className={styles.cheer}>
+            <div className={styles.comment}>{selectedCheer.comment}</div>
+            <div className={styles.writer}>~~{selectedCheer.writer}~~</div>
+          </div>
         </Dialog.Content>
       </Dialog.Portal>
     </Dialog.Root>
