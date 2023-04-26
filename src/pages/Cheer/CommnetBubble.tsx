@@ -18,7 +18,6 @@ const CommentBubble = ({ position, writer, comment, commentId }: CommentBubbleTy
   const [, setSelectedCheerState] = useRecoilState(selectedCheerState)
 
   const handleLongPress = useLongPress(() => {
-    console.log('long press')
     setLong(true)
     setCommentState(commentId)
   })
@@ -27,7 +26,6 @@ const CommentBubble = ({ position, writer, comment, commentId }: CommentBubbleTy
     if (long) {
       setLong(false)
     } else {
-      console.log('press')
       setSelectedCheerState({ writer, comment })
     }
   }
