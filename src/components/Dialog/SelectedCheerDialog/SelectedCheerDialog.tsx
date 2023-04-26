@@ -6,7 +6,6 @@ import { selectedCheerState } from '../../../State/selectedCheerState'
 
 const SelectedCheerDialog = () => {
   const [selectedCheer] = useRecoilState(selectedCheerState)
-  console.log('하이')
   console.log(selectedCheer.comment)
 
   return (
