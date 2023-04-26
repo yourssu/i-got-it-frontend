@@ -43,3 +43,13 @@
   white-space: pre-line;
   line-height: 1.5;
 }
+
+.letter-text-count {
+  position: absolute;
+  font-family: 'Pretendard';
+  color: var(--text-teritary);
+  font-weight: 400;
+  font-size: 12px;
+  top: 370px;
+  right: 80px;
+}

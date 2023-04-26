@@ -10,6 +10,7 @@ const CreateLetter = () => {
   const navigate = useNavigate()
   const [message, setMessage] = useState('')
   const [showDialog, setShowDialog] = useState(false)
+  const [inputCount, setInputCounte] = useState(0)
 
   const onCickBack = () => {
     navigate('/create')
@@ -32,6 +33,7 @@ const CreateLetter = () => {
 
   const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     setMessage(event.target.value)
+    setInputCounte(event.target.value.length)
   }
 
   return (
@@ -57,6 +59,7 @@ const CreateLetter = () => {
             rows={10}
           />
         </div>
+        <span className="letter-text-count">{inputCount} / 133</span>
         <EmailDialog
           onConfirm={handleConfirm}
           onReject={handleReject}

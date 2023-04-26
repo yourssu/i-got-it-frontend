@@ -1,6 +1,13 @@
-import axios from 'axios'
+import { Cookies } from 'react-cookie'
+import client from './client'
+import { PostKakaoLoginResponse } from '../Types/login'
 
-export const postCode = async (code: string) => {
-  const data = await axios.post(``, {})
-  return data
+const cookies = new Cookies()
+export const postCode = async (code: string): Promise<PostKakaoLoginResponse> => {
+  const data = await client.post(`api/v1/auth/sign-in/kakao`, {
+    code,
+  })
+
+  cookies.set('accessToken', data.data.accessToken)
+  return data.data
 }
