@@ -1,63 +1,63 @@
 .cheer-container {
-	text-align: center;
-	margin-top: 10px;
-	.cheer-title {
-		font-family: 'GothicA1-Regular';
-		font-weight: 700;
-		font-size: 25px;
-		color: var(--pointColor-red100);
-		-webkit-text-stroke: 1px black;
-	}
+  text-align: center;
+  padding-top: 10px;
+  .cheer-title {
+    font-family: 'GothicA1-Regular';
+    font-weight: 700;
+    font-size: 25px;
+    color: var(--pointColor-red100);
+    -webkit-text-stroke: 1px black;
+  }
 
-	.cheer-wrapper {
-		display: flex;
-		flex-direction: row;
-		justify-content: space-around;
-		margin: 15px;
+  .cheer-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 15px;
 
-		.tag-wrapper {
-			position: relative;
-			width: fit-content;
-			.tag-img {
-				position: relative;
-				width: 120px;
-				height: auto;
-			}
-			.tag-name {
-				position: absolute;
-				font-size: 16px;
-				top: 29px;
-				left: 0px;
-				right: 0px;
-			}
-		}
+    .tag-wrapper {
+      position: relative;
+      width: fit-content;
+      .tag-img {
+        position: relative;
+        width: 120px;
+        height: auto;
+      }
+      .tag-name {
+        position: absolute;
+        font-size: 16px;
+        top: 29px;
+        left: 0px;
+        right: 0px;
+      }
+    }
 
-		.bubble-wrapper {
-			position: relative;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			width: fit-content;
-		
-			.bubble-locker {
-				position: absolute;
-				z-index: 1;
-			}
-		
-			.bubble-comment {
-				position: absolute;
-				text-shadow: 0px 0px 8.5px black;
-				font-size: 16px;
-				color: transparent;
-			}
-			.bubble-img-left {
-				position: relative;
-				transform: scaleX(-1);
-			}
-		
-			.bubble-img-right {
-				position: relative;
-			}
-		}		
-	}
+    .bubble-wrapper {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: fit-content;
+
+      .bubble-locker {
+        position: absolute;
+        z-index: 1;
+      }
+
+      .bubble-comment {
+        position: absolute;
+        text-shadow: 0px 0px 8.5px black;
+        font-size: 16px;
+        color: transparent;
+      }
+      .bubble-img-left {
+        position: relative;
+        transform: scaleX(-1);
+      }
+
+      .bubble-img-right {
+        position: relative;
+      }
+    }
+  }
 }
