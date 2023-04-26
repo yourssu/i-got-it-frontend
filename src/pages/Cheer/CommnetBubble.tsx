@@ -10,9 +10,16 @@ type CommentBubbleType = {
   writer: string
   comment: string
   commentId: number
+  setShowDialog: (showDialog: boolean) => void
 }
 
-const CommentBubble = ({ position, writer, comment, commentId }: CommentBubbleType) => {
+const CommentBubble = ({
+  position,
+  writer,
+  comment,
+  commentId,
+  setShowDialog,
+}: CommentBubbleType) => {
   const [long, setLong] = useState(false)
   const [, setCommentState] = useRecoilState(cheerCommentState)
   const [, setSelectedCheerState] = useRecoilState(selectedCheerState)
@@ -23,11 +30,8 @@ const CommentBubble = ({ position, writer, comment, commentId }: CommentBubbleTy
   })
 
   const handleClick = () => {
-    if (long) {
-      setLong(false)
-    } else {
-      setSelectedCheerState({ writer, comment })
-    }
+    setShowDialog(true)
+    setSelectedCheerState({ writer, comment })
   }
 
   return (

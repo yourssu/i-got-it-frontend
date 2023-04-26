@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import NameTag1 from '../../images/Cheer/name_tag_1.svg'
 import NameTag2 from '../../images/Cheer/name_tag_2.svg'
 import NameTag3 from '../../images/Cheer/name_tag_3.svg'
@@ -14,10 +14,10 @@ import BasicDialog from '../../components/Dialog/BasicDialog/BasicDialog'
 const Cheer = () => {
   const imgPath = [NameTag1, NameTag2, NameTag3]
   const [commentState, setCommentState] = useRecoilState(cheerCommentState)
+  const [showDialog, setShowDialog] = useState<boolean>(false)
 
   const handleConfirm = () => {
     // 삭제시키는 로직 들어갈 예정
-    console.log('삭제')
     setCommentState(-1)
   }
 
@@ -45,6 +45,7 @@ const Cheer = () => {
                 writer={data.writer}
                 comment={data.comment}
                 commentId={index}
+                setShowDialog={setShowDialog}
               />
             </section>
           )
@@ -59,6 +60,7 @@ const Cheer = () => {
                 writer={data.writer}
                 comment={data.comment}
                 commentId={index}
+                setShowDialog={setShowDialog}
               />
               <UserNameTag
                 position="right"
@@ -78,7 +80,14 @@ const Cheer = () => {
         onConfirm={handleConfirm}
         onReject={handleReject}
       />
-      <SelectedCheerDialog />
+      {/* <SelectedCheerDialog
+        showDialog={showDialog}
+        setShowDialog={setShowDialog}
+      /> */}
+      <SelectedCheerDialog
+        showDialog={showDialog}
+        setShowDialog={setShowDialog}
+      />
     </div>
   )
 }
