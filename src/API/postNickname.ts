@@ -7,7 +7,7 @@ export const postNickname = async (nickname: string) => {
     `api/v1/auth/sign-in/info`,
     { nickname },
     {
-      headers: { Authorization: `Bearer${cookies.get('accessToken')}` },
+      headers: { Authorization: `Bearer ${cookies.get('accessToken')}` },
     }
   )
   return data.data

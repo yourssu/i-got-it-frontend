@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useRecoilState } from 'recoil'
-import { nicknameState } from '../State/nicknameState'
+import { nicknameState } from '../../State/nicknameState'
 import BoxButton from '../../components/Button/BoxButton'
 import { useNavigate } from 'react-router-dom'
 import { usePostNickname } from '../../hooks/usePostNickname'
@@ -23,7 +23,6 @@ const Nickname = () => {
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setNickname(event.target.value)
     const words = event.target.value.split('')
-    console.log(event.target.value.length)
     if (event.target.value.length != 0) {
       setCheckNickname(true)
     } else if (event.target.value.length == 0) {
