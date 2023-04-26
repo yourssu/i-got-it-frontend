@@ -71,11 +71,7 @@ const Login = () => {
           로그인 시{' '}
           <a
             className="link"
-<<<<<<< HEAD
             href="/terms"
-=======
-            href="/"
->>>>>>> 75e25fe53700caa8008969427b5bdeb68398bd69
           >
             서비스 이용약관
           </a>
