@@ -1,5 +1,6 @@
 export type PostKakaoLoginResponse = {
   userId: number
+  nickname: string
   accessToken: string
-  newUser: boolean
+  isNewUser: boolean
 }
