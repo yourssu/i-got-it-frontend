@@ -18,15 +18,15 @@ const Nickname = () => {
     setNickname(event.target.value)
     const words = event.target.value.split('')
     console.log(event.target.value.length)
-    if(event.target.value.length != 0) {
+    if (event.target.value.length != 0) {
       setCheckNickname(true)
     } else if (event.target.value.length == 0) {
       setCheckNickname(false)
     }
-    for(let item of words) {
-      if(!item.match(/[ㄱ-ㅎ가-힣0-9a-z,._]/)) {
+    for (let item of words) {
+      if (!item.match(/[ㄱ-ㅎ가-힣0-9a-z,._]/)) {
         setCheckNickname(false)
-        break;
+        break
       }
     }
   }
@@ -38,23 +38,23 @@ const Nickname = () => {
       </div>
       <div className="nickname-input-wrapper">
         <label className="nickname-input-title">닉네임을 입력하세요.</label>
-          <div className="nickname-rule">최대 3자까지, 한글, 영어, 숫자, (, . _) 가능</div>
-          <input
-            className={`nickname-input ${!checkNickname && nickname != '' ? 'negative' : 'positive'}`}
-            type="text"
-            placeholder="닉네임"
-            required
-            maxLength={3}
-            value={nickname}
-            onChange={handleChange}
-          />
-          <div className="nickname-warning">닉네임은 이후 수정이 불가하니 신중히 정해주세요!</div>
-          <BoxButton
-            type="submit"
-            text="저장"
-            isDisabled={!checkNickname}
-            onClick={handleSubmit}
-          />
+        <div className="nickname-rule">최대 3자까지, 한글, 영어, 숫자, (, . _) 가능</div>
+        <input
+          className={`nickname-input ${!checkNickname && nickname != '' ? 'negative' : 'positive'}`}
+          type="text"
+          placeholder="닉네임"
+          required
+          maxLength={3}
+          value={nickname}
+          onChange={handleChange}
+        />
+        <div className="nickname-warning">닉네임은 이후 수정이 불가하니 신중히 정해주세요!</div>
+        <BoxButton
+          type="submit"
+          text="저장"
+          isDisabled={!checkNickname}
+          onClick={handleSubmit}
+        />
       </div>
     </div>
   )
