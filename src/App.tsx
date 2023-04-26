@@ -1,5 +1,4 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import { RecoilRoot } from 'recoil'
 import * as Toast from '@radix-ui/react-toast'
 import './App.scss'
 import Home from './pages/Home/Home'
@@ -17,51 +16,49 @@ import Terms from './pages/Terms_of_Service/Terms'
 function App() {
   return (
     <div className="App">
-      <RecoilRoot>
-        <Toast.Provider>
-          <BrowserRouter>
-            <Routes>
-              <Route
-                path="/"
-                element={<Home />}
-              />
-              <Route
-                path="/login"
-                element={<Login />}
-              />
-              <Route
-                path="/callback/kakaotalk"
-                element={<KakaoRedirect />}
-              />
-              <Route
-                path="/nickname"
-                element={<Nickname />}
-              />
-              <Route
-                path="/create"
-                element={<Create />}
-              />
-              <Route
-                path="/create-letter"
-                element={<CreateLetter />}
-              />
-              <Route
-                path="/mypage"
-                element={<MyPage />}
-              />
-              <Route
-                path="/cheer"
-                element={<Cheer />}
-              />
-              <Route
-                path="/terms"
-                element={<Terms />}
-              />
-            </Routes>
-          </BrowserRouter>
-          <Toast.Viewport className="ToastViewport" />
-        </Toast.Provider>
-      </RecoilRoot>
+      <Toast.Provider>
+        <BrowserRouter>
+          <Routes>
+            <Route
+              path="/"
+              element={<Home />}
+            />
+            <Route
+              path="/login"
+              element={<Login />}
+            />
+            <Route
+              path="/callback/kakaotalk"
+              element={<KakaoRedirect />}
+            />
+            <Route
+              path="/nickname"
+              element={<Nickname />}
+            />
+            <Route
+              path="/create"
+              element={<Create />}
+            />
+            <Route
+              path="/create-letter"
+              element={<CreateLetter />}
+            />
+            <Route
+              path="/mypage"
+              element={<MyPage />}
+            />
+            <Route
+              path="/cheer"
+              element={<Cheer />}
+            />
+            <Route
+              path="/terms"
+              element={<Terms />}
+            />
+          </Routes>
+        </BrowserRouter>
+        <Toast.Viewport className="ToastViewport" />
+      </Toast.Provider>
     </div>
   )
 }
