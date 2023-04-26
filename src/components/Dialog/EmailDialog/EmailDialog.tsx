@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import * as Dialog from '@radix-ui/react-dialog'
-import './Dialog1.scss'
+import './EmailDialog.scss'
 
-const Dialog1 = ({
+const EmailDialog = ({
   showDialog,
   onConfirm,
   onReject,
@@ -61,4 +61,4 @@ const Dialog1 = ({
   )
 }
 
-export default Dialog1
+export default EmailDialog

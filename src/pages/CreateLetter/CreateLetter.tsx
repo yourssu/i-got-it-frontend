@@ -3,8 +3,8 @@ import { useState } from 'react'
 import BoxButton from '../../components/Button/BoxButton'
 import Letter from '../../images/Letter'
 import './CreateLetter.scss'
-import Dialog1 from '../../components/Dialog/Dialog1'
 import BackHeader from '../../components/Header/BackHeader'
+import EmailDialog from '../../components/Dialog/EmailDialog/EmailDialog'
 
 const CreateLetter = () => {
   const navigate = useNavigate()
@@ -57,7 +57,7 @@ const CreateLetter = () => {
             rows={10}
           />
         </div>
-        <Dialog1
+        <EmailDialog
           onConfirm={handleConfirm}
           onReject={handleReject}
           showDialog={showDialog}
