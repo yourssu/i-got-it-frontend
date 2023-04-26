@@ -24,8 +24,16 @@ const Login = () => {
 
   return (
     <div className="login-wrapper">
-      <img className="twinkle1" src={twinkle_1} alt={twinkle_1} />
-      <img className="twinkle2" src={twinkle_2} alt={twinkle_2} />
+      <img
+        className="twinkle1"
+        src={twinkle_1}
+        alt={twinkle_1}
+      />
+      <img
+        className="twinkle2"
+        src={twinkle_2}
+        alt={twinkle_2}
+      />
       <div className="title-description-bubble">
         <img
           className="bubble"
@@ -40,7 +48,11 @@ const Login = () => {
       <div className="home-title">아가릿!</div>
       <div className="home-title-description">{`말로만 다짐하는 사람들을 위한 
       본격 공개 처형 프로젝트`}</div>
-      <img className="login-character" src={character} alt={character} />
+      <img
+        className="login-character"
+        src={character}
+        alt={character}
+      />
       <div className="login-bottom-wrapper">
         <div className="count-users">현재까지 00명이 아가리에 외쳤어요!</div>
         <button
@@ -55,7 +67,16 @@ const Login = () => {
           />
           <span className="kakao-label">카카오 로그인</span>
         </button>
-        <div className="terms-of-service">로그인 시 <a className="link" href="/">서비스 이용약관</a>에 동의하게 됩니다.</div>
+        <div className="terms-of-service">
+          로그인 시{' '}
+          <a
+            className="link"
+            href="/"
+          >
+            서비스 이용약관
+          </a>
+          에 동의하게 됩니다.
+        </div>
       </div>
     </div>
   )
