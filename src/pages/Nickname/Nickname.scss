@@ -1,0 +1,61 @@
+.nickname-wrapper {
+  flex-direction: column;
+  margin: 0px 24px;
+
+  .nickname-description {
+    display: flex;
+    flex-direction: column;
+    padding-top: 48px;
+    margin-bottom: 14px;
+    color: var(--text-secondary);
+    font-family: 'Pretendard';
+    font-weight: 400;
+    font-size: 20px;
+  }
+
+  .nickname-input-wrapper {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    .nickname-input-title {
+      font-family: 'NeoDunggeunmo';
+      padding: 8px 0px;
+      font-size: 20px;
+      font-weight: 400;
+      color: var(--text-secondary);
+    }
+
+    .nickname-rule {
+      font-family: 'Pretendard';
+      font-size: 12px;
+      font-weight: 400;
+      color: var(--text-teritary);
+    }
+
+    .nickname-input {
+      border: solid 1px;
+      height: 48px;
+      padding: 0px 15px;
+      margin: 10px 0px;
+    }
+
+    .nickname-input:focus {
+      outline: none;
+    }
+
+    .positive {
+      border-color: black;
+    }
+
+    .negative {
+      border-color: #ff5252;
+    }
+
+    .nickname-warning {
+      font-family: 'Pretendard';
+      font-size: 15px;
+      font-weight: 400;
+      color: var(--text-teritary);
+    }
+  }
+}

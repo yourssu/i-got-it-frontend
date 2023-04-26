@@ -1,5 +1,4 @@
 .login-wrapper {
-  min-width: 390px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -27,7 +26,7 @@
     .bubble {
       margin-right: 30px;
     }
-    
+
     .title-description {
       display: flex;
       flex-direction: column;
@@ -50,7 +49,7 @@
     text-shadow: 4px 0 var(--text-primary);
   }
 
-  .home-description {
+  .home-title-description {
     margin-top: 32px;
     font-family: 'NeoDunggeunmo';
     font-weight: 100;
@@ -86,14 +85,14 @@
       align-items: center;
       width: 100%;
       height: 50px;
-      background-color: #FEE500;
+      background-color: #fee500;
       border-radius: 12px;
       margin-bottom: 8px;
       .kakao-logo {
         height: 20px;
         margin-right: 8px;
       }
-  
+
       .kakao-label {
         color: rgba(0, 0, 0, 0.85);
         font-size: medium;
@@ -105,7 +104,7 @@
       color: var(--pointColor-blue80);
       text-decoration: none;
     }
-  
+
     .terms-of-service {
       color: var(--text-teritary);
       font-weight: 400;

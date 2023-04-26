@@ -46,7 +46,7 @@ const Login = () => {
         </div>
       </div>
       <div className="home-title">아가릿!</div>
-      <div className="home-description">{`말로만 다짐하는 사람들을 위한 
+      <div className="home-title-description">{`말로만 다짐하는 사람들을 위한 
       본격 공개 처형 프로젝트`}</div>
       <img
         className="login-character"
@@ -71,7 +71,11 @@ const Login = () => {
           로그인 시{' '}
           <a
             className="link"
+<<<<<<< HEAD
             href="/terms"
+=======
+            href="/"
+>>>>>>> 75e25fe53700caa8008969427b5bdeb68398bd69
           >
             서비스 이용약관
           </a>
