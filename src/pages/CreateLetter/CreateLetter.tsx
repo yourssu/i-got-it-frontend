@@ -5,12 +5,17 @@ import Letter from '../../images/Letter'
 import './CreateLetter.scss'
 import BackHeader from '../../components/Header/BackHeader'
 import EmailDialog from '../../components/Dialog/EmailDialog/EmailDialog'
+import { useRecoilValue } from 'recoil'
+import { resolutionState } from '../../State/resolutionState'
+import { usePostResolution } from '../../hooks/usePostResolution'
 
 const CreateLetter = () => {
   const navigate = useNavigate()
   const [message, setMessage] = useState('')
   const [showDialog, setShowDialog] = useState(false)
   const [inputCount, setInputCounte] = useState(0)
+  const resolutionValue = useRecoilValue(resolutionState)
+  const { mutate: postResolution } = usePostResolution()
 
   const onCickBack = () => {
     navigate('/create')
@@ -23,12 +28,12 @@ const CreateLetter = () => {
 
   const handleConfirm = (email: string) => {
     console.log(email)
-    // email 처리 로직
-    navigate('/mypage')
+
+    postResolution({ period: 3, content: resolutionValue, letter: message, mail: email })
   }
 
   const handleReject = () => {
-    navigate('/mypage')
+    postResolution({ period: 3, content: resolutionValue, letter: message })
   }
 
   const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {

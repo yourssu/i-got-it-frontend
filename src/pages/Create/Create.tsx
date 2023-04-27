@@ -3,22 +3,24 @@ import BoxButton from '../../components/Button/BoxButton'
 import './Create.scss'
 import { useNavigate } from 'react-router-dom'
 import BackHeader from '../../components/Header/BackHeader'
+import { resolutionState } from '../../State/resolutionState'
+import { useSetRecoilState } from 'recoil'
 
 const Create = () => {
   const navigate = useNavigate()
   const [resolution, setLesolution] = useState('')
   const [inputCount, setInputCount] = useState(0)
+  const setResolutionRecoilState = useSetRecoilState(resolutionState)
 
   const onClickBack = () => {
     navigate('/')
   }
 
-  const handleSubmit = (event: any) => {
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
-    navigate('/create-letter')
 
-    console.log(event.target)
-    console.log('결심 제출 완료')
+    setResolutionRecoilState(resolution)
+    navigate('/create-letter')
   }
 
   const onClickClear = () => {
