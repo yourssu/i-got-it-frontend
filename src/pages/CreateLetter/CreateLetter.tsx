@@ -5,9 +5,9 @@ import Letter from '../../images/Letter'
 import './CreateLetter.scss'
 import BackHeader from '../../components/Header/BackHeader'
 import EmailDialog from '../../components/Dialog/EmailDialog/EmailDialog'
-import { postResolution } from '../../API/resolution/postResolution'
 import { useRecoilValue } from 'recoil'
 import { resolutionState } from '../../State/resolutionState'
+import { usePostResolution } from '../../hooks/usePostResolution'
 
 const CreateLetter = () => {
   const navigate = useNavigate()
@@ -15,6 +15,7 @@ const CreateLetter = () => {
   const [showDialog, setShowDialog] = useState(false)
   const [inputCount, setInputCounte] = useState(0)
   const resolutionValue = useRecoilValue(resolutionState)
+  const { mutate: postResolution } = usePostResolution()
 
   const onCickBack = () => {
     navigate('/create')
@@ -29,12 +30,10 @@ const CreateLetter = () => {
     console.log(email)
 
     postResolution({ period: 3, content: resolutionValue, letter: message, mail: email })
-    navigate('/mypage')
   }
 
   const handleReject = () => {
     postResolution({ period: 3, content: resolutionValue, letter: message })
-    navigate('/mypage')
   }
 
   const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
