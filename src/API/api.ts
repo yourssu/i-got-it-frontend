@@ -2,7 +2,7 @@ import axios from 'axios'
 import Cookies from 'universal-cookie'
 
 const cookies = new Cookies()
-const BASE_URL = 'http://letter.yourssu.com'
+const BASE_URL = 'https://letter.yourssu.com'
 
 const api = axios.create({
   baseURL: BASE_URL,
