@@ -2,12 +2,10 @@ import React, { useState } from 'react'
 import { useRecoilState } from 'recoil'
 import { nicknameState } from '../../State/nicknameState'
 import BoxButton from '../../components/Button/BoxButton'
-import { useNavigate } from 'react-router-dom'
 import { usePostNickname } from '../../hooks/usePostNickname'
 import './Nickname.scss'
 
 const Nickname = () => {
-  const navigate = useNavigate()
   const [nickname, setNickname] = useState<string>('')
   const [, setNicknameState] = useRecoilState(nicknameState)
   const [checkNickname, setCheckNickname] = useState<boolean>(false)
@@ -17,7 +15,6 @@ const Nickname = () => {
     setNicknameState(nickname)
     postNickname(nickname)
     setNickname('')
-    navigate('/')
   }
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
