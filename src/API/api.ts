@@ -1,12 +1,13 @@
 import axios from 'axios'
+import Cookies from 'universal-cookie'
 
+const cookies = new Cookies()
 const BASE_URL = 'http://letter.yourssu.com'
-// 토큰 받아오기
 
 const api = axios.create({
   baseURL: BASE_URL,
   headers: {
-    Authorization: `Bearer ${import.meta.env.VITE_ACCESS_TOKEN}`,
+    Authorization: `Bearer ${cookies.get('accessToken')}`,
     Accept: 'application/json;charset=UTF-8',
     'Content-Type': 'application/json',
   },
