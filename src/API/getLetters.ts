@@ -1,9 +1,21 @@
-import client from "./client"
+import { Cookies } from 'react-cookie'
+import client from './client'
+import { GetLetterResponse } from '../Types/letter'
 
-export const getLetters = async() => {
-  const data = await client.get(`resolutions/${resolutionId}/letters?userId=${}` , {
+const cookies = new Cookies()
 
-  })
+export const getLetters = async (
+  resolutionId: string,
+  userId: string | null
+): Promise<GetLetterResponse> => {
+  const data = await client.get(
+    `resolutions/${resolutionId}/letters${userId !== null ? `?userId=${userId}` : ''}`,
+    {
+      headers: {
+        Authorization: `Bearer ${cookies.get('accessToken')}`,
+      },
+    }
+  )
 
   return data.data
 }

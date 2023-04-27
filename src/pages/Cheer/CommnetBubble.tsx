@@ -5,6 +5,7 @@ import { useLongPress } from 'use-long-press'
 import { useRecoilState } from 'recoil'
 import { cheerCommentState } from '../../State/cheerCommentState'
 import { selectedCheerState } from '../../State/selectedCheerState'
+import { lettersLockedState } from '../../State/lettersLockedState'
 type CommentBubbleType = {
   position: string
   writer: string
@@ -22,6 +23,7 @@ const CommentBubble = ({
 }: CommentBubbleType) => {
   const [, setCommentState] = useRecoilState(cheerCommentState)
   const [, setSelectedCheerState] = useRecoilState(selectedCheerState)
+  const [lettersLocked] = useRecoilState(lettersLockedState)
 
   const handleLongPress = useLongPress(() => {
     setCommentState(commentId)
@@ -38,12 +40,14 @@ const CommentBubble = ({
       onClick={handleClick}
       {...handleLongPress()}
     >
-      <img
-        className="bubble-locker"
-        src={Locker}
-        alt={Locker}
-      />
-      <span className="bubble-comment">
+      {lettersLocked ? (
+        <img
+          className="bubble-locker"
+          src={Locker}
+          alt={Locker}
+        />
+      ) : null}
+      <span className={`bubble-comment ${lettersLocked ? 'locked' : null}`}>
         {comment.length > 8 ? comment.substring(0, 8) + '...' : comment}
       </span>
       <img

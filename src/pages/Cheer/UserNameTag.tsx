@@ -1,16 +1,19 @@
 import React from 'react'
 
 type UserNameTagType = {
-  position: string
   writer: string
   img: string
 }
 
-const UserNameTag = ({ position, writer, img }: UserNameTagType) => {
+const UserNameTag = ({ writer, img }: UserNameTagType) => {
   return (
-    <div className={`tag-wrapper ${position}`}>
+    <div className="tag-wrapper">
       <span className="tag-name">{writer}</span>
-      <img className="tag-image" src={img} alt="name-tag" />
+      <img
+        className="tag-image"
+        src={img}
+        alt="name-tag"
+      />
     </div>
   )
 }

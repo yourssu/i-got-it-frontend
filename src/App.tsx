@@ -11,6 +11,7 @@ import Create from './pages/Create/Create'
 import CreateLetter from './pages/CreateLetter/CreateLetter'
 import MyPage from './pages/MyPage/MyPage'
 import Terms from './pages/Terms_of_Service/Terms'
+import CheerRelay from './pages/Cheer/CheerRelay'
 
 function App() {
   return (
@@ -49,6 +50,10 @@ function App() {
             <Route
               path="/terms"
               element={<Terms />}
+            />
+            <Route
+              path="/cheer"
+              element={<CheerRelay />}
             />
           </Routes>
         </BrowserRouter>

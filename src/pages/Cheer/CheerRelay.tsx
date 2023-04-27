@@ -10,11 +10,13 @@ import { useRecoilState } from 'recoil'
 import { cheerCommentState } from '../../State/cheerCommentState'
 import SelectedCheerDialog from '../../components/Dialog/SelectedCheerDialog/SelectedCheerDialog'
 import BasicDialog from '../../components/Dialog/BasicDialog/BasicDialog'
+//import { useGetLetters } from '../../hooks/useGetLetters'
 
 const CheerRelay = () => {
   const imgPath = [NameTag1, NameTag2, NameTag3]
   const [commentState, setCommentState] = useRecoilState(cheerCommentState)
   const [showDialog, setShowDialog] = useState<boolean>(false)
+  //const { data: letters } = useGetLetters(결심 아이디, 유저 아이디)
 
   const handleConfirm = () => {
     // 삭제시키는 로직 들어갈 예정
@@ -28,6 +30,49 @@ const CheerRelay = () => {
   return (
     <div className="cheer-container">
       <div className="cheer-title">~응원의 릴레이~</div>
+      {/* {letters.letters.map((data, index) => {
+        if (index % 2 == 0) {
+          return (
+            <section
+              className="cheer-wrapper"
+              key={`${data.nickname}-${data.content}`}
+            >
+              <UserNameTag
+                position="left"
+                writer={data.nickname}
+                img={imgPath[index % 3]}
+              />
+              <CommentBubble
+                position="left"
+                writer={data.nickname}
+                comment={data.content}
+                commentId={index}
+                setShowDialog={setShowDialog}
+              />
+            </section>
+          )
+        } else {
+          return (
+            <section
+              className="cheer-wrapper"
+              key={`${data.nickname}-${data.content}`}
+            >
+              <CommentBubble
+                position="right"
+                writer={data.nickname}
+                comment={data.content}
+                commentId={index}
+                setShowDialog={setShowDialog}
+              />
+              <UserNameTag
+                position="right"
+                writer={data.nickname}
+                img={imgPath[index % 3]}
+              />
+            </section>
+          )
+        }
+      })} */}
       {dummy.map((data, index) => {
         if (index % 2 == 0) {
           return (
@@ -36,7 +81,6 @@ const CheerRelay = () => {
               key={`${data.writer}-${data.comment}`}
             >
               <UserNameTag
-                position="left"
                 writer={data.writer}
                 img={imgPath[index % 3]}
               />
@@ -63,7 +107,6 @@ const CheerRelay = () => {
                 setShowDialog={setShowDialog}
               />
               <UserNameTag
-                position="right"
                 writer={data.writer}
                 img={imgPath[index % 3]}
               />
