@@ -91,3 +91,13 @@ input[type='radio']:checked + label {
   height: 12px;
   background-image: url('../../images/ic_cancle.svg');
 }
+
+.resolutioin-text-count {
+  position: absolute;
+  font-family: 'Pretendard';
+  color: var(--text-teritary);
+  font-weight: 400;
+  font-size: 12px;
+  top: 60px;
+  right: 16px;
+}

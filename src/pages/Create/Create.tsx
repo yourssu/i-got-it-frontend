@@ -7,6 +7,8 @@ import BackHeader from '../../components/Header/BackHeader'
 const Create = () => {
   const navigate = useNavigate()
   const [resolution, setLesolution] = useState('')
+  const [inputCount, setInputCount] = useState(0)
+
   const onClickBack = () => {
     navigate('/')
   }
@@ -25,6 +27,7 @@ const Create = () => {
 
   const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     setLesolution(event.target.value)
+    setInputCount(event.target.value.length)
   }
 
   return (
@@ -80,6 +83,7 @@ const Create = () => {
             className="clear-button"
             onClick={onClickClear}
           />
+          <span className="resolutioin-text-count">{inputCount} / 33</span>
         </div>
         <BoxButton
           type="submit"
