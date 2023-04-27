@@ -4,6 +4,7 @@ import ToastDemo from '../../components/Toast/ToastDemo'
 import MenuContent from '../MenuContent/MenuContent'
 import './Mypage.scss'
 import CheerRelay from '../Cheer/CheerRelay'
+import BoxButton from '../../components/Button/BoxButton'
 
 const ToastMessages = {
   ENVELOPE: `뱉은 말은 결심할 때 설정한\n기한 후에 확인 가능해요.`,
@@ -25,6 +26,10 @@ const MyPage = () => {
 
   const onClickEnvelope = () => {
     showToast(ToastMessages.ENVELOPE)
+  }
+
+  const onClickShare = () => {
+    // 링크 받아오기
   }
 
   return (
@@ -59,6 +64,11 @@ const MyPage = () => {
         </div>
         <div className="d-day">뱉은 말 회수까지</div>
         <div className="letter-line" />
+        <BoxButton
+          text="링크 공유하러 가기"
+          type="button"
+          onClick={onClickShare}
+        />
       </div>
       <CheerRelay />
     </>
