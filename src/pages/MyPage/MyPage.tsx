@@ -3,6 +3,7 @@ import MenuHeader from '../../components/Header/MenuHeader'
 import ToastDemo from '../../components/Toast/ToastDemo'
 import MenuContent from '../MenuContent/MenuContent'
 import './Mypage.scss'
+import CheerRelay from '../Cheer/CheerRelay'
 
 const ToastMessages = {
   ENVELOPE: `뱉은 말은 결심할 때 설정한\n기한 후에 확인 가능해요.`,
@@ -59,6 +60,7 @@ const MyPage = () => {
         <div className="d-day">뱉은 말 회수까지</div>
         <div className="letter-line" />
       </div>
+      <CheerRelay />
     </>
   )
 }
