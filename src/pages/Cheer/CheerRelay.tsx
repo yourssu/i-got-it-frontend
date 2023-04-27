@@ -11,7 +11,7 @@ import { cheerCommentState } from '../../State/cheerCommentState'
 import SelectedCheerDialog from '../../components/Dialog/SelectedCheerDialog/SelectedCheerDialog'
 import BasicDialog from '../../components/Dialog/BasicDialog/BasicDialog'
 
-const Cheer = () => {
+const CheerRelay = () => {
   const imgPath = [NameTag1, NameTag2, NameTag3]
   const [commentState, setCommentState] = useRecoilState(cheerCommentState)
   const [showDialog, setShowDialog] = useState<boolean>(false)
@@ -88,4 +88,4 @@ const Cheer = () => {
   )
 }
 
-export default Cheer
+export default CheerRelay
