@@ -80,10 +80,6 @@ const Cheer = () => {
         onConfirm={handleConfirm}
         onReject={handleReject}
       />
-      {/* <SelectedCheerDialog
-        showDialog={showDialog}
-        setShowDialog={setShowDialog}
-      /> */}
       <SelectedCheerDialog
         showDialog={showDialog}
         setShowDialog={setShowDialog}

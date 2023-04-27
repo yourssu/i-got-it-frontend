@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Bubble from '../../images/Cheer/comment_bubble.svg'
 import Locker from '../../images/Cheer/locker.svg'
 import { useLongPress } from 'use-long-press'
@@ -20,12 +20,10 @@ const CommentBubble = ({
   commentId,
   setShowDialog,
 }: CommentBubbleType) => {
-  const [long, setLong] = useState(false)
   const [, setCommentState] = useRecoilState(cheerCommentState)
   const [, setSelectedCheerState] = useRecoilState(selectedCheerState)
 
   const handleLongPress = useLongPress(() => {
-    setLong(true)
     setCommentState(commentId)
   })
 
