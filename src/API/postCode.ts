@@ -4,7 +4,7 @@ import { PostKakaoLoginResponse } from '../Types/login'
 
 const cookies = new Cookies()
 export const postCode = async (code: string): Promise<PostKakaoLoginResponse> => {
-  const data = await client.post(`api/v1/auth/sign-in/kakao`, {
+  const data = await client.post(`auth/sign-in/kakao`, {
     code,
   })
 
