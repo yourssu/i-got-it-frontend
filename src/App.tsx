@@ -10,7 +10,6 @@ import Nickname from './pages/Nickname/Nickname'
 import Create from './pages/Create/Create'
 import CreateLetter from './pages/CreateLetter/CreateLetter'
 import MyPage from './pages/MyPage/MyPage'
-import Cheer from './pages/Cheer/CheerRelay'
 import Terms from './pages/Terms_of_Service/Terms'
 
 function App() {
@@ -46,10 +45,6 @@ function App() {
             <Route
               path="/mypage"
               element={<MyPage />}
-            />
-            <Route
-              path="/cheer"
-              element={<Cheer />}
             />
             <Route
               path="/terms"
