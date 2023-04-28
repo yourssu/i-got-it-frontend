@@ -10,6 +10,7 @@ import CheerDialog from '../../components/Dialog/CheerDialog/CheerDialog'
 import { useGetResolution } from '../../hooks/useGetResolution'
 import { useRecoilState } from 'recoil'
 import { resolutionIdState } from '../../State/resolutionState'
+import { useNavigate } from 'react-router-dom'
 
 const ToastMessages = {
   ENVELOPE: `뱉은 말은 결심할 때 설정한\n기한 후에 확인 가능해요.`,
@@ -24,6 +25,7 @@ const MyPage = () => {
   const [userId] = useRecoilState(userIdState)
   const [idState, setIdState] = useRecoilState(resolutionIdState)
   const { data: resolution } = useGetResolution(idState)
+  const navigate = useNavigate()
 
   const onClickMenu = () => {
     setOpenMenu((openMenu) => !openMenu)
@@ -40,7 +42,7 @@ const MyPage = () => {
 
   const onClickResolution = () => {
     console.log('나도 결심 외치기')
-    // 결심 페이지로 이동! (비로그인 사용자였기 때문에 로그인 시켜야함.)
+    navigate('/login')
   }
 
   const onClickShareLink = async () => {

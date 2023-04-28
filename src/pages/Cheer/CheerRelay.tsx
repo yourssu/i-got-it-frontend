@@ -18,16 +18,11 @@ const CheerRelay = () => {
   const [addCheer] = useRecoilState(addCheerState)
   const [nickname] = useRecoilState(nicknameState)
   const { data: letters, refetch: getLettersRefetch } = useGetLetters(resolutionId, userId)
-
-  useEffect(() => {
-    if (letters?.letters[0].nickname == nickname) {
-      letters?.letters.shift()
-    }
-  }, [letters])
+  const letter = letters?.letters.slice(1)
 
   useEffect(() => {
     getLettersRefetch()
-  }, [addCheer == false])
+  }, [addCheer])
 
   const handleConfirm = () => {
     // 삭제시키는 로직 들어갈 예정
@@ -41,8 +36,8 @@ const CheerRelay = () => {
   return (
     <div className="cheer-container">
       <div className="cheer-title">~응원의 릴레이~</div>
-      {letters && letters!.letters.length == 0 ? <NoCheer /> : null}
-      {letters && letters!.letters.length > 0 ? <Cheer letters={letters!.letters} /> : null}
+      {letter && letter.length == 0 ? <NoCheer /> : null}
+      {letter && letter.length > 0 ? <Cheer letters={letter} /> : null}
       <BasicDialog
         showDialog={commentState != -1}
         title="말풍선을 삭제하시겠어요?"
@@ -52,10 +47,7 @@ const CheerRelay = () => {
         onConfirm={handleConfirm}
         onReject={handleReject}
       />
-      <SelectedCheerDialog
-        showDialog={showDialog}
-        setShowDialog={setShowDialog}
-      />
+      <SelectedCheerDialog />
     </div>
   )
 }

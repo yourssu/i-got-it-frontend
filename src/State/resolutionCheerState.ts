@@ -18,3 +18,8 @@ export const addCheerState = atom<boolean>({
   key: 'addCheerState',
   default: false,
 })
+
+export const showDialogState = atom<boolean>({
+  key: 'showDialogState',
+  default: false,
+})
