@@ -41,7 +41,7 @@ const MyPage = () => {
       <MenuHeader onClick={onClickMenu} />
       <div className="resolution-wrapper">
         <div className="yellow-star">
-          <div className="nickname-resolution">청소기의 “외침”</div>
+          <div className="nickname-resolution">{resolution?.data.nickname}의 “외침”</div>
           <div className="resolution-line" />
           <div
             className="resolution-line"
@@ -53,7 +53,6 @@ const MyPage = () => {
             className="envelop"
             onClick={onClickEnvelope}
           />
-
           <ToastDemo
             title={title}
             open={openToast}

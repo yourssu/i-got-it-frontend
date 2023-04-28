@@ -4,6 +4,8 @@ import IntroductionDialog from '../../components/Dialog/IntroductionDialog/Intro
 import ProducerDialog from '../../components/Dialog/ProducerDialog/ProducerDialog'
 import { useNavigate } from 'react-router-dom'
 import BasicDialog from '../../components/Dialog/BasicDialog/BasicDialog'
+import { useRecoilState } from 'recoil'
+import { nicknameState } from '../../State/nicknameState'
 
 const MenuContent = ({
   openMenu,
@@ -17,6 +19,7 @@ const MenuContent = ({
   const [showDialog1, setShowDialog1] = useState(false)
   const [showDialog2, setShowDialog2] = useState(false)
   const [showLogout, setShowLogout] = useState(false)
+  const [nameState] = useRecoilState(nicknameState)
 
   const handleClose = async (e: any) => {
     if (!outside.current.contains(e.target) && !showDialog2 && !showDialog1 && !showLogout) {
@@ -79,7 +82,7 @@ const MenuContent = ({
     >
       <div ref={outside}>
         <ul className={openMenu ? 'menu-list show-menu' : 'menu-list hide-menu'}>
-          <li className="nickname">닉네임</li>
+          <li className="nickname">{nameState}</li>
           <li
             className="menu-content"
             onClick={onClickList1}
