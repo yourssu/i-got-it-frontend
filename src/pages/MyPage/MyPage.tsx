@@ -7,6 +7,7 @@ import CheerRelay from '../Cheer/CheerRelay'
 import { useRecoilState } from 'recoil'
 import { userIdState } from '../../State/loginState'
 import BoxButton from '../../components/Button/BoxButton/BoxButton'
+import CheerDialog from '../../components/Dialog/CheerDialog/CheerDialog'
 
 const ToastMessages = {
   ENVELOPE: `뱉은 말은 결심할 때 설정한\n기한 후에 확인 가능해요.`,
@@ -78,6 +79,7 @@ const MyPage = () => {
         <div className="letter-line" />
       </div>
       <CheerRelay />
+      <CheerDialog />
     </>
   )
 }

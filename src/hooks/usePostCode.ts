@@ -2,8 +2,8 @@ import { useMutation } from 'react-query'
 import { postCode } from '../API/Login/postCode'
 import { useNavigate } from 'react-router-dom'
 import { useRecoilState } from 'recoil'
-import { nicknameState } from '../State/nicknameState'
-import { userIdState } from '../State/userIdState'
+import { nicknameState } from '../State/loginState'
+import { userIdState } from '../State/loginState'
 
 export const usePostCode = () => {
   const navigate = useNavigate()

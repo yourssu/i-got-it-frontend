@@ -1,4 +1,4 @@
-import React, { MutableRefObject, RefObject, useEffect, useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 import * as Dialog from '@radix-ui/react-dialog'
 import styles from './SelectedCheerDialog.module.scss'
 import { useRecoilState } from 'recoil'
@@ -13,7 +13,7 @@ const SelectedCheerDialog = ({
 }) => {
   const [selectedCheer] = useRecoilState(selectedCheerState)
   const ref = useRef<HTMLDivElement>(null)
-  /* React.ForwardRefExoticComponent<DialogContentProps & React.RefAttributes<HTMLDivElement>> */
+
   useEffect(() => {
     const handleClose = (e: MouseEvent) => {
       if (showDialog && ref.current && !ref.current.contains(e.target as HTMLElement)) {

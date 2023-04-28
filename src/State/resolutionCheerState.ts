@@ -13,3 +13,8 @@ export const cheerCommentState = atom<number>({
   key: 'cheerCommentState',
   default: -1,
 })
+
+export const addCheerState = atom<boolean>({
+  key: 'addCheerState',
+  default: false,
+})

@@ -1,8 +1,13 @@
 .add-button {
   display: flex;
   justify-content: center;
+  text-align: center;
+  align-items: center;
   position: relative;
-  margin: 15px 0px;
+  margin-top: 10px;
+  width: max-content;
+  pointer-events: auto;
+  cursor: pointer;
 
   .add-button-icon {
     position: absolute;
