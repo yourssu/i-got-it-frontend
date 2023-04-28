@@ -5,7 +5,7 @@ export const resolutionState = atom<string>({
   default: '',
 })
 
-export const letterState = atom<string>({
-  key: 'letterState',
-  default: 'letter',
+export const resolutionIdState = atom<number>({
+  key: 'resolutionIdState',
+  default: 0,
 })
