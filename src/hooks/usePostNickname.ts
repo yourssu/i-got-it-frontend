@@ -1,5 +1,5 @@
 import { useMutation } from 'react-query'
-import { postNickname } from '../API/postNickname'
+import { postNickname } from '../API/Nickname/postNickname'
 import { useRecoilState } from 'recoil'
 import { nicknameState } from '../State/nicknameState'
 import { useNavigate } from 'react-router-dom'
