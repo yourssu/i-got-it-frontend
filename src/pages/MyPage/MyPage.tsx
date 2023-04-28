@@ -41,6 +41,11 @@ const MyPage = () => {
 
   return (
     <>
+      <BoxButton
+        text={userId == -1 ? '나도 결심 외치기' : '링크 공유하러 가기'}
+        type="button"
+        onClick={userId == -1 ? onClickResolution : onClickShareLink}
+      />
       <MenuContent
         openMenu={openMenu}
         setOpenMenu={setOpenMenu}
@@ -73,11 +78,6 @@ const MyPage = () => {
         <div className="letter-line" />
       </div>
       <CheerRelay />
-      <BoxButton
-        text={userId == -1 ? '나도 결심 외치기' : '링크 공유하러 가기'}
-        type="button"
-        onClick={userId == -1 ? onClickResolution : onClickShareLink}
-      />
     </>
   )
 }
