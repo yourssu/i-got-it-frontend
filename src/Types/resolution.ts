@@ -1,5 +1,5 @@
 export interface IpostResolutionResponse {
-  resolutionId: number
+  data: { resolutionId: number }
 }
 
 export interface IGetResolutionResponse {

@@ -10,8 +10,9 @@ export const usePostResolution = () => {
 
   return useMutation(postResolution, {
     onMutate() {},
-    onSuccess: (data) => {
-      setResolutionIdState(data.resolutionId)
+    onSuccess: (res) => {
+      setResolutionIdState(res.data.resolutionId)
+      console.log(res)
       console.log('success')
       navigate('/mypage')
     },
