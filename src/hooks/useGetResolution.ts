@@ -8,8 +8,8 @@ export const useGetResolution = (resolutionId: number) => {
     () => getResolution(resolutionId),
     {
       enabled: true,
-      onSuccess: (data) => {
-        // data 처리
+      onSuccess: (res) => {
+        console.log(res)
         console.log('success')
       },
     }

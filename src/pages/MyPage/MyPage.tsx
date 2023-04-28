@@ -4,6 +4,9 @@ import ToastDemo from '../../components/Toast/ToastDemo'
 import MenuContent from '../MenuContent/MenuContent'
 import './Mypage.scss'
 import CheerRelay from '../Cheer/CheerRelay'
+import { useGetResolution } from '../../hooks/useGetResolution'
+import { useRecoilState } from 'recoil'
+import { resolutionIdState } from '../../State/resolutionState'
 
 const ToastMessages = {
   ENVELOPE: `뱉은 말은 결심할 때 설정한\n기한 후에 확인 가능해요.`,
@@ -13,6 +16,8 @@ const MyPage = () => {
   const [openToast, setOpenToast] = useState(false)
   const [title, setTitle] = useState('')
   const [openMenu, setOpenMenu] = useState(false)
+  const [idState, setIdState] = useRecoilState(resolutionIdState)
+  const { data: resolution } = useGetResolution(idState)
 
   const onClickMenu = () => {
     setOpenMenu((openMenu) => !openMenu)
@@ -42,9 +47,7 @@ const MyPage = () => {
             className="resolution-line"
             id="resolution-line2"
           />
-          <div className="resolution">
-            결심들어가는곳 결심들어가는곳 결심들어가는곳 결심들어가는곳💨💨💨
-          </div>
+          <div className="resolution">{resolution?.data.content}</div>
           <button
             type="button"
             className="envelop"
