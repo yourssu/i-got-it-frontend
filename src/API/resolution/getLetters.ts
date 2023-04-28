@@ -1,13 +1,14 @@
+import { useRecoilState } from 'recoil'
 import { GetLetterResponse } from '../../Types/letter'
 import api from '../api'
 
 export const getLetters = async (
-  resolutionId: string,
-  userId: string | null
+  resolutionId: number,
+  userId: number
 ): Promise<GetLetterResponse> => {
   const data = await api({
     method: 'get',
-    url: `/api/v1/resolution/${resolutionId}/letters${userId !== null ? `?userId=${userId}` : ''}`,
+    url: `/api/v1/resolutions/${resolutionId}/letters${userId !== -1 ? `?userId=${userId}` : ''}`,
   })
 
   return data.data

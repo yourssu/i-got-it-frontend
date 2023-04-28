@@ -7,14 +7,18 @@ import { getLetters } from '../API/resolution/getLetters'
 import { GetLetterResponse } from '../Types/letter'
 import { lettersLockedState } from '../State/lettersLockedState'
 
-export const useGetLetters = (resolutionId: number) => {
+export const useGetLetters = (resolutionId: number, userId: number) => {
   const [, setLettersLockedState] = useRecoilState(lettersLockedState)
-  return useQuery<GetLetterResponse>(['getLetters', resolutionId], () => getLetters(resolutionId), {
-    enabled: true,
-    onSuccess: (data) => {
-      setLettersLockedState(data.locked)
-      console.log(data)
-      console.log('success')
-    },
-  })
+  return useQuery<GetLetterResponse>(
+    ['getLetters', resolutionId, userId],
+    () => getLetters(resolutionId, userId),
+    {
+      enabled: true,
+      onSuccess: (data) => {
+        setLettersLockedState(data.locked)
+        console.log(data)
+        console.log('success')
+      },
+    }
+  )
 }
