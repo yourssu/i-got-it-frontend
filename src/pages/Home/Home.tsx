@@ -1,13 +1,16 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import './Home.scss'
 import BoxButton from '../../components/Button/BoxButton'
 import MenuHeader from '../../components/Header/MenuHeader'
 import MenuContent from '../MenuContent/MenuContent'
+import { useRecoilValue } from 'recoil'
+import { resolutionIdState } from '../../State/resolutionState'
 
 const Home = () => {
   const navigate = useNavigate()
   const [openMenu, setOpenMenu] = useState(false)
+  const resolutionId = useRecoilValue(resolutionIdState)
 
   const onClickMenu = () => {
     setOpenMenu((openMenu) => !openMenu)
@@ -16,6 +19,13 @@ const Home = () => {
   const onClick = () => {
     navigate('/create')
   }
+
+  useEffect(() => {
+    if (resolutionId !== null) {
+      navigate(`/mypage`)
+    }
+    console.log(resolutionId)
+  })
 
   return (
     <>
