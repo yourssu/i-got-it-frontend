@@ -1,6 +1,12 @@
+export interface IpostResolutionResponse {
+  resolutionId: number
+}
+
 export interface IGetResolutionResponse {
-  nickname: string
-  content: string
-  dday: number
-  status: 'INPROGRESS' | 'DONE'
+  data: {
+    nickname: string
+    content: string
+    dday: number
+    status: 'INPROGRESS' | 'DONE'
+  }
 }
