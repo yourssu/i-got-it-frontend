@@ -7,7 +7,7 @@ import CommentBubble from './CommnetBubble'
 import { useRecoilState } from 'recoil'
 import { cheerCommentState } from '../../State/cheerCommentState'
 import { GetLetterInfo } from '../../Types/letter'
-import { userIdState } from '../../State/userIdState'
+import { userIdState } from '../../State/loginState'
 import AddButton from '../../components/Button/AddButton/AddButton'
 
 type test = {

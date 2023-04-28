@@ -1,6 +1,6 @@
 import React from 'react'
 import { useRecoilState } from 'recoil'
-import { userIdState } from '../../State/userIdState'
+import { userIdState } from '../../State/loginState'
 import AddButton from '../../components/Button/AddButton/AddButton'
 
 const NoCheer = () => {

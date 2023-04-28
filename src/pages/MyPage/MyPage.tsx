@@ -5,7 +5,7 @@ import MenuContent from '../MenuContent/MenuContent'
 import './Mypage.scss'
 import CheerRelay from '../Cheer/CheerRelay'
 import { useRecoilState } from 'recoil'
-import { userIdState } from '../../State/userIdState'
+import { userIdState } from '../../State/loginState'
 import BoxButton from '../../components/Button/BoxButton/BoxButton'
 
 const ToastMessages = {
