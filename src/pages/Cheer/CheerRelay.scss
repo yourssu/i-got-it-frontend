@@ -1,3 +1,9 @@
+.cheer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .cheer-container {
   text-align: center;
   //padding-top: 20px;
@@ -36,7 +42,8 @@
   .cheer-wrapper {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
+    width: 90%;
     margin: 15px;
 
     .tag-wrapper {
@@ -45,8 +52,6 @@
 
       .tag-img {
         position: relative;
-        width: 120px;
-        height: auto;
       }
 
       .tag-name {

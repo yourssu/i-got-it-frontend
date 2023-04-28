@@ -20,7 +20,7 @@ const Cheer = ({ letters }: test) => {
   const [showDialog, setShowDialog] = useState<boolean>(false)
 
   return (
-    <>
+    <div className="cheer">
       {userId == -1 ? <AddButton /> : null}
       {letters!.map((data: GetLetterInfo, index: number) => {
         if (index % 2 == 0) {
@@ -63,7 +63,7 @@ const Cheer = ({ letters }: test) => {
           )
         }
       })}
-    </>
+    </div>
   )
 }
 

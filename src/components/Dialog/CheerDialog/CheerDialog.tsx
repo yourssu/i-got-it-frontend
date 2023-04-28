@@ -15,11 +15,14 @@ const CheerDialog = () => {
   const [content, setContent] = useState<string>('')
   const [inputCount, setInputCount] = useState<number>(0)
   const { mutate: postLetters } = usePostLetters()
+  const [, setAddCheer] = useRecoilState(addCheerState)
 
   const handleSubmit = () => {
     postLetters({ resolutionId, nickname, content })
     setNickname('')
     setContent('')
+    setCheckNickname(false)
+    setAddCheer(false)
   }
 
   const handleNicknameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -64,6 +67,7 @@ const CheerDialog = () => {
                 id="Nickname"
                 value={nickname}
                 placeholder="보낸 사람 이름"
+                maxLength={3}
                 onChange={handleNicknameChange}
               />
             </div>
@@ -80,13 +84,13 @@ const CheerDialog = () => {
               <span className={styles.InputCount}>{`${inputCount}/133`}</span>
             </div>
           </div>
+          <BoxButton
+            type="button"
+            text="작성 완료"
+            isDisabled={!content && !checkNickname}
+            onClick={handleSubmit}
+          />
         </Dialog.Content>
-        <BoxButton
-          type="submit"
-          text="작성 완료"
-          isDisabled={!content && !checkNickname}
-          onClick={handleSubmit}
-        />
       </Dialog.Portal>
     </Dialog.Root>
   )

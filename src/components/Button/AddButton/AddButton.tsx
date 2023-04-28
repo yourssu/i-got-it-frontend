@@ -7,7 +7,6 @@ import { addCheerState } from '../../../State/resolutionCheerState'
 const AddButton = () => {
   const [, setAddCheer] = useRecoilState(addCheerState)
   const onClick = () => {
-    console.log('ㅇㅇㅇ')
     setAddCheer(true)
   }
   return (

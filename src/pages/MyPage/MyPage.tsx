@@ -40,17 +40,16 @@ const MyPage = () => {
 
   const onClickResolution = () => {
     console.log('나도 결심 외치기')
+    // 결심 페이지로 이동! (비로그인 사용자였기 때문에 로그인 시켜야함.)
   }
 
   const onClickShareLink = async () => {
-    console.log('링크 공유하러 가기')
-    // 링크받아오기
-    /* try {
+    try {
       await navigator.clipboard.writeText(shareURL)
       showToast('링크 복사 완료')
     } catch (e) {
       showToast('링크 복사 실패')
-    } */
+    }
   }
 
   return (

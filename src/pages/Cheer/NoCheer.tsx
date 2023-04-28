@@ -7,7 +7,7 @@ const NoCheer = () => {
   const [userId] = useRecoilState(userIdState)
   return (
     <>
-      {userId != -1 ? (
+      {userId == -1 ? (
         <div className="no-cheer">
           <AddButton />
           <div className=" guest">

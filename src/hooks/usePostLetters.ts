@@ -3,7 +3,8 @@ import { postLetters } from '../API/resolution/postLetters'
 export const usePostLetters = () => {
   return useMutation(postLetters, {
     onMutate() {},
-    onSuccess: () => {
+    onSuccess: (data) => {
+      console.log(data)
       console.log('success')
     },
     onError: (err) => {

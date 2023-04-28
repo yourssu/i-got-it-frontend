@@ -1,12 +1,12 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useRecoilState } from 'recoil'
-import { cheerCommentState } from '../../State/resolutionCheerState'
+import { addCheerState, cheerCommentState } from '../../State/resolutionCheerState'
 import SelectedCheerDialog from '../../components/Dialog/SelectedCheerDialog/SelectedCheerDialog'
 import BasicDialog from '../../components/Dialog/BasicDialog/BasicDialog'
 import { useGetLetters } from '../../hooks/useGetLetters'
 import Cheer from './Cheer'
 import './CheerRelay.scss'
-import { userIdState } from '../../State/loginState'
+import { nicknameState, userIdState } from '../../State/loginState'
 import NoCheer from './NoCheer'
 import { resolutionIdState } from '../../State/resolutionState'
 
@@ -15,8 +15,19 @@ const CheerRelay = () => {
   const [userId] = useRecoilState(userIdState)
   const [resolutionId] = useRecoilState(resolutionIdState)
   const [showDialog, setShowDialog] = useState<boolean>(false)
-  const { data: letters } = useGetLetters(resolutionId, userId)
-  if (letters) letters?.letters.shift()
+  const [addCheer] = useRecoilState(addCheerState)
+  const [nickname] = useRecoilState(nicknameState)
+  const { data: letters, refetch: getLettersRefetch } = useGetLetters(resolutionId, userId)
+
+  useEffect(() => {
+    if (letters?.letters[0].nickname == nickname) {
+      letters?.letters.shift()
+    }
+  }, [letters])
+
+  useEffect(() => {
+    getLettersRefetch()
+  }, [addCheer == false])
 
   const handleConfirm = () => {
     // 삭제시키는 로직 들어갈 예정
