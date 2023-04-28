@@ -72,7 +72,10 @@ const MyPage = () => {
             setOpen={setOpenToast}
           />
         </div>
-        <div className="d-day">뱉은 말 회수까지</div>
+        <div className="d-day-wrapper">
+          <span className="d-day d-day-title">뱉은 말 회수까지</span>
+          <span className="d-day d-day-value"> D-{resolution?.data.dday}h</span>
+        </div>
         <div className="letter-line" />
         <BoxButton
           text="링크 공유하러 가기"

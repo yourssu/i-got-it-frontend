@@ -56,11 +56,18 @@
   margin-top: 8px;
 }
 
+.d-day-wrapper {
+  margin-top: 55px;
+}
+
 .d-day {
   font-family: 'Pretendard';
   font-weight: 800;
   font-size: 20px;
-  margin-top: 55px;
+}
+
+.d-day-value {
+  color: var(--pointColor-red100);
 }
 
 .letter-line {
