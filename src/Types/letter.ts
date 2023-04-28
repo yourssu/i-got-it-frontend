@@ -3,6 +3,6 @@ export type GetLetterInfo = {
   content: string
 }
 export type GetLetterResponse = {
-  letters: GetLetterInfo
+  letters: GetLetterInfo[]
   locked: boolean
 }
