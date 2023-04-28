@@ -1,12 +1,31 @@
 .cheer-container {
   text-align: center;
-  padding-top: 10px;
+  padding-top: 20px;
   .cheer-title {
     font-family: 'GothicA1-Regular';
     font-weight: 700;
     font-size: 25px;
     color: var(--pointColor-red100);
     -webkit-text-stroke: 1px black;
+  }
+
+  .no-cheer {
+    color: var(--text-disabled);
+    font-weight: 400;
+    font-size: 15px;
+    padding-top: 10px;
+  }
+
+  .guest {
+    display: flex;
+    flex-direction: column;
+    margin: 30px 0px;
+  }
+
+  .host {
+    display: flex;
+    flex-direction: column;
+    margin: 40px 0px;
   }
 
   .cheer-wrapper {
