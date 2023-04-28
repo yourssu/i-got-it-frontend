@@ -3,25 +3,37 @@ import * as Dialog from '@radix-ui/react-dialog'
 import { useRecoilState } from 'recoil'
 import { addCheerState } from '../../../State/resolutionCheerState'
 import styles from './CheerDialog.module.scss'
+import BoxButton from '../../Button/BoxButton/BoxButton'
 
 const CheerDialog = () => {
   const [addCheer] = useRecoilState(addCheerState)
   const [writer, setWriter] = useState<string>('')
+  const [checkWriter, setCheckWriter] = useState<boolean>(false)
   const [message, setMessage] = useState<string>('')
   const [inputCount, setInputCount] = useState<number>(0)
-
-  const ref = useRef<HTMLTextAreaElement>(null)
 
   /*const handleResizeHeight = () => {
     ref.current.style.height = 'auto'
     ref.current.style.height= ref.current?.scrollHeight + 'px'
   } */
 
-  const onWriterChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleWriterChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setWriter(e.target.value)
+    const words = e.target.value.split('')
+    if (e.target.value.length != 0) {
+      setCheckWriter(true)
+    } else if (e.target.value.length == 0) {
+      setCheckWriter(false)
+    }
+    for (let item of words) {
+      if (!item.match(/[ㄱ-ㅎ가-힣]/)) {
+        setCheckWriter(false)
+        break
+      }
+    }
   }
 
-  const onMessageChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+  const handleMessageChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setMessage(e.target.value)
     setInputCount(e.target.value.length)
   }
@@ -33,13 +45,21 @@ const CheerDialog = () => {
         <Dialog.Content className={styles.DialogContent}>
           <div className={styles.CheerInputWrapper}>
             <div>
-              <div className={styles.WriterInputRule}>한글 석자 이하만 가능</div>
+              <div
+                className={`${styles.WriterInputRule} ${
+                  !checkWriter && writer != '' ? styles.RuleNegative : styles.RulePositive
+                }`}
+              >
+                한글 석자 이하만 가능
+              </div>
               <input
-                className={`${styles.WriterInput} test`}
+                className={`${styles.WriterInput} ${
+                  !checkWriter && writer != '' ? styles.InputNegative : styles.InputPositive
+                }`}
                 id="writer"
                 value={writer}
                 placeholder="보낸 사람 이름"
-                onChange={onWriterChange}
+                onChange={handleWriterChange}
               />
             </div>
             <div className={styles.TextareaWrapper}>
@@ -49,13 +69,18 @@ const CheerDialog = () => {
                 maxLength={133}
                 value={message}
                 placeholder="친구에게 응원의 한마디를 전해주세요."
-                onChange={onMessageChange}
-                ref={ref}
+                onChange={handleMessageChange}
+                rows={10}
               />
-              <span>{`${inputCount}/133`}</span>
+              <span className={styles.InputCount}>{`${inputCount}/133`}</span>
             </div>
           </div>
         </Dialog.Content>
+        <BoxButton
+          type="submit"
+          text="작성 완료"
+          isDisabled={!message && !checkWriter}
+        />
       </Dialog.Portal>
     </Dialog.Root>
   )

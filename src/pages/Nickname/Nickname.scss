@@ -43,11 +43,19 @@
       outline: none;
     }
 
-    .positive {
+    .rule-positive {
+      color: black;
+    }
+
+    .rule-negative {
+      color: #ff5252;
+    }
+
+    .input-positive {
       border-color: black;
     }
 
-    .negative {
+    .input-negative {
       border-color: #ff5252;
     }
 

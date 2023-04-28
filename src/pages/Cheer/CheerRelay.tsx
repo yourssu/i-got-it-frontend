@@ -8,12 +8,14 @@ import Cheer from './Cheer'
 import './CheerRelay.scss'
 import { userIdState } from '../../State/loginState'
 import NoCheer from './NoCheer'
+import { resolutionIdState } from '../../State/resolutionState'
 
 const CheerRelay = () => {
   const [commentState, setCommentState] = useRecoilState(cheerCommentState)
   const [userId] = useRecoilState(userIdState)
+  const [resolutionId] = useRecoilState(resolutionIdState)
   const [showDialog, setShowDialog] = useState<boolean>(false)
-  const { data: letters } = useGetLetters(4, userId)
+  const { data: letters } = useGetLetters(resolutionId, userId)
   if (letters) letters?.letters.shift()
 
   const handleConfirm = () => {
