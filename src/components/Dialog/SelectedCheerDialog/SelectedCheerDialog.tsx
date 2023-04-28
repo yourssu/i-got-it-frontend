@@ -2,7 +2,7 @@ import React, { MutableRefObject, RefObject, useEffect, useRef } from 'react'
 import * as Dialog from '@radix-ui/react-dialog'
 import styles from './SelectedCheerDialog.module.scss'
 import { useRecoilState } from 'recoil'
-import { selectedCheerState } from '../../../State/selectedCheerState'
+import { selectedCheerState } from '../../../State/resolutionCheerState'
 
 const SelectedCheerDialog = ({
   showDialog,
