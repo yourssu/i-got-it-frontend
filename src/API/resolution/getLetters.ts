@@ -1,4 +1,3 @@
-import { useRecoilState } from 'recoil'
 import { GetLetterResponse } from '../../Types/letter'
 import api from '../api'
 

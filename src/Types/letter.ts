@@ -6,3 +6,7 @@ export type GetLetterResponse = {
   letters: GetLetterInfo[]
   locked: boolean
 }
+
+export type PostLetterResponse = {
+  lettId: number
+}

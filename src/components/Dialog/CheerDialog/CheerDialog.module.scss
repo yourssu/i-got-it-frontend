@@ -35,7 +35,7 @@ fieldset
     flex-direction: column;
     align-items: center;
 
-    .WriterInputRule {
+    .NicknameInputRule {
       position: relative;
       font-family: 'Pretendard';
       color: var(--text-teritary);
@@ -44,12 +44,12 @@ fieldset
       margin: 5px;
     }
 
-    .WriterInput {
+    .NicknameInput {
       padding: 12px;
       width: 150px;
     }
 
-    .WriterInput:focus {
+    .NicknameInput:focus {
       outline: none;
     }
 
