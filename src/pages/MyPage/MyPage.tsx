@@ -7,10 +7,13 @@ import CheerRelay from '../Cheer/CheerRelay'
 import { useGetResolution } from '../../hooks/useGetResolution'
 import { useRecoilState } from 'recoil'
 import { resolutionIdState } from '../../State/resolutionState'
+import BoxButton from '../../components/Button/BoxButton'
 
 const ToastMessages = {
   ENVELOPE: `뱉은 말은 결심할 때 설정한\n기한 후에 확인 가능해요.`,
 }
+
+const shareURL = 'share test'
 
 const MyPage = () => {
   const [openToast, setOpenToast] = useState(false)
@@ -30,6 +33,16 @@ const MyPage = () => {
 
   const onClickEnvelope = () => {
     showToast(ToastMessages.ENVELOPE)
+  }
+
+  const onClickShare = async () => {
+    // 링크받아오기
+    try {
+      await navigator.clipboard.writeText(shareURL)
+      showToast('링크 복사 완료')
+    } catch (e) {
+      showToast('링크 복사 실패')
+    }
   }
 
   return (
@@ -61,6 +74,11 @@ const MyPage = () => {
         </div>
         <div className="d-day">뱉은 말 회수까지</div>
         <div className="letter-line" />
+        <BoxButton
+          text="링크 공유하러 가기"
+          type="button"
+          onClick={onClickShare}
+        />
       </div>
       <CheerRelay />
     </>
