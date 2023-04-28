@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useState } from 'react'
 import * as Dialog from '@radix-ui/react-dialog'
 import { useRecoilState } from 'recoil'
 import { addCheerState } from '../../../State/resolutionCheerState'

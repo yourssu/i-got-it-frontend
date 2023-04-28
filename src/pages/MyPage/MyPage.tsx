@@ -23,7 +23,7 @@ const MyPage = () => {
   const [title, setTitle] = useState('')
   const [openMenu, setOpenMenu] = useState(false)
   const [userId] = useRecoilState(userIdState)
-  const [idState, setIdState] = useRecoilState(resolutionIdState)
+  const [idState] = useRecoilState(resolutionIdState)
   const { data: resolution } = useGetResolution(idState)
   const navigate = useNavigate()
 
@@ -41,7 +41,6 @@ const MyPage = () => {
   }
 
   const onClickResolution = () => {
-    console.log('나도 결심 외치기')
     navigate('/login')
   }
 

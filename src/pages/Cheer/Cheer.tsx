@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import NameTag1 from '../../images/Cheer/name_tag_1.svg'
 import NameTag2 from '../../images/Cheer/name_tag_2.svg'
 import NameTag3 from '../../images/Cheer/name_tag_3.svg'

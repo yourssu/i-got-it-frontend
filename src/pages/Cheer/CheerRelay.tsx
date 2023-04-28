@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { useRecoilState } from 'recoil'
 import { addCheerState, cheerCommentState } from '../../State/resolutionCheerState'
 import SelectedCheerDialog from '../../components/Dialog/SelectedCheerDialog/SelectedCheerDialog'
@@ -6,7 +6,7 @@ import BasicDialog from '../../components/Dialog/BasicDialog/BasicDialog'
 import { useGetLetters } from '../../hooks/useGetLetters'
 import Cheer from './Cheer'
 import './CheerRelay.scss'
-import { nicknameState, userIdState } from '../../State/loginState'
+import { userIdState } from '../../State/loginState'
 import NoCheer from './NoCheer'
 import { resolutionIdState } from '../../State/resolutionState'
 
@@ -14,9 +14,7 @@ const CheerRelay = () => {
   const [commentState, setCommentState] = useRecoilState(cheerCommentState)
   const [userId] = useRecoilState(userIdState)
   const [resolutionId] = useRecoilState(resolutionIdState)
-  const [showDialog, setShowDialog] = useState<boolean>(false)
   const [addCheer] = useRecoilState(addCheerState)
-  const [nickname] = useRecoilState(nicknameState)
   const { data: letters, refetch: getLettersRefetch } = useGetLetters(resolutionId, userId)
   const letter = letters?.letters.slice(1)
 
