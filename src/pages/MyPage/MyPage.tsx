@@ -4,6 +4,9 @@ import ToastDemo from '../../components/Toast/ToastDemo'
 import MenuContent from '../MenuContent/MenuContent'
 import './Mypage.scss'
 import CheerRelay from '../Cheer/CheerRelay'
+import { useGetResolution } from '../../hooks/useGetResolution'
+import { useRecoilState } from 'recoil'
+import { resolutionIdState } from '../../State/resolutionState'
 import BoxButton from '../../components/Button/BoxButton'
 
 const ToastMessages = {
@@ -16,6 +19,8 @@ const MyPage = () => {
   const [openToast, setOpenToast] = useState(false)
   const [title, setTitle] = useState('')
   const [openMenu, setOpenMenu] = useState(false)
+  const [idState, setIdState] = useRecoilState(resolutionIdState)
+  const { data: resolution } = useGetResolution(idState)
 
   const onClickMenu = () => {
     setOpenMenu((openMenu) => !openMenu)
@@ -49,28 +54,28 @@ const MyPage = () => {
       <MenuHeader onClick={onClickMenu} />
       <div className="resolution-wrapper">
         <div className="yellow-star">
-          <div className="nickname-resolution">청소기의 “외침”</div>
+          <div className="nickname-resolution">{resolution?.data.nickname}의 “외침”</div>
           <div className="resolution-line" />
           <div
             className="resolution-line"
             id="resolution-line2"
           />
-          <div className="resolution">
-            결심들어가는곳 결심들어가는곳 결심들어가는곳 결심들어가는곳💨💨💨
-          </div>
+          <div className="resolution">{resolution?.data.content}</div>
           <button
             type="button"
             className="envelop"
             onClick={onClickEnvelope}
           />
-
           <ToastDemo
             title={title}
             open={openToast}
             setOpen={setOpenToast}
           />
         </div>
-        <div className="d-day">뱉은 말 회수까지</div>
+        <div className="d-day-wrapper">
+          <span className="d-day d-day-title">뱉은 말 회수까지</span>
+          <span className="d-day d-day-value"> D-{resolution?.data.dday}h</span>
+        </div>
         <div className="letter-line" />
         <BoxButton
           text="링크 공유하러 가기"
