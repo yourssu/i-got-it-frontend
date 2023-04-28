@@ -3,7 +3,7 @@ import Bubble from '../../images/Cheer/comment_bubble.svg'
 import Locker from '../../images/Cheer/locker.svg'
 import { useLongPress } from 'use-long-press'
 import { useRecoilState } from 'recoil'
-import { cheerCommentState } from '../../State/cheerCommentState'
+import { cheerCommentState } from '../../State/resolutionCheerState'
 import { selectedCheerState } from '../../State/resolutionCheerState'
 import { lettersLockedState } from '../../State/lettersLockedState'
 type CommentBubbleType = {

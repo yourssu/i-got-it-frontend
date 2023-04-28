@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useRecoilState } from 'recoil'
-import { cheerCommentState } from '../../State/cheerCommentState'
+import { cheerCommentState } from '../../State/resolutionCheerState'
 import SelectedCheerDialog from '../../components/Dialog/SelectedCheerDialog/SelectedCheerDialog'
 import BasicDialog from '../../components/Dialog/BasicDialog/BasicDialog'
 import { useGetLetters } from '../../hooks/useGetLetters'

@@ -8,3 +8,8 @@ export const selectedCheerState = atom<selectedCheerType>({
     comment: '',
   },
 })
+
+export const cheerCommentState = atom<number>({
+  key: 'cheerCommentState',
+  default: -1,
+})
