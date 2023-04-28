@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import BoxButton from '../../components/Button/BoxButton'
+import BoxButton from '../../components/Button/BoxButton/BoxButton'
 import './Create.scss'
 import { useNavigate } from 'react-router-dom'
 import BackHeader from '../../components/Header/BackHeader'

@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
-import BoxButton from '../../components/Button/BoxButton'
+import BoxButton from '../../components/Button/BoxButton/BoxButton'
 import Letter from '../../images/Letter'
 import './CreateLetter.scss'
 import BackHeader from '../../components/Header/BackHeader'

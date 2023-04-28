@@ -1,7 +1,7 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import './Home.scss'
-import BoxButton from '../../components/Button/BoxButton'
+import BoxButton from '../../components/Button/BoxButton/BoxButton'
 
 const Home = () => {
   const navigate = useNavigate()
