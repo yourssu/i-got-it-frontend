@@ -10,6 +10,8 @@ const ToastMessages = {
   ENVELOPE: `뱉은 말은 결심할 때 설정한\n기한 후에 확인 가능해요.`,
 }
 
+const shareURL = 'share test'
+
 const MyPage = () => {
   const [openToast, setOpenToast] = useState(false)
   const [title, setTitle] = useState('')
@@ -28,8 +30,14 @@ const MyPage = () => {
     showToast(ToastMessages.ENVELOPE)
   }
 
-  const onClickShare = () => {
-    // 링크 받아오기
+  const onClickShare = async () => {
+    // 링크받아오기
+    try {
+      await navigator.clipboard.writeText(shareURL)
+      showToast('링크 복사 완료')
+    } catch (e) {
+      showToast('링크 복사 실패')
+    }
   }
 
   return (
