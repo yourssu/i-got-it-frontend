@@ -10,7 +10,7 @@ export const usePostCode = () => {
   return useMutation(postCode, {
     onMutate() {},
     onSuccess: (data) => {
-      if (data.isNewUser) {
+      if (data.nickname === null) {
         navigate('/nickname')
       } else {
         setNickname(data.nickname)
