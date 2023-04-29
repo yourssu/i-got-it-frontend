@@ -4,7 +4,7 @@ import twinkle_1 from '../../images/Login/twinkle_1.svg'
 import twinkle_2 from '../../images/Login/twinkle_2.svg'
 import character from '../../images/Login/character.svg'
 import kakao_symbol from '../../images/kakao_symbol.svg'
-import '../Login/Login.scss'
+import './Login.scss'
 
 declare global {
   interface Window {
