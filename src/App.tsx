@@ -43,7 +43,7 @@ function App() {
               element={<CreateLetter />}
             />
             <Route
-              path="/mypage/:resolutionId"
+              path="/resolutions/:resolutionId"
               element={<MyPage />}
             />
             <Route
