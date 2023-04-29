@@ -14,6 +14,12 @@ jobs:
       - name: install node modules
         run: yarn install --immutable --immutable-cache --check-cache
 
+      - name: Generate Environment Variables File for Production
+        run: |
+          echo "VITE_KAKAO_JAVASCRIPT_KEY=$VITE_KAKAO_JAVASCRIPT_KEY" >> .env
+        env:
+          VITE_KAKAO_JAVASCRIPT_KEY: ${{ secrets.VITE_KAKAO_JAVASCRIPT_KEY }}
+
       - name: build application
         run: yarn build
 
