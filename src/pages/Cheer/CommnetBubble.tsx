@@ -6,7 +6,7 @@ import { useRecoilState } from 'recoil'
 import { cheerCommentState, showDialogState } from '../../State/resolutionCheerState'
 import { selectedCheerState } from '../../State/resolutionCheerState'
 import { lettersLockedState } from '../../State/lettersLockedState'
-import { userIdState } from '../../State/loginState'
+import { userIdState } from '../../State/userIdState'
 type CommentBubbleType = {
   position: string
   writer: string
