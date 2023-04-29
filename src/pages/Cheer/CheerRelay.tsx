@@ -9,6 +9,7 @@ import './CheerRelay.scss'
 import { userIdState } from '../../State/loginState'
 import NoCheer from './NoCheer'
 import { resolutionIdState } from '../../State/resolutionState'
+import { useDeleteLetters } from '../../hooks/useDeleteLetters'
 
 const CheerRelay = () => {
   const [commentState, setCommentState] = useRecoilState(cheerCommentState)
@@ -16,6 +17,7 @@ const CheerRelay = () => {
   const [resolutionId] = useRecoilState(resolutionIdState)
   const [addCheer] = useRecoilState(addCheerState)
   const { data: letters, refetch: getLettersRefetch } = useGetLetters(resolutionId, userId)
+  const { mutate: deleteLetters } = useDeleteLetters()
   const letter = letters?.letters.slice(1)
 
   useEffect(() => {
@@ -23,7 +25,7 @@ const CheerRelay = () => {
   }, [addCheer])
 
   const handleConfirm = () => {
-    // 삭제시키는 로직 들어갈 예정
+    deleteLetters({ resolutionId: resolutionId, letterId: commentState })
     setCommentState(-1)
   }
 
