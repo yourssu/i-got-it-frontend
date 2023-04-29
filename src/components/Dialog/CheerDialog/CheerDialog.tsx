@@ -8,14 +8,13 @@ import { usePostLetters } from '../../../hooks/usePostLetters'
 import { resolutionIdState } from '../../../State/resolutionState'
 
 const CheerDialog = () => {
-  const [addCheer] = useRecoilState(addCheerState)
+  const [addCheer, setAddCheer] = useRecoilState(addCheerState)
   const [resolutionId] = useRecoilState(resolutionIdState)
   const [nickname, setNickname] = useState<string>('')
   const [checkNickname, setCheckNickname] = useState<boolean>(false)
   const [content, setContent] = useState<string>('')
   const [inputCount, setInputCount] = useState<number>(0)
   const { mutate: postLetters } = usePostLetters()
-  const [, setAddCheer] = useRecoilState(addCheerState)
 
   const handleSubmit = () => {
     postLetters({ resolutionId, nickname, content })
@@ -34,7 +33,7 @@ const CheerDialog = () => {
       setCheckNickname(false)
     }
     for (let item of words) {
-      if (!item.match(/[ㄱ-ㅎ가-힣]/)) {
+      if (!item.match(/[ㄱ-ㅎㅏ-ㅣ가-힣]/)) {
         setCheckNickname(false)
         break
       }
@@ -49,7 +48,13 @@ const CheerDialog = () => {
   return (
     <Dialog.Root open={addCheer}>
       <Dialog.Portal>
-        <Dialog.Overlay className={styles.DialogOverlay} />
+        <Dialog.Overlay
+          onClick={(e) => {
+            e.stopPropagation
+            setAddCheer(false)
+          }}
+          className={styles.DialogOverlay}
+        />
         <Dialog.Content className={styles.DialogContent}>
           <div className={styles.CheerInputWrapper}>
             <div>
@@ -69,6 +74,11 @@ const CheerDialog = () => {
                 placeholder="보낸 사람 이름"
                 maxLength={3}
                 onChange={handleNicknameChange}
+                onInput={(e: any) => {
+                  // 타입 재설정 해야함.
+                  if (e.target.value.length > e.target.maxLength)
+                    e.target.value = e.target.value.slice(0, e.target.maxLength)
+                }}
               />
             </div>
             <div className={styles.TextareaWrapper}>
@@ -81,7 +91,7 @@ const CheerDialog = () => {
                 onChange={handleContentChange}
                 rows={10}
               />
-              <span className={styles.InputCount}>{`${inputCount}/133`}</span>
+              <span className={styles.InputCount}>{`${inputCount} / 133`}</span>
             </div>
           </div>
           <BoxButton

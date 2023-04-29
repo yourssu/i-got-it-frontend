@@ -9,6 +9,7 @@ fieldset
 .DialogOverlay {
   background-color: rgba(0, 0, 0, 0.6);
   position: fixed;
+  z-index: 30;
   inset: 0;
   animation: overlayShow 150ms cubic-bezier(0.16, 1, 0.3, 1);
 }

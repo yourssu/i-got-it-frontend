@@ -80,6 +80,11 @@ const MyPage = () => {
 
   return (
     <>
+      <ToastDemo
+        title={title}
+        open={openToast}
+        setOpen={setOpenToast}
+      />
       <BoxButton
         text={currentUserId == -1 ? '나도 결심 외치기' : '링크 공유하러 가기'}
         type="button"
@@ -116,11 +121,6 @@ const MyPage = () => {
             showDialog={openLetter}
             description={resolution?.data.content}
             onClose={onCloseLetter}
-          />
-          <ToastDemo
-            title={title}
-            open={openToast}
-            setOpen={setOpenToast}
           />
         </div>
         <div className="d-day-wrapper">
