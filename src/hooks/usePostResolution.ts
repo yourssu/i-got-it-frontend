@@ -1,8 +1,8 @@
 import { useMutation } from 'react-query'
-import { postResolution } from '../API/resolution/postResolution'
+import { postResolution } from '@/API/resolution/postResolution'
 import { useNavigate } from 'react-router-dom'
 import { useRecoilState } from 'recoil'
-import { resolutionIdState } from './../State/resolutionState'
+import { resolutionIdState } from '@/State/resolutionState'
 
 export const usePostResolution = () => {
   const navigate = useNavigate()

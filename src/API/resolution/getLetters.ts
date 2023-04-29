@@ -1,4 +1,4 @@
-import { GetLetterResponse } from '../../Types/letter'
+import { GetLetterResponse } from '@/Types/letter'
 import api from '../api'
 
 export const getLetters = async (

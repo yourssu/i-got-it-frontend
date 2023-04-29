@@ -2,7 +2,7 @@ import React from 'react'
 import * as Dialog from '@radix-ui/react-dialog'
 import styles from './SelectedCheerDialog.module.scss'
 import { useRecoilState } from 'recoil'
-import { selectedCheerState, showDialogState } from '../../../State/resolutionCheerState'
+import { selectedCheerState, showDialogState } from '@/State/resolutionCheerState'
 
 const SelectedCheerDialog = () => {
   const [selectedCheer] = useRecoilState(selectedCheerState)

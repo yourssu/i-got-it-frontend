@@ -1,11 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react'
 import './MenuContent.scss'
-import IntroductionDialog from '../../components/Dialog/IntroductionDialog/IntroductionDialog'
-import ProducerDialog from '../../components/Dialog/ProducerDialog/ProducerDialog'
+import IntroductionDialog from '@/components/Dialog/IntroductionDialog/IntroductionDialog'
+import ProducerDialog from '@/components/Dialog/ProducerDialog/ProducerDialog'
 import { useNavigate } from 'react-router-dom'
-import BasicDialog from '../../components/Dialog/BasicDialog/BasicDialog'
+import BasicDialog from '@/components/Dialog/BasicDialog/BasicDialog'
 import { useRecoilState } from 'recoil'
-import { nicknameState } from '../../State/nicknameState'
+import { nicknameState } from '@/State/nicknameState'
 
 const MenuContent = ({
   openMenu,

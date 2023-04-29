@@ -1,4 +1,4 @@
-import { PostLetterResponse } from '../../Types/letter'
+import { PostLetterResponse } from '@/Types/letter'
 import api from '../api'
 
 export const postLetters = async (params: {

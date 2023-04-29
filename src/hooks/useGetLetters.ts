@@ -1,8 +1,8 @@
 import { useQuery } from 'react-query'
 import { useRecoilState } from 'recoil'
-import { getLetters } from '../API/resolution/getLetters'
-import { GetLetterResponse } from '../Types/letter'
-import { lettersLockedState } from '../State/lettersLockedState'
+import { getLetters } from '@/API/resolution/getLetters'
+import { GetLetterResponse } from '@/Types/letter'
+import { lettersLockedState } from '@/State/lettersLockedState'
 
 export const useGetLetters = (resolutionId: number, userId: number) => {
   const [, setLettersLockedState] = useRecoilState(lettersLockedState)
