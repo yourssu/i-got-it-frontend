@@ -6,7 +6,7 @@ import BasicDialog from '../../components/Dialog/BasicDialog/BasicDialog'
 import { useGetLetters } from '../../hooks/useGetLetters'
 import Cheer from './Cheer'
 import './CheerRelay.scss'
-import { userIdState } from '../../State/loginState'
+import { userIdState } from '../../State/userIdState'
 import NoCheer from './NoCheer'
 import { resolutionIdState } from '../../State/resolutionState'
 
