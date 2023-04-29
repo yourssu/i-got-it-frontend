@@ -16,9 +16,7 @@ const Create = () => {
     navigate('/')
   }
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault()
-
+  const handleSubmit = () => {
     setResolutionRecoilState(resolution)
     navigate('/create-letter')
   }
@@ -35,10 +33,7 @@ const Create = () => {
   return (
     <>
       <BackHeader onClick={onClickBack} />
-      <form
-        className="create-form"
-        onSubmit={handleSubmit}
-      >
+      <form className="create-form">
         <label className="title">기간</label>
         <div className="description">선택한 기간 경과 시 뱉은 말을 돌려드립니다.</div>
         <div className="wapper-date-button">
@@ -53,18 +48,6 @@ const Create = () => {
             className="button-date"
           >
             작심 3일
-          </label>
-          <input
-            type="radio"
-            className="button-date"
-            name="date"
-            id="date30"
-          />
-          <label
-            htmlFor="date30"
-            className="button-date"
-          >
-            작심 30일
           </label>
         </div>
         <label className="title">결심</label>
@@ -91,11 +74,12 @@ const Create = () => {
           />
           <span className="resolutioin-text-count">{inputCount} / 33</span>
         </div>
-        <BoxButton
-          type="submit"
-          text="다음"
-        />
       </form>
+      <BoxButton
+        type="submit"
+        text="다음"
+        onClick={handleSubmit}
+      />
     </>
   )
 }

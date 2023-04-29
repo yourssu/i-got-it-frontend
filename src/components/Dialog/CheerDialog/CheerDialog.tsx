@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useState } from 'react'
 import * as Dialog from '@radix-ui/react-dialog'
 import { useRecoilState } from 'recoil'
 import { addCheerState } from '../../../State/resolutionCheerState'
@@ -15,21 +15,6 @@ const CheerDialog = () => {
   const [content, setContent] = useState<string>('')
   const [inputCount, setInputCount] = useState<number>(0)
   const { mutate: postLetters } = usePostLetters()
-
-  const ref = useRef<HTMLDivElement>(null)
-
-  useEffect(() => {
-    const handleClose = (e: MouseEvent) => {
-      if (addCheer && ref.current && !ref.current.contains(e.target as HTMLElement)) {
-        setAddCheer(false)
-      }
-    }
-
-    document.addEventListener('mousedown', handleClose)
-    return () => {
-      document.removeEventListener('mousedown', handleClose)
-    }
-  }, [addCheer])
 
   const handleSubmit = () => {
     postLetters({ resolutionId, nickname, content })
@@ -63,11 +48,14 @@ const CheerDialog = () => {
   return (
     <Dialog.Root open={addCheer}>
       <Dialog.Portal>
-        <Dialog.Overlay className={styles.DialogOverlay} />
-        <Dialog.Content
-          className={styles.DialogContent}
-          ref={ref}
-        >
+        <Dialog.Overlay
+          onClick={(e) => {
+            e.stopPropagation
+            setAddCheer(false)
+          }}
+          className={styles.DialogOverlay}
+        />
+        <Dialog.Content className={styles.DialogContent}>
           <div className={styles.CheerInputWrapper}>
             <div>
               <div
@@ -106,7 +94,7 @@ const CheerDialog = () => {
                     e.target.value = e.target.value.slice(0, e.target.maxLength)
                 }}
               />
-              <span className={styles.InputCount}>{`${inputCount}/133`}</span>
+              <span className={styles.InputCount}>{`${inputCount} / 133`}</span>
             </div>
           </div>
           <BoxButton

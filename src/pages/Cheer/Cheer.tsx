@@ -6,7 +6,7 @@ import UserNameTag from './UserNameTag'
 import CommentBubble from './CommnetBubble'
 import { useRecoilState } from 'recoil'
 import { GetLetterInfo } from '../../Types/letter'
-import { userIdState } from '../../State/loginState'
+import { userIdState } from '../../State/userIdState'
 import AddButton from '../../components/Button/AddButton/AddButton'
 
 type test = {

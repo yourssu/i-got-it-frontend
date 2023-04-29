@@ -11,5 +11,5 @@
 
 .App {
   min-height: calc(var(--vh, 1vh) * 100);
-  transform: rotate(0);
+  overflow: auto;
 }
