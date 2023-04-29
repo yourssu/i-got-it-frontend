@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import './MenuContent.scss'
 import IntroductionDialog from '../../components/Dialog/IntroductionDialog/IntroductionDialog'
 import ProducerDialog from '../../components/Dialog/ProducerDialog/ProducerDialog'

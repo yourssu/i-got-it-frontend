@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom'
-import { useState } from 'react'
+import React, { useState } from 'react'
 import BoxButton from '../../components/Button/BoxButton/BoxButton'
 import Letter from '../../images/Letter'
 import './CreateLetter.scss'
@@ -58,7 +58,7 @@ const CreateLetter = () => {
           <Letter />
           <textarea
             className="letter-input"
-            placeholder={`미래의 나에게 전하고 싶은 메시지를 입력하세요.`}
+            placeholder={'미래의 나에게 전하고 싶은 메시지를 입력하세요.'}
             required
             maxLength={133}
             value={message}

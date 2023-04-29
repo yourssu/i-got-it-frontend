@@ -25,7 +25,7 @@ const Nickname = () => {
     } else if (event.target.value.length == 0) {
       setCheckNickname(false)
     }
-    for (let item of words) {
+    for (const item of words) {
       if (!item.match(/[ㄱ-ㅎ가-힣0-9a-z,A-Z._]/)) {
         setCheckNickname(false)
         break

@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import React, { BrowserRouter, Routes, Route } from 'react-router-dom'
 import * as Toast from '@radix-ui/react-toast'
 import './App.scss'
 import Home from './pages/Home/Home'

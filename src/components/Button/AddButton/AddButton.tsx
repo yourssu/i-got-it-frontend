@@ -1,3 +1,4 @@
+import React from 'react'
 import Bubble from '../../../images/Cheer/comment_bubble.svg'
 import AddIcon from '../../../images/Cheer/add_icon.svg'
 import './AddButton.scss'

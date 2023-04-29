@@ -1,4 +1,5 @@
 //import { ReactMarkdown } from 'react-markdown/lib/react-markdown'
+import React from 'react'
 import styles from './Terms.module.scss'
 import { useNavigate } from 'react-router-dom'
 //import remarkGfm from 'remark-gfm'

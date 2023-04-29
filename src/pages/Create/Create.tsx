@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import React, { useState } from 'react'
 import BoxButton from '../../components/Button/BoxButton/BoxButton'
 import './Create.scss'
 import { useNavigate } from 'react-router-dom'
