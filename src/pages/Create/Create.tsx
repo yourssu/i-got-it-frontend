@@ -54,18 +54,6 @@ const Create = () => {
           >
             작심 3일
           </label>
-          <input
-            type="radio"
-            className="button-date"
-            name="date"
-            id="date30"
-          />
-          <label
-            htmlFor="date30"
-            className="button-date"
-          >
-            작심 30일
-          </label>
         </div>
         <label className="title">결심</label>
         <div className="description">결심은 공개되어서 남들에게 보여요!</div>
