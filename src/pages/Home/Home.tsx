@@ -6,7 +6,7 @@ import MenuHeader from '../../components/Header/MenuHeader'
 import MenuContent from '../MenuContent/MenuContent'
 import { useRecoilValue } from 'recoil'
 import { resolutionIdState } from '../../State/resolutionState'
-import { userIdState } from '../../State/loginState'
+import { userIdState } from '../../State/userIdState'
 
 const Home = () => {
   const navigate = useNavigate()
