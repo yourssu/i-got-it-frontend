@@ -57,6 +57,10 @@ const Nickname = () => {
           maxLength={3}
           value={nickname}
           onChange={handleChange}
+          onInput={(e: React.ChangeEvent<HTMLInputElement>) => {
+            if (e.target.value.length > e.target.maxLength)
+              e.target.value = e.target.value.slice(0, e.target.maxLength)
+          }}
         />
         <div className="nickname-warning">닉네임은 이후 수정이 불가하니 신중히 정해주세요!</div>
         <BoxButton

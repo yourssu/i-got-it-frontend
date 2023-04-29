@@ -86,8 +86,7 @@ const CheerDialog = () => {
                 placeholder="보낸 사람 이름"
                 maxLength={3}
                 onChange={handleNicknameChange}
-                onInput={(e: any) => {
-                  // 타입 재설정 해야함.
+                onInput={(e: React.ChangeEvent<HTMLInputElement>) => {
                   if (e.target.value.length > e.target.maxLength)
                     e.target.value = e.target.value.slice(0, e.target.maxLength)
                 }}
@@ -102,6 +101,10 @@ const CheerDialog = () => {
                 placeholder="친구에게 응원의 한마디를 전해주세요."
                 onChange={handleContentChange}
                 rows={10}
+                onInput={(e: React.ChangeEvent<HTMLTextAreaElement>) => {
+                  if (e.target.value.length > e.target.maxLength)
+                    e.target.value = e.target.value.slice(0, e.target.maxLength)
+                }}
               />
               <span className={styles.InputCount}>{`${inputCount}/133`}</span>
             </div>
