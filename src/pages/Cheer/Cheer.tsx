@@ -33,6 +33,7 @@ const Cheer = ({ isHost, letters }: CheerProps) => {
                 writer={data.nickname}
                 comment={data.content}
                 commentId={index} // data.letterId로 변경 예정
+                isHost={isHost}
               />
             </section>
           )
@@ -47,6 +48,7 @@ const Cheer = ({ isHost, letters }: CheerProps) => {
                 writer={data.nickname}
                 comment={data.content}
                 commentId={index} // data.letterId로 변경 예정
+                isHost={isHost}
               />
               <UserNameTag
                 writer={data.nickname}
