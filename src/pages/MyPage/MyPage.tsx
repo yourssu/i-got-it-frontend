@@ -28,11 +28,9 @@ const MyPage = () => {
   const [openMenu, setOpenMenu] = useState(false)
   const [openLetter, setOpenLetter] = useState(false)
   const [currentUserId] = useRecoilState(userIdState)
-  const [resolutionId, setResolutionId] = useRecoilState(resolutionIdState)
+  const [resolutionId] = useRecoilState(resolutionIdState)
   const paramsId = useParams()
-  const { data: resolution } = useGetResolution(
-    resolutionId == -1 ? Number(paramsId.resolutionId) : resolutionId
-  )
+  const { data: resolution } = useGetResolution(Number(paramsId.resolutionId))
   const navigate = useNavigate()
 
   const onClickMenu = () => {
@@ -133,7 +131,7 @@ const MyPage = () => {
         </div>
         <div className="letter-line" />
       </div>
-      <CheerRelay isHost={resolution!.data.userId == currentUserId} />
+      <CheerRelay isHost={resolution?.data.userId == currentUserId} />
       <CheerDialog />
     </>
   )

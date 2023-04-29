@@ -8,16 +8,19 @@ import { usePostLetters } from '../../../hooks/usePostLetters'
 import { resolutionIdState } from '../../../State/resolutionState'
 import { useGetLetters } from '../../../hooks/useGetLetters'
 import { userIdState } from '../../../State/userIdState'
+import { useParams } from 'react-router-dom'
 
 const CheerDialog = () => {
   const [addCheer, setAddCheer] = useRecoilState(addCheerState)
-  const [resolutionId] = useRecoilState(resolutionIdState)
+  //const [resolutionId] = useRecoilState(resolutionIdState)
   const [userId] = useRecoilState(userIdState)
   const [nickname, setNickname] = useState<string>('')
   const [checkNickname, setCheckNickname] = useState<boolean>(false)
   const [content, setContent] = useState<string>('')
   const [inputCount, setInputCount] = useState<number>(0)
   const { data: letters, mutate: postLetters } = usePostLetters()
+  const paramsId = useParams()
+  const resolutionId = Number(paramsId.resolutionId)
   const { refetch: getLetterRefetch } = useGetLetters(resolutionId, userId)
 
   useEffect(() => {
