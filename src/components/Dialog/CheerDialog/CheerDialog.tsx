@@ -34,7 +34,7 @@ const CheerDialog = () => {
       setCheckNickname(false)
     }
     for (let item of words) {
-      if (!item.match(/[ㄱ-ㅎ가-힣]/)) {
+      if (!item.match(/[ㄱ-ㅎㅏ-ㅣ가-힣]/)) {
         setCheckNickname(false)
         break
       }
@@ -69,6 +69,11 @@ const CheerDialog = () => {
                 placeholder="보낸 사람 이름"
                 maxLength={3}
                 onChange={handleNicknameChange}
+                onInput={(e: any) => {
+                  // 타입 재설정 해야함.
+                  if (e.target.value.length > e.target.maxLength)
+                    e.target.value = e.target.value.slice(0, e.target.maxLength)
+                }}
               />
             </div>
             <div className={styles.TextareaWrapper}>
