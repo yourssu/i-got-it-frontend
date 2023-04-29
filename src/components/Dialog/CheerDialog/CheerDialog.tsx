@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import * as Dialog from '@radix-ui/react-dialog'
 import { useRecoilState } from 'recoil'
 import { addCheerState } from '../../../State/resolutionCheerState'
@@ -8,14 +8,28 @@ import { usePostLetters } from '../../../hooks/usePostLetters'
 import { resolutionIdState } from '../../../State/resolutionState'
 
 const CheerDialog = () => {
-  const [addCheer] = useRecoilState(addCheerState)
+  const [addCheer, setAddCheer] = useRecoilState(addCheerState)
   const [resolutionId] = useRecoilState(resolutionIdState)
   const [nickname, setNickname] = useState<string>('')
   const [checkNickname, setCheckNickname] = useState<boolean>(false)
   const [content, setContent] = useState<string>('')
   const [inputCount, setInputCount] = useState<number>(0)
   const { mutate: postLetters } = usePostLetters()
-  const [, setAddCheer] = useRecoilState(addCheerState)
+
+  const ref = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const handleClose = (e: MouseEvent) => {
+      if (addCheer && ref.current && !ref.current.contains(e.target as HTMLElement)) {
+        setAddCheer(false)
+      }
+    }
+
+    document.addEventListener('mousedown', handleClose)
+    return () => {
+      document.removeEventListener('mousedown', handleClose)
+    }
+  }, [addCheer])
 
   const handleSubmit = () => {
     postLetters({ resolutionId, nickname, content })
@@ -50,7 +64,10 @@ const CheerDialog = () => {
     <Dialog.Root open={addCheer}>
       <Dialog.Portal>
         <Dialog.Overlay className={styles.DialogOverlay} />
-        <Dialog.Content className={styles.DialogContent}>
+        <Dialog.Content
+          className={styles.DialogContent}
+          ref={ref}
+        >
           <div className={styles.CheerInputWrapper}>
             <div>
               <div
