@@ -96,11 +96,19 @@ const MyPage = () => {
             id="resolution-line2"
           />
           <div className="resolution">{resolution?.data.content}</div>
-          <button
-            type="button"
-            className="envelop"
-            onClick={onClickEnvelope}
-          />
+          {resolution?.data.status === 'INPROGRESS' ? (
+            <button
+              type="button"
+              className="envelop"
+              onClick={onClickEnvelope}
+            />
+          ) : (
+            <button
+              type="button"
+              className="non-lock-envelop"
+              onClick={onClickEnvelope}
+            />
+          )}
           <LetterDialog
             showDialog={openLetter}
             description={resolution?.data.content}
@@ -113,8 +121,14 @@ const MyPage = () => {
           />
         </div>
         <div className="d-day-wrapper">
-          <span className="d-day d-day-title">뱉은 말 회수까지</span>
-          <span className="d-day d-day-value"> D-{resolution?.data.dday}h</span>
+          {resolution?.data.status === 'INPROGRESS' ? (
+            <span className="d-day d-day-title">뱉은 말 회수까지</span>
+          ) : (
+            <span className="d-day d-day-title">뱉은 말도 다시 보자 !</span>
+          )}
+          {resolution?.data.status === 'INPROGRESS' ? (
+            <span className="d-day d-day-value"> D-{resolution?.data.dday}h</span>
+          ) : null}
         </div>
         <div className="letter-line" />
       </div>
