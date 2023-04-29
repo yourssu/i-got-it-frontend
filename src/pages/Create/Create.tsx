@@ -75,11 +75,11 @@ const Create = () => {
           />
           <span className="resolutioin-text-count">{inputCount} / 33</span>
         </div>
-        <BoxButton
-          type="submit"
-          text="다음"
-        />
       </form>
+      <BoxButton
+        type="submit"
+        text="다음"
+      />
     </>
   )
 }

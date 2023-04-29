@@ -63,19 +63,19 @@ const CreateLetter = () => {
             cols={17}
             rows={10}
           />
+          <span className="letter-text-count">{inputCount} / 133</span>
         </div>
-        <span className="letter-text-count">{inputCount} / 133</span>
         <EmailDialog
           onConfirm={handleConfirm}
           onReject={handleReject}
           showDialog={showDialog}
         />
-        <BoxButton
-          type="submit"
-          text="작성 완료"
-          isDisabled={!message}
-        />
       </form>
+      <BoxButton
+        type="submit"
+        text="작성 완료"
+        isDisabled={!message}
+      />
     </>
   )
 }

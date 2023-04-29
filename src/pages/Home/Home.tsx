@@ -46,12 +46,12 @@ const Home = () => {
       본격 공개 처형 프로젝트`}</div>
         </div>
         <div className="recommend"> ↘ 아가리에 다짐을 외쳐보세요 ↙ </div>
-        <BoxButton
-          type="button"
-          text="결심하기"
-          onClick={onClick}
-        />
       </div>
+      <BoxButton
+        type="button"
+        text="결심하기"
+        onClick={onClick}
+      />
     </>
   )
 }

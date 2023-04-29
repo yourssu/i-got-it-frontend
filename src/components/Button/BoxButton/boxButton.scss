@@ -1,8 +1,8 @@
 .box-button {
   position: fixed;
-  right: 16px;
-  bottom: 16px;
-  left: 16px;
+  bottom: 6px;
+  margin: 0px 30px;
+  width: 330px;
   height: 56px;
   display: flex;
   align-items: center;
@@ -11,7 +11,6 @@
   font-family: 'NeoDunggeunmo';
   font-size: 16px;
   background-color: var(--button-pointed);
-  border-radius: 0;
   z-index: 2;
 
   &:disabled {
