@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import MenuHeader from '../../components/Header/MenuHeader'
 import ToastDemo from '../../components/Toast/ToastDemo'
 import MenuContent from '../MenuContent/MenuContent'
@@ -10,7 +10,7 @@ import CheerDialog from '../../components/Dialog/CheerDialog/CheerDialog'
 import { useGetResolution } from '../../hooks/useGetResolution'
 import { useRecoilState } from 'recoil'
 import { resolutionIdState } from '../../State/resolutionState'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 
 const ToastMessages = {
   ENVELOPE: `뱉은 말은 결심할 때 설정한\n기한 후에 확인 가능해요.`,
@@ -23,7 +23,8 @@ const MyPage = () => {
   const [title, setTitle] = useState('')
   const [openMenu, setOpenMenu] = useState(false)
   const [userId] = useRecoilState(userIdState)
-  const [resolutionId] = useRecoilState(resolutionIdState)
+  const [resolutionId, setResolutionId] = useRecoilState(resolutionIdState)
+  const paramsId = useParams()
   const { data: resolution } = useGetResolution(resolutionId)
   const navigate = useNavigate()
 
@@ -52,6 +53,10 @@ const MyPage = () => {
       showToast('링크 복사 실패')
     }
   }
+
+  useEffect(() => {
+    setResolutionId(Number(paramsId.resolutionId))
+  })
 
   return (
     <>
