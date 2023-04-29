@@ -23,8 +23,8 @@ const MyPage = () => {
   const [title, setTitle] = useState('')
   const [openMenu, setOpenMenu] = useState(false)
   const [userId] = useRecoilState(userIdState)
-  const [idState] = useRecoilState(resolutionIdState)
-  const { data: resolution } = useGetResolution(idState)
+  const [resolutionId] = useRecoilState(resolutionIdState)
+  const { data: resolution } = useGetResolution(resolutionId)
   const navigate = useNavigate()
 
   const onClickMenu = () => {
