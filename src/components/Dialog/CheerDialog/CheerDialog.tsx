@@ -103,7 +103,7 @@ const CheerDialog = () => {
                 onChange={handleContentChange}
                 rows={10}
               />
-              <span className={styles.InputCount}>{`${inputCount}/133`}</span>
+              <span className={styles.InputCount}>{`${inputCount} / 133`}</span>
             </div>
           </div>
           <BoxButton
