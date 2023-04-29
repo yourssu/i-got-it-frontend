@@ -3,7 +3,7 @@ import * as Toast from '@radix-ui/react-toast'
 import './App.scss'
 import Home from './pages/Home/Home'
 import './styles/color.scss'
-import './styles/Font.css'
+import './styles/font.css'
 import Login from './pages/Login/Login'
 import KakaoRedirect from './pages/atoms/KakaoRedirect'
 import Nickname from './pages/Nickname/Nickname'
@@ -43,7 +43,7 @@ function App() {
               element={<CreateLetter />}
             />
             <Route
-              path="/mypage/:resolutionId"
+              path="/resolutions/:resolutionId"
               element={<MyPage />}
             />
             <Route
