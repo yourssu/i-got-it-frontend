@@ -10,7 +10,7 @@ import { userIdState } from '../../State/userIdState'
 import NoCheer from './NoCheer'
 import { resolutionIdState } from '../../State/resolutionState'
 
-const CheerRelay = () => {
+const CheerRelay = ({ isHost }: { isHost: boolean }) => {
   const [commentState, setCommentState] = useRecoilState(cheerCommentState)
   const [userId] = useRecoilState(userIdState)
   const [resolutionId] = useRecoilState(resolutionIdState)
@@ -34,8 +34,13 @@ const CheerRelay = () => {
   return (
     <div className="cheer-container">
       <div className="cheer-title">~응원의 릴레이~</div>
-      {letter && letter.length == 0 ? <NoCheer /> : null}
-      {letter && letter.length > 0 ? <Cheer letters={letter} /> : null}
+      {letter && letter.length == 0 ? <NoCheer isHost={isHost} /> : null}
+      {letter && letter.length > 0 ? (
+        <Cheer
+          isHost={isHost}
+          letters={letter}
+        />
+      ) : null}
       <BasicDialog
         showDialog={commentState != -1}
         title="말풍선을 삭제하시겠어요?"

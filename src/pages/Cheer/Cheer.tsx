@@ -4,21 +4,19 @@ import NameTag2 from '../../images/Cheer/name_tag_2.svg'
 import NameTag3 from '../../images/Cheer/name_tag_3.svg'
 import UserNameTag from './UserNameTag'
 import CommentBubble from './CommnetBubble'
-import { useRecoilState } from 'recoil'
 import { GetLetterInfo } from '../../Types/letter'
-import { userIdState } from '../../State/userIdState'
 import AddButton from '../../components/Button/AddButton/AddButton'
 
-type test = {
+type CheerProps = {
+  isHost: boolean
   letters: GetLetterInfo[] | null
 }
-const Cheer = ({ letters }: test) => {
+const Cheer = ({ isHost, letters }: CheerProps) => {
   const imgPath = [NameTag1, NameTag2, NameTag3]
-  const [userId] = useRecoilState(userIdState)
 
   return (
     <div className="cheer">
-      {userId == -1 ? <AddButton /> : null}
+      {!isHost ? <AddButton /> : null}
       {letters!.map((data: GetLetterInfo, index: number) => {
         if (index % 2 == 0) {
           return (

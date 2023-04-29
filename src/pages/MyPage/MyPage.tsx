@@ -30,7 +30,9 @@ const MyPage = () => {
   const [currentUserId] = useRecoilState(userIdState)
   const [resolutionId, setResolutionId] = useRecoilState(resolutionIdState)
   const paramsId = useParams()
-  const { data: resolution } = useGetResolution(resolutionId)
+  const { data: resolution } = useGetResolution(
+    resolutionId == -1 ? Number(paramsId.resolutionId) : resolutionId
+  )
   const navigate = useNavigate()
 
   const onClickMenu = () => {
@@ -73,10 +75,6 @@ const MyPage = () => {
       showToast(ToastMessages.ERROR_SHARE)
     }
   }
-
-  useEffect(() => {
-    setResolutionId(Number(paramsId.resolutionId))
-  })
 
   return (
     <>
@@ -135,7 +133,7 @@ const MyPage = () => {
         </div>
         <div className="letter-line" />
       </div>
-      <CheerRelay />
+      <CheerRelay isHost={resolution!.data.userId == currentUserId} />
       <CheerDialog />
     </>
   )
