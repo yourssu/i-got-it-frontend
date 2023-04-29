@@ -1,13 +1,16 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import MenuHeader from '../../components/Header/MenuHeader'
 import ToastDemo from '../../components/Toast/ToastDemo'
 import MenuContent from '../MenuContent/MenuContent'
 import './Mypage.scss'
 import CheerRelay from '../Cheer/CheerRelay'
+import { userIdState } from '../../State/loginState'
+import BoxButton from '../../components/Button/BoxButton/BoxButton'
+import CheerDialog from '../../components/Dialog/CheerDialog/CheerDialog'
 import { useGetResolution } from '../../hooks/useGetResolution'
 import { useRecoilState } from 'recoil'
 import { resolutionIdState } from '../../State/resolutionState'
-import BoxButton from '../../components/Button/BoxButton'
+import { useNavigate, useParams } from 'react-router-dom'
 
 const ToastMessages = {
   ENVELOPE: `뱉은 말은 결심할 때 설정한\n기한 후에 확인 가능해요.`,
@@ -19,8 +22,11 @@ const MyPage = () => {
   const [openToast, setOpenToast] = useState(false)
   const [title, setTitle] = useState('')
   const [openMenu, setOpenMenu] = useState(false)
-  const [idState, setIdState] = useRecoilState(resolutionIdState)
-  const { data: resolution } = useGetResolution(idState)
+  const [userId] = useRecoilState(userIdState)
+  const [resolutionId, setResolutionId] = useRecoilState(resolutionIdState)
+  const paramsId = useParams()
+  const { data: resolution } = useGetResolution(resolutionId)
+  const navigate = useNavigate()
 
   const onClickMenu = () => {
     setOpenMenu((openMenu) => !openMenu)
@@ -35,8 +41,11 @@ const MyPage = () => {
     showToast(ToastMessages.ENVELOPE)
   }
 
-  const onClickShare = async () => {
-    // 링크받아오기
+  const onClickResolution = () => {
+    navigate('/login')
+  }
+
+  const onClickShareLink = async () => {
     try {
       await navigator.clipboard.writeText(shareURL)
       showToast('링크 복사 완료')
@@ -45,8 +54,17 @@ const MyPage = () => {
     }
   }
 
+  useEffect(() => {
+    setResolutionId(Number(paramsId.resolutionId))
+  })
+
   return (
     <>
+      <BoxButton
+        text={userId == -1 ? '나도 결심 외치기' : '링크 공유하러 가기'}
+        type="button"
+        onClick={userId == -1 ? onClickResolution : onClickShareLink}
+      />
       <MenuContent
         openMenu={openMenu}
         setOpenMenu={setOpenMenu}
@@ -77,13 +95,9 @@ const MyPage = () => {
           <span className="d-day d-day-value"> D-{resolution?.data.dday}h</span>
         </div>
         <div className="letter-line" />
-        <BoxButton
-          text="링크 공유하러 가기"
-          type="button"
-          onClick={onClickShare}
-        />
       </div>
       <CheerRelay />
+      <CheerDialog />
     </>
   )
 }

@@ -1,16 +1,18 @@
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import './Home.scss'
-import BoxButton from '../../components/Button/BoxButton'
+import BoxButton from '../../components/Button/BoxButton/BoxButton'
 import MenuHeader from '../../components/Header/MenuHeader'
 import MenuContent from '../MenuContent/MenuContent'
 import { useRecoilValue } from 'recoil'
 import { resolutionIdState } from '../../State/resolutionState'
+import { userIdState } from '../../State/loginState'
 
 const Home = () => {
   const navigate = useNavigate()
   const [openMenu, setOpenMenu] = useState(false)
   const resolutionId = useRecoilValue(resolutionIdState)
+  const userId = useRecoilValue(userIdState)
 
   const onClickMenu = () => {
     setOpenMenu((openMenu) => !openMenu)
@@ -21,9 +23,12 @@ const Home = () => {
   }
 
   useEffect(() => {
-    if (resolutionId !== null) {
-      navigate(`/mypage`)
+    if (resolutionId !== -1) {
+      navigate(`/mypage/${resolutionId}`)
+    } else if (userId === -1) {
+      navigate('/login')
     }
+    console.log(userId)
     console.log(resolutionId)
   })
 

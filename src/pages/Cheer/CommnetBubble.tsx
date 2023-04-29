@@ -3,47 +3,49 @@ import Bubble from '../../images/Cheer/comment_bubble.svg'
 import Locker from '../../images/Cheer/locker.svg'
 import { useLongPress } from 'use-long-press'
 import { useRecoilState } from 'recoil'
-import { cheerCommentState } from '../../State/cheerCommentState'
-import { selectedCheerState } from '../../State/selectedCheerState'
+import { cheerCommentState, showDialogState } from '../../State/resolutionCheerState'
+import { selectedCheerState } from '../../State/resolutionCheerState'
+import { lettersLockedState } from '../../State/lettersLockedState'
+import { userIdState } from '../../State/loginState'
 type CommentBubbleType = {
   position: string
   writer: string
   comment: string
   commentId: number
-  setShowDialog: (showDialog: boolean) => void
 }
 
-const CommentBubble = ({
-  position,
-  writer,
-  comment,
-  commentId,
-  setShowDialog,
-}: CommentBubbleType) => {
+const CommentBubble = ({ position, writer, comment, commentId }: CommentBubbleType) => {
   const [, setCommentState] = useRecoilState(cheerCommentState)
   const [, setSelectedCheerState] = useRecoilState(selectedCheerState)
+  const [lettersLocked] = useRecoilState(lettersLockedState)
+  const [userId] = useRecoilState(userIdState)
+  const [, setShowDialog] = useRecoilState(showDialogState)
 
   const handleLongPress = useLongPress(() => {
-    setCommentState(commentId)
+    if (userId != -1) setCommentState(commentId)
   })
 
   const handleClick = () => {
-    setShowDialog(true)
-    setSelectedCheerState({ writer, comment })
+    if (!lettersLocked) {
+      setShowDialog(true)
+      setSelectedCheerState({ writer, comment })
+    }
   }
 
   return (
     <div
-      className="bubble-wrapper"
+      className={`bubble-wrapper ${userId != -1 || !lettersLocked ? 'cursor' : null}`}
       onClick={handleClick}
       {...handleLongPress()}
     >
-      <img
-        className="bubble-locker"
-        src={Locker}
-        alt={Locker}
-      />
-      <span className="bubble-comment">
+      {lettersLocked ? (
+        <img
+          className="bubble-locker"
+          src={Locker}
+          alt={Locker}
+        />
+      ) : null}
+      <span className={`bubble-comment ${lettersLocked ? 'locked' : null}`}>
         {comment.length > 8 ? comment.substring(0, 8) + '...' : comment}
       </span>
       <img

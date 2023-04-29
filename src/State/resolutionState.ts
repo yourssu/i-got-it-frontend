@@ -7,5 +7,5 @@ export const resolutionState = atom<string>({
 
 export const resolutionIdState = atom<number>({
   key: 'resolutionIdState',
-  default: 0,
+  default: -1,
 })

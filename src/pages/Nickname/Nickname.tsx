@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useRecoilState } from 'recoil'
-import { nicknameState } from '../../State/nicknameState'
-import BoxButton from '../../components/Button/BoxButton'
+import { nicknameState } from '../../State/loginState'
+import BoxButton from '../../components/Button/BoxButton/BoxButton'
 import { usePostNickname } from '../../hooks/usePostNickname'
 import './Nickname.scss'
 
@@ -26,7 +26,7 @@ const Nickname = () => {
       setCheckNickname(false)
     }
     for (let item of words) {
-      if (!item.match(/[ㄱ-ㅎ가-힣0-9a-z,._]/)) {
+      if (!item.match(/[ㄱ-ㅎ가-힣0-9a-z,A-Z._]/)) {
         setCheckNickname(false)
         break
       }
@@ -40,9 +40,17 @@ const Nickname = () => {
       </div>
       <div className="nickname-input-wrapper">
         <label className="nickname-input-title">닉네임을 입력하세요.</label>
-        <div className="nickname-rule">최대 3자까지, 한글, 영어, 숫자, (, . _) 가능</div>
+        <div
+          className={`nickname-rule ${
+            !checkNickname && nickname != '' ? 'rule-negative' : 'rule-positive'
+          }`}
+        >
+          최대 3자까지, 한글, 영어, 숫자, (, . _) 가능
+        </div>
         <input
-          className={`nickname-input ${!checkNickname && nickname != '' ? 'negative' : 'positive'}`}
+          className={`nickname-input ${
+            !checkNickname && nickname != '' ? 'input-negative' : 'input-positive'
+          }`}
           type="text"
           placeholder="닉네임"
           required

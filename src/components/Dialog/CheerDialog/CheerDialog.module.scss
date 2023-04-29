@@ -1,0 +1,107 @@
+/* reset */
+button,
+fieldset
+// input
+{
+  all: unset;
+}
+
+.DialogOverlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  animation: overlayShow 150ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.DialogContent {
+  background-image: url('../../../images/Cheer/thinking_bubble.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  min-width: 350px;
+  min-height: 630px;
+  top: 52%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: contentShow 150ms cubic-bezier(0.16, 1, 0.3, 1);
+
+  .CheerInputWrapper {
+    margin-top: 30px;
+    width: 310px;
+    height: 270px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .NicknameInputRule {
+      position: relative;
+      font-family: 'Pretendard';
+      color: var(--text-teritary);
+      font-weight: 400;
+      font-size: 12px;
+      margin: 5px;
+    }
+
+    .NicknameInput {
+      padding: 12px;
+      width: 150px;
+    }
+
+    .NicknameInput:focus {
+      outline: none;
+    }
+
+    .RuleNegative {
+      color: #ff5252;
+    }
+
+    .RulePositive {
+      color: black;
+    }
+
+    .InputNegative {
+      border: 2px solid #ff5252;
+    }
+
+    .InputPositive {
+      border: 2px solid black;
+    }
+
+    .TextareaWrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 290px;
+      margin-top: 20px;
+
+      .CheerInput {
+        resize: none;
+        width: 90%;
+        outline: none;
+        border: none;
+        font-family: 'NeoDunggeunmo';
+        font-weight: 400;
+        font-size: 15px;
+        color: black;
+        white-space: pre-line;
+        line-height: 1.2;
+        min-height: 10px;
+      }
+
+      .InputCount {
+        color: var(--text-teritary);
+        font-family: 'Pretendard';
+        font-weight: 400;
+        font-size: 12px;
+        margin-left: auto;
+      }
+    }
+  }
+}
+
+.DialogContent:focus {
+  outline: none;
+}

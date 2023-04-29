@@ -1,20 +1,26 @@
-import React, { useState } from 'react'
-import NameTag1 from '../../images/Cheer/name_tag_1.svg'
-import NameTag2 from '../../images/Cheer/name_tag_2.svg'
-import NameTag3 from '../../images/Cheer/name_tag_3.svg'
-import UserNameTag from './UserNameTag'
-import CommentBubble from './CommnetBubble'
-import './CheerRelay.scss'
-import { dummy } from './dummy'
+import React, { useEffect } from 'react'
 import { useRecoilState } from 'recoil'
-import { cheerCommentState } from '../../State/cheerCommentState'
+import { addCheerState, cheerCommentState } from '../../State/resolutionCheerState'
 import SelectedCheerDialog from '../../components/Dialog/SelectedCheerDialog/SelectedCheerDialog'
 import BasicDialog from '../../components/Dialog/BasicDialog/BasicDialog'
+import { useGetLetters } from '../../hooks/useGetLetters'
+import Cheer from './Cheer'
+import './CheerRelay.scss'
+import { userIdState } from '../../State/loginState'
+import NoCheer from './NoCheer'
+import { resolutionIdState } from '../../State/resolutionState'
 
 const CheerRelay = () => {
-  const imgPath = [NameTag1, NameTag2, NameTag3]
   const [commentState, setCommentState] = useRecoilState(cheerCommentState)
-  const [showDialog, setShowDialog] = useState<boolean>(false)
+  const [userId] = useRecoilState(userIdState)
+  const [resolutionId] = useRecoilState(resolutionIdState)
+  const [addCheer] = useRecoilState(addCheerState)
+  const { data: letters, refetch: getLettersRefetch } = useGetLetters(resolutionId, userId)
+  const letter = letters?.letters.slice(1)
+
+  useEffect(() => {
+    getLettersRefetch()
+  }, [addCheer])
 
   const handleConfirm = () => {
     // 삭제시키는 로직 들어갈 예정
@@ -28,49 +34,8 @@ const CheerRelay = () => {
   return (
     <div className="cheer-container">
       <div className="cheer-title">~응원의 릴레이~</div>
-      {dummy.map((data, index) => {
-        if (index % 2 == 0) {
-          return (
-            <section
-              className="cheer-wrapper"
-              key={`${data.writer}-${data.comment}`}
-            >
-              <UserNameTag
-                position="left"
-                writer={data.writer}
-                img={imgPath[index % 3]}
-              />
-              <CommentBubble
-                position="left"
-                writer={data.writer}
-                comment={data.comment}
-                commentId={index}
-                setShowDialog={setShowDialog}
-              />
-            </section>
-          )
-        } else {
-          return (
-            <section
-              className="cheer-wrapper"
-              key={`${data.writer}-${data.comment}`}
-            >
-              <CommentBubble
-                position="right"
-                writer={data.writer}
-                comment={data.comment}
-                commentId={index}
-                setShowDialog={setShowDialog}
-              />
-              <UserNameTag
-                position="right"
-                writer={data.writer}
-                img={imgPath[index % 3]}
-              />
-            </section>
-          )
-        }
-      })}
+      {letter && letter.length == 0 ? <NoCheer /> : null}
+      {letter && letter.length > 0 ? <Cheer letters={letter} /> : null}
       <BasicDialog
         showDialog={commentState != -1}
         title="말풍선을 삭제하시겠어요?"
@@ -80,10 +45,7 @@ const CheerRelay = () => {
         onConfirm={handleConfirm}
         onReject={handleReject}
       />
-      <SelectedCheerDialog
-        showDialog={showDialog}
-        setShowDialog={setShowDialog}
-      />
+      <SelectedCheerDialog />
     </div>
   )
 }

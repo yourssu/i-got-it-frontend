@@ -5,7 +5,7 @@ const Terms = () => {
   const navigate = useNavigate()
 
   const onClickClose = () => {
-    navigate('/mypage')
+    navigate(-1)
   }
 
   return (
