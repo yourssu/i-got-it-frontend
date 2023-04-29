@@ -34,7 +34,7 @@ const Cheer = ({ letters }: test) => {
                 position="left"
                 writer={data.nickname}
                 comment={data.content}
-                commentId={index}
+                commentId={data.letterId}
               />
             </section>
           )
@@ -48,7 +48,7 @@ const Cheer = ({ letters }: test) => {
                 position="right"
                 writer={data.nickname}
                 comment={data.content}
-                commentId={index}
+                commentId={data.letterId}
               />
               <UserNameTag
                 writer={data.nickname}
