@@ -1,4 +1,5 @@
 import { IpostResolutionResponse } from '@/Types/resolution'
+
 import api from '../api'
 
 interface IPostResolution {

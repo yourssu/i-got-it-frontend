@@ -1,10 +1,13 @@
 import React, { useState } from 'react'
+
 import * as Dialog from '@radix-ui/react-dialog'
 import { useRecoilState } from 'recoil'
-import { addCheerState } from '../../../State/resolutionCheerState'
-import BoxButton from '../../Button/BoxButton/BoxButton'
-import { usePostLetters } from '../../../hooks/usePostLetters'
-import { resolutionIdState } from '../../../State/resolutionState'
+
+import { addCheerState } from '@/State/resolutionCheerState'
+import { resolutionIdState } from '@/State/resolutionState'
+import BoxButton from '@/components/Button/BoxButton/BoxButton'
+import { usePostLetters } from '@/hooks/usePostLetters'
+
 import styles from './CheerDialog.module.scss'
 
 const CheerDialog = () => {

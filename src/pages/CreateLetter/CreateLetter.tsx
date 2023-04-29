@@ -1,13 +1,16 @@
-import { useNavigate } from 'react-router-dom'
 import React, { useState } from 'react'
-import BoxButton from '../../components/Button/BoxButton/BoxButton'
-import Letter from '../../images/Letter'
-import './CreateLetter.scss'
-import BackHeader from '../../components/Header/BackHeader'
-import EmailDialog from '../../components/Dialog/EmailDialog/EmailDialog'
+
+import { useNavigate } from 'react-router-dom'
 import { useRecoilValue } from 'recoil'
-import { resolutionState } from '../../State/resolutionState'
-import { usePostResolution } from '../../hooks/usePostResolution'
+
+import { resolutionState } from '@/State/resolutionState'
+import BoxButton from '@/components/Button/BoxButton/BoxButton'
+import EmailDialog from '@/components/Dialog/EmailDialog/EmailDialog'
+import BackHeader from '@/components/Header/BackHeader'
+import { usePostResolution } from '@/hooks/usePostResolution'
+import Letter from '@/images/Letter'
+
+import './CreateLetter.scss'
 
 const CreateLetter = () => {
   const navigate = useNavigate()

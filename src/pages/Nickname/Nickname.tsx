@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
+
 import { useRecoilState } from 'recoil'
+
 import { nicknameState } from '@/State/nicknameState'
 import BoxButton from '@/components/Button/BoxButton/BoxButton'
 import { usePostNickname } from '@/hooks/usePostNickname'

@@ -1,6 +1,6 @@
 //import { ReactMarkdown } from 'react-markdown/lib/react-markdown'
 import React from 'react'
-import styles from './Terms.module.scss'
+
 import { useNavigate } from 'react-router-dom'
 //import remarkGfm from 'remark-gfm'
 
@@ -156,6 +156,8 @@ const TermArr = [
     약관에 대한 문의 사항은 아가릿 문의/제안 채널로 보내주시기 바랍니다.
     • 공고일자 2023년 4월 22일<div>`,
 ]
+
+import styles from './Terms.module.scss'
 
 const Terms = () => {
   const navigate = useNavigate()

@@ -1,5 +1,7 @@
 import React from 'react'
+
 import * as Dialog from '@radix-ui/react-dialog'
+
 import styles from './ProducerDialog.module.scss'
 
 const ProducerDialog = ({ showDialog, onClose }: { showDialog: boolean; onClose: () => void }) => {

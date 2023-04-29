@@ -1,4 +1,5 @@
 import { useQuery } from 'react-query'
+
 import { getResolution } from '@/API/resolution/getResolution'
 import { IGetResolutionResponse } from '@/Types/resolution'
 

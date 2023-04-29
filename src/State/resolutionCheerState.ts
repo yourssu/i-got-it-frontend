@@ -1,4 +1,5 @@
 import { atom } from 'recoil'
+
 import { SelectedCheerType } from '@/Types/SelectedCheerType'
 
 export const selectedCheerState = atom<SelectedCheerType>({

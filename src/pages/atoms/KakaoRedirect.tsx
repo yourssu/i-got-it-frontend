@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
-import { usePostCode } from '../../hooks/usePostCode'
+
+import { usePostCode } from '@/hooks/usePostCode'
 
 const KakaoRedirect = () => {
   const { mutate: postCode } = usePostCode()
