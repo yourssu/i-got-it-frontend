@@ -1,4 +1,5 @@
 export type GetLetterInfo = {
+  letterId: number
   nickname: string
   content: string
 }
