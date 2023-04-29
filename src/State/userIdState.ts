@@ -2,17 +2,12 @@ import { atom } from 'recoil'
 import { recoilPersist } from 'recoil-persist'
 
 const { persistAtom } = recoilPersist({
-  key: 'resolutionIdState',
+  key: 'userIdState',
   storage: sessionStorage,
 })
 
-export const resolutionState = atom<string>({
-  key: 'resolutionState',
-  default: '',
-})
-
-export const resolutionIdState = atom<number>({
-  key: 'resolutionIdState',
+export const userIdState = atom<number>({
+  key: 'userIdState',
   default: -1,
   effects_UNSTABLE: [persistAtom],
 })

@@ -5,7 +5,7 @@ import ProducerDialog from '../../components/Dialog/ProducerDialog/ProducerDialo
 import { useNavigate } from 'react-router-dom'
 import BasicDialog from '../../components/Dialog/BasicDialog/BasicDialog'
 import { useRecoilState } from 'recoil'
-import { nicknameState } from '../../State/loginState'
+import { nicknameState } from '../../State/nicknameState'
 
 const MenuContent = ({
   openMenu,

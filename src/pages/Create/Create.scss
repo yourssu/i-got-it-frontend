@@ -13,10 +13,6 @@
   margin-top: 4px;
 }
 
-.wrapper-date-button {
-  text-align: center;
-}
-
 input[type='radio'] {
   display: none;
 }
@@ -31,7 +27,7 @@ input[type='radio']:checked + label {
 }
 
 .button-date {
-  width: 165px;
+  width: 340px;
   height: 48px;
   font-family: 'NeoDunggeunmo';
   font-weight: 400;
@@ -77,6 +73,7 @@ input[type='radio']:checked + label {
   background-color: transparent;
   padding: 12px 30px 30px 16px;
   caret-color: var(--pointColor-pink100);
+  resize: none;
   &:focus {
     border-color: black;
     outline: none;

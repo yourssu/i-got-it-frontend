@@ -21,8 +21,7 @@ const CreateLetter = () => {
     navigate('/create')
   }
 
-  const handleSubmit = (event: any) => {
-    event.preventDefault()
+  const handleSubmit = () => {
     setShowDialog(true)
   }
 
@@ -43,6 +42,11 @@ const CreateLetter = () => {
 
   return (
     <>
+      <EmailDialog
+        onConfirm={handleConfirm}
+        onReject={handleReject}
+        showDialog={showDialog}
+      />
       <BackHeader onClick={onCickBack} />
       <form
         className="create-letter-form"
@@ -63,19 +67,15 @@ const CreateLetter = () => {
             cols={17}
             rows={10}
           />
+          <span className="letter-text-count">{inputCount} / 133</span>
         </div>
-        <span className="letter-text-count">{inputCount} / 133</span>
-        <EmailDialog
-          onConfirm={handleConfirm}
-          onReject={handleReject}
-          showDialog={showDialog}
-        />
-        <BoxButton
-          type="submit"
-          text="작성 완료"
-          isDisabled={!message}
-        />
       </form>
+      <BoxButton
+        type="button"
+        text="작성 완료"
+        isDisabled={!message}
+        onClick={handleSubmit}
+      />
     </>
   )
 }

@@ -6,7 +6,7 @@ import MenuHeader from '../../components/Header/MenuHeader'
 import MenuContent from '../MenuContent/MenuContent'
 import { useRecoilValue } from 'recoil'
 import { resolutionIdState } from '../../State/resolutionState'
-import { userIdState } from '../../State/loginState'
+import { userIdState } from '../../State/userIdState'
 
 const Home = () => {
   const navigate = useNavigate()
@@ -24,7 +24,7 @@ const Home = () => {
 
   useEffect(() => {
     if (resolutionId !== -1) {
-      navigate(`/mypage/${resolutionId}`)
+      navigate(`/resolutions/${resolutionId}`)
     } else if (userId === -1) {
       navigate('/login')
     }
@@ -46,12 +46,12 @@ const Home = () => {
       본격 공개 처형 프로젝트`}</div>
         </div>
         <div className="recommend"> ↘ 아가리에 다짐을 외쳐보세요 ↙ </div>
-        <BoxButton
-          type="button"
-          text="결심하기"
-          onClick={onClick}
-        />
       </div>
+      <BoxButton
+        type="button"
+        text="결심하기"
+        onClick={onClick}
+      />
     </>
   )
 }

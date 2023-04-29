@@ -8,6 +8,7 @@ fieldset
 
 .DialogOverlay {
   position: fixed;
+  z-index: 30;
   inset: 0;
   background-color: rgba(0, 0, 0, 0.4);
   animation: overlayShow 150ms cubic-bezier(0.16, 1, 0.3, 1);
@@ -17,6 +18,7 @@ fieldset
   background-image: url('../../../images/Cheer/selected_cheer_bubble.svg');
   background-size: contain;
   position: fixed;
+  z-index: 50;
   display: flex;
   justify-content: center;
   align-items: center;

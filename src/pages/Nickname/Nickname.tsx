@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useRecoilState } from 'recoil'
-import { nicknameState } from '../../State/loginState'
+import { nicknameState } from '../../State/nicknameState'
 import BoxButton from '../../components/Button/BoxButton/BoxButton'
 import { usePostNickname } from '../../hooks/usePostNickname'
 import './Nickname.scss'
@@ -33,40 +33,42 @@ const Nickname = () => {
     }
   }
   return (
-    <div className="nickname-wrapper">
-      <div className="nickname-description">
-        <span>야호! 마음 먹었군요!</span>
-        <span>마음 먹어 주셔서 감사해요</span>
-      </div>
-      <div className="nickname-input-wrapper">
-        <label className="nickname-input-title">닉네임을 입력하세요.</label>
-        <div
-          className={`nickname-rule ${
-            !checkNickname && nickname != '' ? 'rule-negative' : 'rule-positive'
-          }`}
-        >
-          최대 3자까지, 한글, 영어, 숫자, (, . _) 가능
+    <>
+      <div className="nickname-wrapper">
+        <div className="nickname-description">
+          <span>야호! 마음 먹었군요!</span>
+          <span>마음 먹어 주셔서 감사해요</span>
         </div>
-        <input
-          className={`nickname-input ${
-            !checkNickname && nickname != '' ? 'input-negative' : 'input-positive'
-          }`}
-          type="text"
-          placeholder="닉네임"
-          required
-          maxLength={3}
-          value={nickname}
-          onChange={handleChange}
-        />
-        <div className="nickname-warning">닉네임은 이후 수정이 불가하니 신중히 정해주세요!</div>
-        <BoxButton
-          type="submit"
-          text="저장"
-          isDisabled={!checkNickname}
-          onClick={handleSubmit}
-        />
+        <div className="nickname-input-wrapper">
+          <label className="nickname-input-title">닉네임을 입력하세요.</label>
+          <div
+            className={`nickname-rule ${
+              !checkNickname && nickname != '' ? 'rule-negative' : 'rule-positive'
+            }`}
+          >
+            최대 3자까지, 한글, 영어, 숫자, (, . _) 가능
+          </div>
+          <input
+            className={`nickname-input ${
+              !checkNickname && nickname != '' ? 'input-negative' : 'input-positive'
+            }`}
+            type="text"
+            placeholder="닉네임"
+            required
+            maxLength={3}
+            value={nickname}
+            onChange={handleChange}
+          />
+          <div className="nickname-warning">닉네임은 이후 수정이 불가하니 신중히 정해주세요!</div>
+        </div>
       </div>
-    </div>
+      <BoxButton
+        type="submit"
+        text="저장"
+        isDisabled={!checkNickname}
+        onClick={handleSubmit}
+      />
+    </>
   )
 }
 

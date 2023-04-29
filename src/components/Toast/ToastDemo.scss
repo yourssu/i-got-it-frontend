@@ -3,20 +3,22 @@ button {
   all: unset;
 }
 
+ol {
+  all: unset;
+}
+
 .ToastViewport {
-  --viewport-padding: 8px;
   position: fixed;
-  bottom: 0;
-  right: 0;
-  left: 0;
+  bottom: 32px;
+  margin: 0px 10px;
+  width: 370px;
+  padding: 0;
   display: flex;
   flex-direction: column;
-  padding: var(--viewport-padding);
-  margin: 8px 16px;
   list-style: none;
   outline: none;
   font-family: 'NeoDunggeunmo';
-  z-index: 3;
+  z-index: 20;
 }
 
 .ToastRoot {
