@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useRecoilState } from 'recoil'
-import { addCheerState, cheerCommentState } from '../../State/resolutionCheerState'
+import { cheerCommentState } from '../../State/resolutionCheerState'
 import SelectedCheerDialog from '../../components/Dialog/SelectedCheerDialog/SelectedCheerDialog'
 import BasicDialog from '../../components/Dialog/BasicDialog/BasicDialog'
 import { useGetLetters } from '../../hooks/useGetLetters'
@@ -14,16 +14,14 @@ const CheerRelay = ({ isHost }: { isHost: boolean }) => {
   const [commentState, setCommentState] = useRecoilState(cheerCommentState)
   const [userId] = useRecoilState(userIdState)
   const [resolutionId] = useRecoilState(resolutionIdState)
-  const [addCheer] = useRecoilState(addCheerState)
   const { data: letters, refetch: getLettersRefetch } = useGetLetters(resolutionId, userId)
   const letter = letters?.letters.slice(1)
 
   useEffect(() => {
     getLettersRefetch()
-  }, [addCheer])
+  }, [letters])
 
   const handleConfirm = () => {
-    // 삭제시키는 로직 들어갈 예정
     setCommentState(-1)
   }
 

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import * as Dialog from '@radix-ui/react-dialog'
 import { useRecoilState } from 'recoil'
 import { addCheerState } from '../../../State/resolutionCheerState'
@@ -6,15 +6,23 @@ import styles from './CheerDialog.module.scss'
 import BoxButton from '../../Button/BoxButton/BoxButton'
 import { usePostLetters } from '../../../hooks/usePostLetters'
 import { resolutionIdState } from '../../../State/resolutionState'
+import { useGetLetters } from '../../../hooks/useGetLetters'
+import { userIdState } from '../../../State/userIdState'
 
 const CheerDialog = () => {
   const [addCheer, setAddCheer] = useRecoilState(addCheerState)
   const [resolutionId] = useRecoilState(resolutionIdState)
+  const [userId] = useRecoilState(userIdState)
   const [nickname, setNickname] = useState<string>('')
   const [checkNickname, setCheckNickname] = useState<boolean>(false)
   const [content, setContent] = useState<string>('')
   const [inputCount, setInputCount] = useState<number>(0)
-  const { mutate: postLetters } = usePostLetters()
+  const { data: letters, mutate: postLetters } = usePostLetters()
+  const { refetch: getLetterRefetch } = useGetLetters(resolutionId, userId)
+
+  useEffect(() => {
+    getLetterRefetch()
+  }, [letters])
 
   const handleSubmit = () => {
     postLetters({ resolutionId, nickname, content })
