@@ -14,6 +14,8 @@ import { useNavigate, useParams } from 'react-router-dom'
 
 const ToastMessages = {
   ENVELOPE: `뱉은 말은 결심할 때 설정한\n기한 후에 확인 가능해요.`,
+  SUCCESS_SHARE: `링크가 복사되었습니다.\n어서 친구들에게 공유하세요!`,
+  ERROR_SHARE: `클립보드 복사가 지원되지 않습니다.\n상단 url을 복사해주세요!`,
 }
 
 const domain = `i-got-it.soomsil.de`
@@ -49,9 +51,9 @@ const MyPage = () => {
   const onClickShareLink = async () => {
     try {
       await navigator.clipboard.writeText(shareURL)
-      showToast('링크 복사 완료')
+      showToast(ToastMessages.SUCCESS_SHARE)
     } catch (e) {
-      showToast('링크 복사 실패')
+      showToast(ToastMessages.ERROR_SHARE)
     }
   }
 
