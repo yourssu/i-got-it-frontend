@@ -16,7 +16,7 @@ const ToastMessages = {
   ENVELOPE: `뱉은 말은 결심할 때 설정한\n기한 후에 확인 가능해요.`,
 }
 
-const shareURL = 'share test'
+const domain = `i-got-it.soomsil.de`
 
 const MyPage = () => {
   const [openToast, setOpenToast] = useState(false)
@@ -45,6 +45,7 @@ const MyPage = () => {
     navigate('/login')
   }
 
+  const shareURL = `${domain}/resolutions/${resolutionId}`
   const onClickShareLink = async () => {
     try {
       await navigator.clipboard.writeText(shareURL)
