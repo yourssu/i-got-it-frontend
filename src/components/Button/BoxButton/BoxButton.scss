@@ -1,20 +1,27 @@
-.box-button {
+.box-button-wrapper {
   position: fixed;
-  bottom: 16px;
-  margin: 0px 30px;
-  width: 330px;
-  height: 56px;
   display: flex;
-  align-items: center;
   justify-content: center;
-  color: var(--text-white);
-  font-family: 'NeoDunggeunmo';
-  font-size: 16px;
-  background-color: var(--button-pointed);
+  bottom: 16px;
+  right: 0;
+  left: 0;
   z-index: 10;
 
-  &:disabled {
-    color: var(--button-disabled);
-    background-color: var(--button-disabled-background);
+  .box-button {
+    width: calc(100% - 32px);
+    max-width: calc(390px - 32px);
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-white);
+    font-family: 'NeoDunggeunmo';
+    font-size: 16px;
+    background-color: var(--button-pointed);
+
+    &:disabled {
+      color: var(--button-disabled);
+      background-color: var(--button-disabled-background);
+    }
   }
 }
