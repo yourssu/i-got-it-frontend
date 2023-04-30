@@ -7,10 +7,12 @@ interface Iprops {
   isDotMenuShow: boolean
   setOpenDotMenu?: (openDotMenu: boolean) => void
   openDotMenu: boolean
+  setShowDialog?: (showDialog: boolean) => void
 }
 
 const MenuHeader = (props: Iprops) => {
-  const { onClickMenu, onClickDot, isDotMenuShow, setOpenDotMenu, openDotMenu } = props
+  const { onClickMenu, onClickDot, isDotMenuShow, setOpenDotMenu, openDotMenu, setShowDialog } =
+    props
   const ref = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -28,8 +30,8 @@ const MenuHeader = (props: Iprops) => {
   }, [openDotMenu])
 
   const onClickDelete = () => {
-    // 결심삭제 로직
-    console.log('결심 삭제')
+    setShowDialog!(true)
+    setOpenDotMenu!(false)
   }
 
   return (

@@ -12,6 +12,7 @@ import { useRecoilState } from 'recoil'
 import { resolutionIdState } from '../../State/resolutionState'
 import { useNavigate, useParams } from 'react-router-dom'
 import LetterDialog from '../../components/Dialog/LetterDialog/LetterDialog'
+import BasicDialog from '../../components/Dialog/BasicDialog/BasicDialog'
 
 const ToastMessages = {
   ENVELOPE_MINE: `뱉은 말은 결심할 때 설정한\n기한 후에 확인 가능해요.`,
@@ -28,6 +29,7 @@ const MyPage = () => {
   const [openMenu, setOpenMenu] = useState(false)
   const [openDotMenu, setOpenDotMenu] = useState(false)
   const [openLetter, setOpenLetter] = useState(false)
+  const [resolutionDelete, setResoultionDelete] = useState(false)
   const [currentUserId] = useRecoilState(userIdState)
   const [resolutionId] = useRecoilState(resolutionIdState)
   const paramsId = useParams()
@@ -40,6 +42,15 @@ const MyPage = () => {
 
   const onClickDot = () => {
     setOpenDotMenu(true)
+  }
+
+  const onDeleteConfirm = () => {
+    //삭제 로직 추가
+    navigate('/') // 홈으로 이동시키는 로직은 삭제 성공 시 넣는 것으로 수정할 예정
+  }
+
+  const onDeleteReject = () => {
+    setResoultionDelete(false)
   }
 
   const showToast = ($title: string) => {
@@ -81,6 +92,15 @@ const MyPage = () => {
 
   return (
     <>
+      <BasicDialog
+        showDialog={resolutionDelete}
+        title="결심을 삭제하시겠어요?"
+        description="한번 삭제하면 다시 되돌릴 수 없어요!"
+        onConfirm={onDeleteConfirm}
+        onReject={onDeleteReject}
+        confirm="삭제"
+        reject="취소"
+      />
       <ToastDemo
         title={title}
         open={openToast}
@@ -101,6 +121,7 @@ const MyPage = () => {
         isDotMenuShow={resolution?.data.userId == currentUserId}
         setOpenDotMenu={setOpenDotMenu}
         openDotMenu={openDotMenu}
+        setShowDialog={setResoultionDelete}
       />
       <div className="resolution-wrapper">
         <div className="yellow-star">
