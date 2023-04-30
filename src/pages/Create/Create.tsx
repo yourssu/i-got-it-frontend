@@ -36,7 +36,7 @@ const Create = () => {
       <form className="create-form">
         <label className="title">기간</label>
         <div className="description">선택한 기간 경과 시 뱉은 말을 돌려드립니다.</div>
-        <div className="wapper-date-button">
+        <div className="wrapper-date-button">
           <input
             type="radio"
             name="date"
@@ -55,7 +55,7 @@ const Create = () => {
         <div className="input-wrapper">
           <textarea
             className="create-input"
-            placeholder="가나다가나다가나다가나다가나다가나다가나다가나다가나다가나다"
+            placeholder="중간고사의 수치...!!! 기말고사로 만회하자!"
             required
             rows={2}
             cols={40}

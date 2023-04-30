@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import MenuHeader from '../../components/Header/MenuHeader'
 import ToastDemo from '../../components/Toast/ToastDemo'
 import MenuContent from '../MenuContent/MenuContent'
@@ -82,9 +82,9 @@ const MyPage = () => {
         setOpen={setOpenToast}
       />
       <BoxButton
-        text={currentUserId == -1 ? '나도 결심 외치기' : '링크 공유하러 가기'}
+        text={resolution?.data.userId !== currentUserId ? '나도 결심 외치기' : '링크 공유하러 가기'}
         type="button"
-        onClick={currentUserId == -1 ? onClickResolution : onClickShareLink}
+        onClick={resolution?.data.userId !== currentUserId ? onClickResolution : onClickShareLink}
       />
       <MenuContent
         openMenu={openMenu}
