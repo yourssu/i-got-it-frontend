@@ -1,24 +1,32 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import * as Dialog from '@radix-ui/react-dialog'
 import { useRecoilState } from 'recoil'
 
 import { addCheerState } from '@/State/resolutionCheerState'
-import { resolutionIdState } from '@/State/resolutionState'
 import BoxButton from '@/components/Button/BoxButton/BoxButton'
 import { usePostLetters } from '@/hooks/usePostLetters'
+import { userIdState } from '@/State/userIdState'
+import { useParams } from 'react-router-dom'
+import { useGetLetters } from '@/hooks/useGetLetters'
 
 import styles from './CheerDialog.module.scss'
 
 const CheerDialog = () => {
-  const [addCheer] = useRecoilState(addCheerState)
-  const [resolutionId] = useRecoilState(resolutionIdState)
+  const [addCheer, setAddCheer] = useRecoilState(addCheerState)
+  const [userId] = useRecoilState(userIdState)
   const [nickname, setNickname] = useState<string>('')
   const [checkNickname, setCheckNickname] = useState<boolean>(false)
   const [content, setContent] = useState<string>('')
   const [inputCount, setInputCount] = useState<number>(0)
-  const { mutate: postLetters } = usePostLetters()
-  const [, setAddCheer] = useRecoilState(addCheerState)
+  const { data: letters, mutate: postLetters } = usePostLetters()
+  const paramsId = useParams()
+  const resolutionId = Number(paramsId.resolutionId)
+  const { refetch: getLetterRefetch } = useGetLetters(resolutionId, userId)
+
+  useEffect(() => {
+    getLetterRefetch()
+  }, [letters])
 
   const handleSubmit = () => {
     postLetters({ resolutionId, nickname, content })
@@ -37,7 +45,7 @@ const CheerDialog = () => {
       setCheckNickname(false)
     }
     for (const item of words) {
-      if (!item.match(/[ㄱ-ㅎ가-힣]/)) {
+      if (!item.match(/[ㄱ-ㅎㅏ-ㅣ가-힣]/)) {
         setCheckNickname(false)
         break
       }
@@ -52,7 +60,13 @@ const CheerDialog = () => {
   return (
     <Dialog.Root open={addCheer}>
       <Dialog.Portal>
-        <Dialog.Overlay className={styles.DialogOverlay} />
+        <Dialog.Overlay
+          onClick={(e) => {
+            e.stopPropagation
+            setAddCheer(false)
+          }}
+          className={styles.DialogOverlay}
+        />
         <Dialog.Content className={styles.DialogContent}>
           <div className={styles.CheerInputWrapper}>
             <div>
@@ -72,6 +86,10 @@ const CheerDialog = () => {
                 placeholder="보낸 사람 이름"
                 maxLength={3}
                 onChange={handleNicknameChange}
+                onInput={(e: React.ChangeEvent<HTMLInputElement>) => {
+                  if (e.target.value.length > e.target.maxLength)
+                    e.target.value = e.target.value.slice(0, e.target.maxLength)
+                }}
               />
             </div>
             <div className={styles.TextareaWrapper}>
@@ -83,8 +101,12 @@ const CheerDialog = () => {
                 placeholder="친구에게 응원의 한마디를 전해주세요."
                 onChange={handleContentChange}
                 rows={10}
+                onInput={(e: React.ChangeEvent<HTMLTextAreaElement>) => {
+                  if (e.target.value.length > e.target.maxLength)
+                    e.target.value = e.target.value.slice(0, e.target.maxLength)
+                }}
               />
-              <span className={styles.InputCount}>{`${inputCount}/133`}</span>
+              <span className={styles.InputCount}>{`${inputCount} / 133`}</span>
             </div>
           </div>
           <BoxButton

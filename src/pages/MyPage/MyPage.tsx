@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 
 import { useNavigate, useParams } from 'react-router-dom'
+import BasicDialog from '@/components/Dialog/BasicDialog/BasicDialog'
 import { useRecoilState } from 'recoil'
-
 import { resolutionIdState } from '@/State/resolutionState'
 import { userIdState } from '@/State/userIdState'
 import BoxButton from '@/components/Button/BoxButton/BoxButton'
@@ -13,7 +13,6 @@ import ToastDemo from '@/components/Toast/ToastDemo'
 import { useGetResolution } from '@/hooks/useGetResolution'
 import CheerRelay from '@/pages/Cheer/CheerRelay'
 import MenuContent from '@/pages/MenuContent/MenuContent'
-
 import './Mypage.scss'
 
 const ToastMessages = {
@@ -29,7 +28,9 @@ const MyPage = () => {
   const [openToast, setOpenToast] = useState(false)
   const [title, setTitle] = useState('')
   const [openMenu, setOpenMenu] = useState(false)
+  const [openDotMenu, setOpenDotMenu] = useState(false)
   const [openLetter, setOpenLetter] = useState(false)
+  const [resolutionDelete, setResoultionDelete] = useState(false)
   const [currentUserId] = useRecoilState(userIdState)
   const [resolutionId] = useRecoilState(resolutionIdState)
   const paramsId = useParams()
@@ -38,6 +39,19 @@ const MyPage = () => {
 
   const onClickMenu = () => {
     setOpenMenu((openMenu) => !openMenu)
+  }
+
+  const onClickDot = () => {
+    setOpenDotMenu(true)
+  }
+
+  const onDeleteConfirm = () => {
+    //삭제 로직 추가
+    navigate('/') // 홈으로 이동시키는 로직은 삭제 성공 시 넣는 것으로 수정할 예정
+  }
+
+  const onDeleteReject = () => {
+    setResoultionDelete(false)
   }
 
   const showToast = ($title: string) => {
@@ -79,6 +93,15 @@ const MyPage = () => {
 
   return (
     <>
+      <BasicDialog
+        showDialog={resolutionDelete}
+        title="결심을 삭제하시겠어요?"
+        description="한번 삭제하면 다시 되돌릴 수 없어요!"
+        onConfirm={onDeleteConfirm}
+        onReject={onDeleteReject}
+        confirm="삭제"
+        reject="취소"
+      />
       <ToastDemo
         title={title}
         open={openToast}
@@ -93,7 +116,14 @@ const MyPage = () => {
         openMenu={openMenu}
         setOpenMenu={setOpenMenu}
       />
-      <MenuHeader onClick={onClickMenu} />
+      <MenuHeader
+        onClickMenu={onClickMenu}
+        onClickDot={onClickDot}
+        isDotMenuShow={resolution?.data.userId == currentUserId}
+        setOpenDotMenu={setOpenDotMenu}
+        openDotMenu={openDotMenu}
+        setShowDialog={setResoultionDelete}
+      />
       <div className="resolution-wrapper">
         <div className="yellow-star">
           <div className="nickname-resolution">{resolution?.data.nickname}의 “외침”</div>

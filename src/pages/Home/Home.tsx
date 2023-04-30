@@ -39,7 +39,11 @@ const Home = () => {
         openMenu={openMenu}
         setOpenMenu={setOpenMenu}
       />
-      <MenuHeader onClick={onClickMenu} />
+      <MenuHeader
+        onClickMenu={onClickMenu}
+        isDotMenuShow={false}
+        openDotMenu={false}
+      />
       <div className="home-wrapper">
         <div className="home-meta">
           <div className="home-title">아가릿!</div>

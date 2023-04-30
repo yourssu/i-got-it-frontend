@@ -1,8 +1,6 @@
-//import { ReactMarkdown } from 'react-markdown/lib/react-markdown'
 import React from 'react'
 
 import { useNavigate } from 'react-router-dom'
-//import remarkGfm from 'remark-gfm'
 
 const TermArr = [
   `제 1조 목적

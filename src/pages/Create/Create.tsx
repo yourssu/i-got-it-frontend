@@ -54,7 +54,10 @@ const Create = () => {
           </label>
         </div>
         <label className="title">결심</label>
-        <div className="description">결심은 공개되어서 남들에게 보여요!</div>
+        <div className="description">
+          <span>결심은 공개되어서 남들에게 보여요!</span>
+          <span>결심 내용은 이후 수정이 불가하니 신중히 정해주세요!</span>
+        </div>
         <div className="input-wrapper">
           <textarea
             className="create-input"
