@@ -8,23 +8,28 @@ import Cheer from './Cheer'
 import './CheerRelay.scss'
 import { userIdState } from '../../State/userIdState'
 import NoCheer from './NoCheer'
+import { resolutionIdState } from '../../State/resolutionState'
+import { useDeleteLetters } from '../../hooks/useDeleteLetters'
 import { useParams } from 'react-router-dom'
 
 const CheerRelay = ({ isHost }: { isHost: boolean }) => {
   const [commentState, setCommentState] = useRecoilState(cheerCommentState)
   const [userId] = useRecoilState(userIdState)
+  const [resolutionId] = useRecoilState(resolutionIdState)
   const paramsId = useParams()
   const { data: letters, refetch: getLettersRefetch } = useGetLetters(
     Number(paramsId.resolutionId),
     userId
   )
+  const { data: response, mutate: deleteLetters } = useDeleteLetters()
   const letter = letters?.letters.slice(1)
 
   useEffect(() => {
     getLettersRefetch()
-  }, [letters])
+  }, [response])
 
   const handleConfirm = () => {
+    deleteLetters({ resolutionId: resolutionId, letterId: commentState })
     setCommentState(-1)
   }
 
