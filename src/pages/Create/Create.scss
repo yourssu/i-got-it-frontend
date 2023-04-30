@@ -67,6 +67,10 @@ input[type='radio']:checked + label {
 }
 
 .create-input {
+  font-family: 'Pretendard';
+  color: var(--text-teritary);
+  font-weight: 400;
+  font-size: 14px;
   margin-top: 8px;
   border-radius: 0;
   border-color: var(--button-disabled);

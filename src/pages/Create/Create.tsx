@@ -55,7 +55,7 @@ const Create = () => {
         <div className="input-wrapper">
           <textarea
             className="create-input"
-            placeholder="가나다가나다가나다가나다가나다가나다가나다가나다가나다가나다"
+            placeholder="중간고사의 수치...!!! 기말고사로 만회하자!"
             required
             rows={2}
             cols={40}
