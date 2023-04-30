@@ -1,7 +1,8 @@
 import { atom } from 'recoil'
-import { selectedCheerType } from '../Types'
 
-export const selectedCheerState = atom<selectedCheerType>({
+import { SelectedCheerType } from '@/Types/SelectedCheerType'
+
+export const selectedCheerState = atom<SelectedCheerType>({
   key: 'selectedCheerState',
   default: {
     writer: '',

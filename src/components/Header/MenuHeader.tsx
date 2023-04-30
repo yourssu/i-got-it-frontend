@@ -1,3 +1,4 @@
+import React from 'react'
 import './MenuHeader.scss'
 import { useEffect, useRef } from 'react'
 

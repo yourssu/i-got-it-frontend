@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
+
 import { useRecoilState } from 'recoil'
-import { nicknameState } from '../../State/nicknameState'
-import BoxButton from '../../components/Button/BoxButton/BoxButton'
-import { usePostNickname } from '../../hooks/usePostNickname'
+
+import { nicknameState } from '@/State/nicknameState'
+import BoxButton from '@/components/Button/BoxButton/BoxButton'
+import { usePostNickname } from '@/hooks/usePostNickname'
 import './Nickname.scss'
 
 const Nickname = () => {
@@ -25,7 +27,7 @@ const Nickname = () => {
     } else if (event.target.value.length == 0) {
       setCheckNickname(false)
     }
-    for (let item of words) {
+    for (const item of words) {
       if (!item.match(/[ㄱ-ㅎ가-힣0-9a-z,A-Z._]/)) {
         setCheckNickname(false)
         break

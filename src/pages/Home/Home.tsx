@@ -1,12 +1,13 @@
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
+
 import { useNavigate } from 'react-router-dom'
-import './Home.scss'
-import BoxButton from '../../components/Button/BoxButton/BoxButton'
-import MenuHeader from '../../components/Header/MenuHeader'
-import MenuContent from '../MenuContent/MenuContent'
 import { useRecoilValue } from 'recoil'
-import { resolutionIdState } from '../../State/resolutionState'
-import { userIdState } from '../../State/userIdState'
+
+import { resolutionIdState } from '@/State/resolutionState'
+import { userIdState } from '@/State/userIdState'
+import BoxButton from '@/components/Button/BoxButton/BoxButton'
+import MenuHeader from '@/components/Header/MenuHeader'
+import MenuContent from '@/pages/MenuContent/MenuContent'
 
 const Home = () => {
   const navigate = useNavigate()

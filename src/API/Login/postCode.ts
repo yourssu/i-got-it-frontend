@@ -1,5 +1,7 @@
 import { Cookies } from 'react-cookie'
-import { PostKakaoLoginResponse } from '../../Types/login'
+
+import { PostKakaoLoginResponse } from '@/Types/login'
+
 import api from '../api'
 
 const cookies = new Cookies()

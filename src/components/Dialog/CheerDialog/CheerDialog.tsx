@@ -1,18 +1,19 @@
 import React, { useEffect, useState } from 'react'
+
 import * as Dialog from '@radix-ui/react-dialog'
 import { useRecoilState } from 'recoil'
-import { addCheerState } from '../../../State/resolutionCheerState'
-import styles from './CheerDialog.module.scss'
-import BoxButton from '../../Button/BoxButton/BoxButton'
-import { usePostLetters } from '../../../hooks/usePostLetters'
-import { resolutionIdState } from '../../../State/resolutionState'
-import { useGetLetters } from '../../../hooks/useGetLetters'
-import { userIdState } from '../../../State/userIdState'
+
+import { addCheerState } from '@/State/resolutionCheerState'
+import BoxButton from '@/components/Button/BoxButton/BoxButton'
+import { usePostLetters } from '@/hooks/usePostLetters'
+import { userIdState } from '@/State/userIdState'
 import { useParams } from 'react-router-dom'
+import { useGetLetters } from '@/hooks/useGetLetters'
+
+import styles from './CheerDialog.module.scss'
 
 const CheerDialog = () => {
   const [addCheer, setAddCheer] = useRecoilState(addCheerState)
-  //const [resolutionId] = useRecoilState(resolutionIdState)
   const [userId] = useRecoilState(userIdState)
   const [nickname, setNickname] = useState<string>('')
   const [checkNickname, setCheckNickname] = useState<boolean>(false)
@@ -43,7 +44,7 @@ const CheerDialog = () => {
     } else if (e.target.value.length == 0) {
       setCheckNickname(false)
     }
-    for (let item of words) {
+    for (const item of words) {
       if (!item.match(/[ㄱ-ㅎㅏ-ㅣ가-힣]/)) {
         setCheckNickname(false)
         break

@@ -1,16 +1,20 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import React from 'react'
+
 import * as Toast from '@radix-ui/react-toast'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+
+import '@/styles/color.scss'
+import '@/styles/font.css'
+import Create from '@/pages/Create/Create'
+import CreateLetter from '@/pages/CreateLetter/CreateLetter'
+import Home from '@/pages/Home/Home'
+import Login from '@/pages/Login/Login'
+import MyPage from '@/pages/MyPage/MyPage'
+import Nickname from '@/pages/Nickname/Nickname'
+import Terms from '@/pages/Terms_of_Service/Terms'
+import KakaoRedirect from '@/pages/atoms/KakaoRedirect'
+
 import './App.scss'
-import Home from './pages/Home/Home'
-import './styles/color.scss'
-import './styles/font.css'
-import Login from './pages/Login/Login'
-import KakaoRedirect from './pages/atoms/KakaoRedirect'
-import Nickname from './pages/Nickname/Nickname'
-import Create from './pages/Create/Create'
-import CreateLetter from './pages/CreateLetter/CreateLetter'
-import MyPage from './pages/MyPage/MyPage'
-import Terms from './pages/Terms_of_Service/Terms'
 
 function App() {
   return (
