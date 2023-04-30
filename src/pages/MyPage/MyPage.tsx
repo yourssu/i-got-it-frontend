@@ -26,6 +26,7 @@ const MyPage = () => {
   const [openToast, setOpenToast] = useState(false)
   const [title, setTitle] = useState('')
   const [openMenu, setOpenMenu] = useState(false)
+  const [openDotMenu, setOpenDotMenu] = useState(false)
   const [openLetter, setOpenLetter] = useState(false)
   const [currentUserId] = useRecoilState(userIdState)
   const [resolutionId] = useRecoilState(resolutionIdState)
@@ -35,6 +36,10 @@ const MyPage = () => {
 
   const onClickMenu = () => {
     setOpenMenu((openMenu) => !openMenu)
+  }
+
+  const onClickDot = () => {
+    setOpenDotMenu(true)
   }
 
   const showToast = ($title: string) => {
@@ -90,7 +95,13 @@ const MyPage = () => {
         openMenu={openMenu}
         setOpenMenu={setOpenMenu}
       />
-      <MenuHeader onClick={onClickMenu} />
+      <MenuHeader
+        onClickMenu={onClickMenu}
+        onClickDot={onClickDot}
+        isDotMenuShow={resolution?.data.userId == currentUserId}
+        setOpenDotMenu={setOpenDotMenu}
+        openDotMenu={openDotMenu}
+      />
       <div className="resolution-wrapper">
         <div className="yellow-star">
           <div className="nickname-resolution">{resolution?.data.nickname}의 “외침”</div>
