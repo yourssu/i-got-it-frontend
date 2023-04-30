@@ -2,10 +2,11 @@ import React, { useEffect, useRef, useState } from 'react'
 
 import { useNavigate } from 'react-router-dom'
 import { useRecoilState } from 'recoil'
-import { userIdState } from '@/State/userIdState'
-import { resolutionIdState } from '@/State/resolutionState'
 import Cookies from 'universal-cookie'
+
 import { nicknameState } from '@/State/nicknameState'
+import { resolutionIdState } from '@/State/resolutionState'
+import { userIdState } from '@/State/userIdState'
 import BasicDialog from '@/components/Dialog/BasicDialog/BasicDialog'
 import IntroductionDialog from '@/components/Dialog/IntroductionDialog/IntroductionDialog'
 import ProducerDialog from '@/components/Dialog/ProducerDialog/ProducerDialog'

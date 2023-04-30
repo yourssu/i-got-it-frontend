@@ -1,6 +1,7 @@
 import React from 'react'
 
 import './ToastDemo.scss'
+
 import * as Toast from '@radix-ui/react-toast'
 
 interface Iprop {

@@ -1,4 +1,5 @@
 import React from 'react'
+
 import AddButton from '@/components/Button/AddButton/AddButton'
 
 const NoCheer = ({ isHost }: { isHost: boolean }) => {

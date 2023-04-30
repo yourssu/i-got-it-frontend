@@ -9,6 +9,8 @@ import BoxButton from '@/components/Button/BoxButton/BoxButton'
 import MenuHeader from '@/components/Header/MenuHeader'
 import MenuContent from '@/pages/MenuContent/MenuContent'
 
+import './Home.scss'
+
 const Home = () => {
   const navigate = useNavigate()
   const [openMenu, setOpenMenu] = useState(false)

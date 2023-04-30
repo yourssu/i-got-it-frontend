@@ -1,18 +1,21 @@
 import React, { useState } from 'react'
 
 import { useNavigate, useParams } from 'react-router-dom'
-import BasicDialog from '@/components/Dialog/BasicDialog/BasicDialog'
 import { useRecoilState } from 'recoil'
+
 import { resolutionIdState } from '@/State/resolutionState'
 import { userIdState } from '@/State/userIdState'
 import BoxButton from '@/components/Button/BoxButton/BoxButton'
+import BasicDialog from '@/components/Dialog/BasicDialog/BasicDialog'
 import CheerDialog from '@/components/Dialog/CheerDialog/CheerDialog'
 import LetterDialog from '@/components/Dialog/LetterDialog/LetterDialog'
 import MenuHeader from '@/components/Header/MenuHeader'
 import ToastDemo from '@/components/Toast/ToastDemo'
+import { useDeleteResolution } from '@/hooks/useDeleteResolution'
 import { useGetResolution } from '@/hooks/useGetResolution'
 import CheerRelay from '@/pages/Cheer/CheerRelay'
 import MenuContent from '@/pages/MenuContent/MenuContent'
+
 import './Mypage.scss'
 
 const ToastMessages = {
@@ -32,9 +35,10 @@ const MyPage = () => {
   const [openLetter, setOpenLetter] = useState(false)
   const [resolutionDelete, setResoultionDelete] = useState(false)
   const [currentUserId] = useRecoilState(userIdState)
-  const [resolutionId] = useRecoilState(resolutionIdState)
+  const [resolutionId, setResolutionId] = useRecoilState(resolutionIdState)
   const paramsId = useParams()
   const { data: resolution } = useGetResolution(Number(paramsId.resolutionId))
+  const { mutate: deleteResolution } = useDeleteResolution()
   const navigate = useNavigate()
 
   const onClickMenu = () => {
@@ -46,8 +50,9 @@ const MyPage = () => {
   }
 
   const onDeleteConfirm = () => {
-    //삭제 로직 추가
-    navigate('/') // 홈으로 이동시키는 로직은 삭제 성공 시 넣는 것으로 수정할 예정
+    setResoultionDelete(false)
+    setResolutionId(-1)
+    deleteResolution(resolutionId)
   }
 
   const onDeleteReject = () => {

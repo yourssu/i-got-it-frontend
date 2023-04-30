@@ -14,6 +14,7 @@ export const usePostCode = () => {
   const [, setResolutionId] = useRecoilState(resolutionIdState)
 
   return useMutation(postCode, {
+    // eslint-disable-next-line @typescript-eslint/no-empty-function
     onMutate() {},
     onSuccess: (data) => {
       setUserId(data.userId)

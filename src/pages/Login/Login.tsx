@@ -55,7 +55,7 @@ const Login = () => {
         alt={character}
       />
       <div className="login-bottom-wrapper">
-        <div className="count-users">현재까지 00명이 아가리에 외쳤어요!</div>
+        {/* <div className="count-users">현재까지 00명이 아가리에 외쳤어요!</div> */}
         <button
           className="kakao-button"
           type="button"
