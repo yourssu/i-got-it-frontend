@@ -6,6 +6,9 @@ import { useNavigate } from 'react-router-dom'
 import BasicDialog from '../../components/Dialog/BasicDialog/BasicDialog'
 import { useRecoilState } from 'recoil'
 import { nicknameState } from '../../State/nicknameState'
+import { userIdState } from '../../State/userIdState'
+import { resolutionIdState } from '../../State/resolutionState'
+import Cookies from 'universal-cookie'
 
 const MenuContent = ({
   openMenu,
@@ -19,7 +22,10 @@ const MenuContent = ({
   const [showDialog1, setShowDialog1] = useState(false)
   const [showDialog2, setShowDialog2] = useState(false)
   const [showLogout, setShowLogout] = useState(false)
-  const [nameState] = useRecoilState(nicknameState)
+  const [nameState, setNameState] = useRecoilState(nicknameState)
+  const [, setUserId] = useRecoilState(userIdState)
+  const [, setResolutionId] = useRecoilState(resolutionIdState)
+  const naviage = useNavigate()
 
   const handleClose = async (e: any) => {
     if (!outside.current.contains(e.target) && !showDialog2 && !showDialog1 && !showLogout) {
@@ -57,7 +63,13 @@ const MenuContent = ({
   }
 
   const onClickConfirmLogout = () => {
-    // logout 처리 로직
+    const cookies = new Cookies()
+    sessionStorage.clear()
+    cookies.remove('accessToken')
+    setNameState('')
+    setUserId(-1)
+    setResolutionId(-1)
+    navigate('/login')
   }
 
   const onClickRejectLogout = () => {
