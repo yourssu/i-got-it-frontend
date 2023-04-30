@@ -66,6 +66,10 @@ const CreateLetter = () => {
             onChange={handleChange}
             cols={17}
             rows={10}
+            onInput={(e: React.ChangeEvent<HTMLTextAreaElement>) => {
+              if (e.target.value.length > e.target.maxLength)
+                e.target.value = e.target.value.slice(0, e.target.maxLength)
+            }}
           />
           <span className="letter-text-count">{inputCount} / 133</span>
         </div>
