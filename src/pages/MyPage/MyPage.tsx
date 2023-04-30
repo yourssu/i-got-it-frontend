@@ -14,6 +14,7 @@ import { useGetResolution } from '@/hooks/useGetResolution'
 import CheerRelay from '@/pages/Cheer/CheerRelay'
 import MenuContent from '@/pages/MenuContent/MenuContent'
 import './Mypage.scss'
+import { useDeleteResolution } from '@/hooks/useDeleteResolution'
 
 const ToastMessages = {
   ENVELOPE_MINE: '뱉은 말은 결심할 때 설정한\n기한 후에 확인 가능해요.',
@@ -32,9 +33,10 @@ const MyPage = () => {
   const [openLetter, setOpenLetter] = useState(false)
   const [resolutionDelete, setResoultionDelete] = useState(false)
   const [currentUserId] = useRecoilState(userIdState)
-  const [resolutionId] = useRecoilState(resolutionIdState)
+  const [resolutionId, setResolutionId] = useRecoilState(resolutionIdState)
   const paramsId = useParams()
   const { data: resolution } = useGetResolution(Number(paramsId.resolutionId))
+  const { mutate: deleteResolution } = useDeleteResolution()
   const navigate = useNavigate()
 
   const onClickMenu = () => {
@@ -46,8 +48,9 @@ const MyPage = () => {
   }
 
   const onDeleteConfirm = () => {
-    //삭제 로직 추가
-    navigate('/') // 홈으로 이동시키는 로직은 삭제 성공 시 넣는 것으로 수정할 예정
+    setResoultionDelete(false)
+    setResolutionId(-1)
+    deleteResolution(resolutionId)
   }
 
   const onDeleteReject = () => {
