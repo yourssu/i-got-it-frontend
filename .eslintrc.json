@@ -17,11 +17,10 @@
   },
   "plugins": ["react", "@typescript-eslint", "import"],
   "rules": {
-    "prettier/prettier": "error",
+    "prettier/prettier": ["error", { "endOfLine": "auto" }],
     "arrow-body-style": "off",
     "prefer-arrow-callback": "off",
     "indent": ["error", 2],
-    "linebreak-style": ["error", "unix"],
     "quotes": ["error", "single"],
     "semi": ["error", "never"],
     "import/order": [
