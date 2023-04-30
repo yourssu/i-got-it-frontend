@@ -1,13 +1,10 @@
 import React from 'react'
-import { useRecoilState } from 'recoil'
-import { userIdState } from '../../State/userIdState'
 import AddButton from '../../components/Button/AddButton/AddButton'
 
-const NoCheer = () => {
-  const [userId] = useRecoilState(userIdState)
+const NoCheer = ({ isHost }: { isHost: boolean }) => {
   return (
     <>
-      {userId == -1 ? (
+      {!isHost ? (
         <div className="no-cheer">
           <AddButton />
           <div className=" guest">

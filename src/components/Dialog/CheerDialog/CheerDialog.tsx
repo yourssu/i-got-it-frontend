@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import * as Dialog from '@radix-ui/react-dialog'
 import { useRecoilState } from 'recoil'
 import { addCheerState } from '../../../State/resolutionCheerState'
@@ -6,15 +6,26 @@ import styles from './CheerDialog.module.scss'
 import BoxButton from '../../Button/BoxButton/BoxButton'
 import { usePostLetters } from '../../../hooks/usePostLetters'
 import { resolutionIdState } from '../../../State/resolutionState'
+import { useGetLetters } from '../../../hooks/useGetLetters'
+import { userIdState } from '../../../State/userIdState'
+import { useParams } from 'react-router-dom'
 
 const CheerDialog = () => {
   const [addCheer, setAddCheer] = useRecoilState(addCheerState)
-  const [resolutionId] = useRecoilState(resolutionIdState)
+  //const [resolutionId] = useRecoilState(resolutionIdState)
+  const [userId] = useRecoilState(userIdState)
   const [nickname, setNickname] = useState<string>('')
   const [checkNickname, setCheckNickname] = useState<boolean>(false)
   const [content, setContent] = useState<string>('')
   const [inputCount, setInputCount] = useState<number>(0)
-  const { mutate: postLetters } = usePostLetters()
+  const { data: letters, mutate: postLetters } = usePostLetters()
+  const paramsId = useParams()
+  const resolutionId = Number(paramsId.resolutionId)
+  const { refetch: getLetterRefetch } = useGetLetters(resolutionId, userId)
+
+  useEffect(() => {
+    getLetterRefetch()
+  }, [letters])
 
   const handleSubmit = () => {
     postLetters({ resolutionId, nickname, content })
@@ -74,8 +85,7 @@ const CheerDialog = () => {
                 placeholder="보낸 사람 이름"
                 maxLength={3}
                 onChange={handleNicknameChange}
-                onInput={(e: any) => {
-                  // 타입 재설정 해야함.
+                onInput={(e: React.ChangeEvent<HTMLInputElement>) => {
                   if (e.target.value.length > e.target.maxLength)
                     e.target.value = e.target.value.slice(0, e.target.maxLength)
                 }}
@@ -90,6 +100,10 @@ const CheerDialog = () => {
                 placeholder="친구에게 응원의 한마디를 전해주세요."
                 onChange={handleContentChange}
                 rows={10}
+                onInput={(e: React.ChangeEvent<HTMLTextAreaElement>) => {
+                  if (e.target.value.length > e.target.maxLength)
+                    e.target.value = e.target.value.slice(0, e.target.maxLength)
+                }}
               />
               <span className={styles.InputCount}>{`${inputCount} / 133`}</span>
             </div>

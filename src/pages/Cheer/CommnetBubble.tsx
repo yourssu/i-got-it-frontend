@@ -6,23 +6,22 @@ import { useRecoilState } from 'recoil'
 import { cheerCommentState, showDialogState } from '../../State/resolutionCheerState'
 import { selectedCheerState } from '../../State/resolutionCheerState'
 import { lettersLockedState } from '../../State/lettersLockedState'
-import { userIdState } from '../../State/userIdState'
 type CommentBubbleType = {
   position: string
   writer: string
   comment: string
   commentId: number
+  isHost: boolean
 }
 
-const CommentBubble = ({ position, writer, comment, commentId }: CommentBubbleType) => {
+const CommentBubble = ({ position, writer, comment, commentId, isHost }: CommentBubbleType) => {
   const [, setCommentState] = useRecoilState(cheerCommentState)
   const [, setSelectedCheerState] = useRecoilState(selectedCheerState)
   const [lettersLocked] = useRecoilState(lettersLockedState)
-  const [userId] = useRecoilState(userIdState)
   const [, setShowDialog] = useRecoilState(showDialogState)
 
   const handleLongPress = useLongPress(() => {
-    if (userId != -1) setCommentState(commentId)
+    if (isHost) setCommentState(commentId)
   })
 
   const handleClick = () => {
@@ -34,7 +33,7 @@ const CommentBubble = ({ position, writer, comment, commentId }: CommentBubbleTy
 
   return (
     <div
-      className={`bubble-wrapper ${userId != -1 || !lettersLocked ? 'cursor' : null}`}
+      className={`bubble-wrapper ${isHost || !lettersLocked ? 'cursor' : null}`}
       onClick={handleClick}
       {...handleLongPress()}
     >
