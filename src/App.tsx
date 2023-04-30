@@ -7,6 +7,7 @@ import '@/styles/color.scss'
 import '@/styles/font.css'
 import Create from '@/pages/Create/Create'
 import CreateLetter from '@/pages/CreateLetter/CreateLetter'
+import Delete from '@/pages/Delete/Delete'
 import Home from '@/pages/Home/Home'
 import Login from '@/pages/Login/Login'
 import MyPage from '@/pages/MyPage/MyPage'
@@ -53,6 +54,10 @@ function App() {
             <Route
               path="/terms"
               element={<Terms />}
+            />
+            <Route
+              path="/delete"
+              element={<Delete />}
             />
           </Routes>
         </BrowserRouter>
