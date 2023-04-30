@@ -1,4 +1,7 @@
+import React from 'react'
+
 import * as Dialog from '@radix-ui/react-dialog'
+
 import styles from './BasicDialog.module.scss'
 
 const BasicDialog = ({

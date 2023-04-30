@@ -1,16 +1,19 @@
 import React, { useEffect } from 'react'
+
+import { useParams } from 'react-router-dom'
 import { useRecoilState } from 'recoil'
-import { cheerCommentState } from '../../State/resolutionCheerState'
-import SelectedCheerDialog from '../../components/Dialog/SelectedCheerDialog/SelectedCheerDialog'
-import BasicDialog from '../../components/Dialog/BasicDialog/BasicDialog'
-import { useGetLetters } from '../../hooks/useGetLetters'
+
+import { cheerCommentState } from '@/State/resolutionCheerState'
+import { resolutionIdState } from '@/State/resolutionState'
+import { userIdState } from '@/State/userIdState'
+import BasicDialog from '@/components/Dialog/BasicDialog/BasicDialog'
+import SelectedCheerDialog from '@/components/Dialog/SelectedCheerDialog/SelectedCheerDialog'
+import { useDeleteLetters } from '@/hooks/useDeleteLetters'
+import { useGetLetters } from '@/hooks/useGetLetters'
+
 import Cheer from './Cheer'
 import './CheerRelay.scss'
-import { userIdState } from '../../State/userIdState'
 import NoCheer from './NoCheer'
-import { resolutionIdState } from '../../State/resolutionState'
-import { useDeleteLetters } from '../../hooks/useDeleteLetters'
-import { useParams } from 'react-router-dom'
 
 const CheerRelay = ({ isHost }: { isHost: boolean }) => {
   const [commentState, setCommentState] = useRecoilState(cheerCommentState)

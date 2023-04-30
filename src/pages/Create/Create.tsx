@@ -1,10 +1,13 @@
-import { useState } from 'react'
-import BoxButton from '../../components/Button/BoxButton/BoxButton'
-import './Create.scss'
+import React, { useState } from 'react'
+
 import { useNavigate } from 'react-router-dom'
-import BackHeader from '../../components/Header/BackHeader'
-import { resolutionState } from '../../State/resolutionState'
 import { useSetRecoilState } from 'recoil'
+
+import { resolutionState } from '@/State/resolutionState'
+import BoxButton from '@/components/Button/BoxButton/BoxButton'
+import BackHeader from '@/components/Header/BackHeader'
+
+import './Create.scss'
 
 const Create = () => {
   const navigate = useNavigate()

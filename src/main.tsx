@@ -1,16 +1,19 @@
 import React from 'react'
+
+import { CookiesProvider } from 'react-cookie'
 import ReactDOM from 'react-dom/client'
 import { QueryClient, QueryClientProvider } from 'react-query'
 import { ReactQueryDevtools } from 'react-query/devtools'
-import App from './App'
-import './index.css'
-import { CookiesProvider } from 'react-cookie'
 import { RecoilRoot } from 'recoil'
+
+import App from './App'
+
+import './index.css'
 
 const queryClient = new QueryClient()
 
 const setScreenSize = () => {
-  let vh = window.innerHeight * 0.01
+  const vh = window.innerHeight * 0.01
   document.documentElement.style.setProperty('--vh', `${vh}px`)
 }
 

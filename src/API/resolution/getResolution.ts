@@ -1,4 +1,5 @@
-import { IGetResolutionResponse } from '../../Types/resolution'
+import { IGetResolutionResponse } from '@/Types/resolution'
+
 import api from '../api'
 
 export const getResolution = async (resolutionId: number): Promise<IGetResolutionResponse> => {
