@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
+
 import './MenuHeader.scss'
-import { useEffect, useRef } from 'react'
 
 interface Iprops {
   onClickMenu?: () => void

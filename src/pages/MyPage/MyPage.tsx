@@ -1,20 +1,22 @@
 import React, { useState } from 'react'
 
 import { useNavigate, useParams } from 'react-router-dom'
-import BasicDialog from '@/components/Dialog/BasicDialog/BasicDialog'
 import { useRecoilState } from 'recoil'
+
 import { resolutionIdState } from '@/State/resolutionState'
 import { userIdState } from '@/State/userIdState'
 import BoxButton from '@/components/Button/BoxButton/BoxButton'
+import BasicDialog from '@/components/Dialog/BasicDialog/BasicDialog'
 import CheerDialog from '@/components/Dialog/CheerDialog/CheerDialog'
 import LetterDialog from '@/components/Dialog/LetterDialog/LetterDialog'
 import MenuHeader from '@/components/Header/MenuHeader'
 import ToastDemo from '@/components/Toast/ToastDemo'
+import { useDeleteResolution } from '@/hooks/useDeleteResolution'
 import { useGetResolution } from '@/hooks/useGetResolution'
 import CheerRelay from '@/pages/Cheer/CheerRelay'
 import MenuContent from '@/pages/MenuContent/MenuContent'
+
 import './Mypage.scss'
-import { useDeleteResolution } from '@/hooks/useDeleteResolution'
 
 const ToastMessages = {
   ENVELOPE_MINE: '뱉은 말은 결심할 때 설정한\n기한 후에 확인 가능해요.',
