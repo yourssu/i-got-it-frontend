@@ -26,7 +26,7 @@ const Home = () => {
   }
 
   useEffect(() => {
-    if (resolutionId !== '') {
+    if (resolutionId !== '' && resolutionId !== undefined) {
       navigate(`/resolutions/${resolutionId}`)
     } else if (userId === -1) {
       navigate('/login')
