@@ -10,8 +10,6 @@ export const usePostResolution = () => {
   const [, setResolutionIdState] = useRecoilState(resolutionIdState)
 
   return useMutation(postResolution, {
-    // eslint-disable-next-line @typescript-eslint/no-empty-function
-    onMutate() {},
     onSuccess: (res) => {
       setResolutionIdState(res.data.resolutionId)
       console.log('success')

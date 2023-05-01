@@ -9,8 +9,6 @@ export const usePostNickname = () => {
   const [, setNicknameState] = useRecoilState(nicknameState)
   const navigate = useNavigate()
   return useMutation(postNickname, {
-    // eslint-disable-next-line @typescript-eslint/no-empty-function
-    onMutate() {},
     onSuccess: () => {
       console.log('success')
       navigate('/')
