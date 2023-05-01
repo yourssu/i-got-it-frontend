@@ -10,7 +10,7 @@ export const usePostNickname = () => {
   const navigate = useNavigate()
   return useMutation(postNickname, {
     onSuccess: () => {
-      console.log('success')
+      console.log('success-post-nickname')
       navigate('/')
     },
     onError: (err) => {

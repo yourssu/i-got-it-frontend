@@ -14,8 +14,7 @@ export const useGetLetters = (resolutionId: string, userId: number) => {
       enabled: true,
       onSuccess: (data) => {
         setLettersLockedState(data.isLocked)
-        console.log(data)
-        console.log('success')
+        console.log('success-get-letters')
       },
     }
   )
