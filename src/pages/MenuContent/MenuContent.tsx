@@ -138,12 +138,14 @@ const MenuContent = ({
           >
             이용약관
           </li>
-          <li
-            className="menu-content"
-            onClick={onClickLogout}
-          >
-            로그아웃
-          </li>
+          {userId !== -1 ? (
+            <li
+              className="menu-content"
+              onClick={onClickLogout}
+            >
+              로그아웃
+            </li>
+          ) : null}
           <BasicDialog
             showDialog={showLogout}
             title="로그아웃 하시겠습니까?"
