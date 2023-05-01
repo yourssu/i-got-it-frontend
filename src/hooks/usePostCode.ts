@@ -24,7 +24,9 @@ export const usePostCode = () => {
         setNickname(data.nickname)
         navigate('/')
       }
-      if (data.resolutionId !== null) setResolutionId(data.resolutionId)
+      if (data.resolutionId !== null) {
+        setResolutionId(data.resolutionId)
+      }
       console.log(data) // console.log는 추후에 삭제할 예정
     },
     onError: (err) => {

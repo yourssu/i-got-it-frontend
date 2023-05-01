@@ -21,7 +21,7 @@ const CheerRelay = ({ isHost }: { isHost: boolean }) => {
   const [resolutionId] = useRecoilState(resolutionIdState)
   const paramsId = useParams()
   const { data: letters, refetch: getLettersRefetch } = useGetLetters(
-    Number(paramsId.resolutionId),
+    String(paramsId.resolutionId),
     userId
   )
   const { data: response, mutate: deleteLetters } = useDeleteLetters()

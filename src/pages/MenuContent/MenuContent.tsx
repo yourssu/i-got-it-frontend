@@ -73,7 +73,7 @@ const MenuContent = ({
     cookies.remove('accessToken')
     setNameState('')
     setUserId(-1)
-    setResolutionId(-1)
+    setResolutionId('')
     navigate('/login')
   }
 
