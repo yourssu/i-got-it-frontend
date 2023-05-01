@@ -1,5 +1,4 @@
 import { useQuery } from 'react-query'
-import { useNavigate } from 'react-router-dom'
 import { useRecoilState } from 'recoil'
 
 import { getLetters } from '@/API/resolution/getLetters'
@@ -8,7 +7,6 @@ import { GetLetterResponse } from '@/Types/letter'
 
 export const useGetLetters = (resolutionId: number, userId: number) => {
   const [, setLettersLockedState] = useRecoilState(lettersLockedState)
-  const navigate = useNavigate()
   return useQuery<GetLetterResponse>(
     ['getLetters', resolutionId, userId],
     () => getLetters(resolutionId, userId),
@@ -18,9 +16,6 @@ export const useGetLetters = (resolutionId: number, userId: number) => {
         setLettersLockedState(data.isLocked)
         console.log(data)
         console.log('success')
-      },
-      onError: () => {
-        navigate('/delete')
       },
     }
   )
