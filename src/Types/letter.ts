@@ -6,6 +6,7 @@ export type GetLetterInfo = {
 export type GetLetterResponse = {
   letters: GetLetterInfo[]
   isLocked: boolean
+  isDeleted: boolean
 }
 
 export type PostLetterResponse = {

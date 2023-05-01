@@ -1,0 +1,30 @@
+.delete-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .delete-description {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 35%;
+    font-family: 'NeoDunggeunmo';
+    font-weight: 400;
+    font-size: 20px;
+    text-align: center;
+    color: var(--text-teritary);
+    line-height: 32px;
+  }
+
+  .recommend {
+    position: fixed;
+    bottom: 84px;
+    font-family: 'Pretendard';
+    font-weight: 400;
+    font-size: 15px;
+    margin-top: 31vh;
+    margin-bottom: 1vh;
+    color: var(--text-secondary);
+  }
+}
