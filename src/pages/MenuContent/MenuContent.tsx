@@ -25,15 +25,18 @@ const MenuContent = ({
   const [showDialog2, setShowDialog2] = useState(false)
   const [showLogout, setShowLogout] = useState(false)
   const [nameState, setNameState] = useRecoilState(nicknameState)
-  const [, setUserId] = useRecoilState(userIdState)
+  const [userId, setUserId] = useRecoilState(userIdState)
   const [, setResolutionId] = useRecoilState(resolutionIdState)
-  const naviage = useNavigate()
 
   const handleClose = async (e: any) => {
     if (!outside.current.contains(e.target) && !showDialog2 && !showDialog1 && !showLogout) {
       // => Dialog가 떠있을 때 menu bar가 닫기지 않게 함
       setOpenMenu(false)
     }
+  }
+
+  const onClickLogin = () => {
+    navigate('/login')
   }
 
   const onClickList1 = () => {
@@ -96,7 +99,16 @@ const MenuContent = ({
     >
       <div ref={outside}>
         <ul className={openMenu ? 'menu-list show-menu' : 'menu-list hide-menu'}>
-          <li className="nickname">{nameState}</li>
+          {userId !== -1 ? (
+            <li className="nickname">{nameState}</li>
+          ) : (
+            <li
+              className="nickname"
+              onClick={onClickLogin}
+            >
+              로그인하러가기
+            </li>
+          )}
           <li
             className="menu-content"
             onClick={onClickList1}
@@ -126,12 +138,14 @@ const MenuContent = ({
           >
             이용약관
           </li>
-          <li
-            className="menu-content"
-            onClick={onClickLogout}
-          >
-            로그아웃
-          </li>
+          {userId !== -1 ? (
+            <li
+              className="menu-content"
+              onClick={onClickLogout}
+            >
+              로그아웃
+            </li>
+          ) : null}
           <BasicDialog
             showDialog={showLogout}
             title="로그아웃 하시겠습니까?"
