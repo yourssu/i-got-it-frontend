@@ -13,10 +13,10 @@ export const usePostResolution = () => {
     // eslint-disable-next-line @typescript-eslint/no-empty-function
     onMutate() {},
     onSuccess: (res) => {
-      setResolutionIdState(res.data.resolutionId)
+      setResolutionIdState(res.data.resolutionUniqueId)
       console.log('success')
       console.log(res)
-      navigate(`/resolutions/${res.data.resolutionId}`)
+      navigate(`/resolutions/${res.data.resolutionUniqueId}`)
     },
     onError: (err) => {
       console.log(err)

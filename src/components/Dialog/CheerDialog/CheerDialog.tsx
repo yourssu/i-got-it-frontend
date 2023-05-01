@@ -21,7 +21,7 @@ const CheerDialog = () => {
   const [inputCount, setInputCount] = useState<number>(0)
   const { data: letters, mutate: postLetters } = usePostLetters()
   const paramsId = useParams()
-  const resolutionId = Number(paramsId.resolutionId)
+  const resolutionId = String(paramsId.resolutionId)
   const { refetch: getLetterRefetch } = useGetLetters(resolutionId, userId)
 
   useEffect(() => {
