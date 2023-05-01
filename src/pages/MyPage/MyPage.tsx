@@ -99,7 +99,7 @@ const MyPage = () => {
 
   return (
     <>
-      {resolution?.data.isDeleted ? (
+      {resolution?.data.isDeleted == true ? (
         <Delete />
       ) : (
         <>
