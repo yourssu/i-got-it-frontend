@@ -1,6 +1,6 @@
 export type PostKakaoLoginResponse = {
   userId: number
   nickname: string
-  resolutionUniqueId: string
+  resolutionId: string
   accessToken: string
 }
