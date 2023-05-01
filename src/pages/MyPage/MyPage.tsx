@@ -17,6 +17,7 @@ import CheerRelay from '@/pages/Cheer/CheerRelay'
 import MenuContent from '@/pages/MenuContent/MenuContent'
 
 import './Mypage.scss'
+import Delete from '../Delete/Delete'
 
 const ToastMessages = {
   ENVELOPE_MINE: '뱉은 말은 결심할 때 설정한\n기한 후에 확인 가능해요.',
@@ -98,79 +99,89 @@ const MyPage = () => {
 
   return (
     <>
-      <BasicDialog
-        showDialog={resolutionDelete}
-        title="결심을 삭제하시겠어요?"
-        description="한번 삭제하면 다시 되돌릴 수 없어요!"
-        onConfirm={onDeleteConfirm}
-        onReject={onDeleteReject}
-        confirm="삭제"
-        reject="취소"
-      />
-      <ToastDemo
-        title={title}
-        open={openToast}
-        setOpen={setOpenToast}
-      />
-      <BoxButton
-        text={resolution?.data.userId !== currentUserId ? '나도 결심 외치기' : '링크 공유하러 가기'}
-        type="button"
-        onClick={resolution?.data.userId !== currentUserId ? onClickResolution : onClickShareLink}
-      />
-      <MenuContent
-        openMenu={openMenu}
-        setOpenMenu={setOpenMenu}
-      />
-      <MenuHeader
-        onClickMenu={onClickMenu}
-        onClickDot={onClickDot}
-        isDotMenuShow={resolution?.data.userId == currentUserId}
-        setOpenDotMenu={setOpenDotMenu}
-        openDotMenu={openDotMenu}
-        setShowDialog={setResoultionDelete}
-      />
-      <div className="resolution-wrapper">
-        <div className="yellow-star">
-          <div className="nickname-resolution">{resolution?.data.nickname}의 “외침”</div>
-          <div className="resolution-line" />
-          <div
-            className="resolution-line"
-            id="resolution-line2"
+      {resolution?.data.isDeleted ? (
+        <Delete />
+      ) : (
+        <>
+          <BasicDialog
+            showDialog={resolutionDelete}
+            title="결심을 삭제하시겠어요?"
+            description="한번 삭제하면 다시 되돌릴 수 없어요!"
+            onConfirm={onDeleteConfirm}
+            onReject={onDeleteReject}
+            confirm="삭제"
+            reject="취소"
           />
-          <div className="resolution">{resolution?.data.content}</div>
-          {resolution?.data.status === 'INPROGRESS' ? (
-            <button
-              type="button"
-              className="envelop"
-              onClick={onClickEnvelope}
-            />
-          ) : (
-            <button
-              type="button"
-              className="non-lock-envelop"
-              onClick={onClickEnvelope}
-            />
-          )}
-          <LetterDialog
-            showDialog={openLetter}
-            description={resolution?.data.content}
-            onClose={onCloseLetter}
+          <ToastDemo
+            title={title}
+            open={openToast}
+            setOpen={setOpenToast}
           />
-        </div>
-        <div className="d-day-wrapper">
-          {resolution?.data.status === 'INPROGRESS' ? (
-            <span className="d-day d-day-title">뱉은 말 회수까지</span>
-          ) : (
-            <span className="d-day d-day-title">뱉은 말도 다시 보자 !</span>
-          )}
-          {resolution?.data.status === 'INPROGRESS' ? (
-            <span className="d-day d-day-value"> D-{resolution?.data.dday}h</span>
-          ) : null}
-        </div>
-        <div className="letter-line" />
-      </div>
-      <CheerRelay isHost={resolution?.data.userId == currentUserId} />
-      <CheerDialog />
+          <BoxButton
+            text={
+              resolution?.data.userId !== currentUserId ? '나도 결심 외치기' : '링크 공유하러 가기'
+            }
+            type="button"
+            onClick={
+              resolution?.data.userId !== currentUserId ? onClickResolution : onClickShareLink
+            }
+          />
+          <MenuContent
+            openMenu={openMenu}
+            setOpenMenu={setOpenMenu}
+          />
+          <MenuHeader
+            onClickMenu={onClickMenu}
+            onClickDot={onClickDot}
+            isDotMenuShow={resolution?.data.userId == currentUserId}
+            setOpenDotMenu={setOpenDotMenu}
+            openDotMenu={openDotMenu}
+            setShowDialog={setResoultionDelete}
+          />
+          <div className="resolution-wrapper">
+            <div className="yellow-star">
+              <div className="nickname-resolution">{resolution?.data.nickname}의 “외침”</div>
+              <div className="resolution-line" />
+              <div
+                className="resolution-line"
+                id="resolution-line2"
+              />
+              <div className="resolution">{resolution?.data.content}</div>
+              {resolution?.data.status === 'INPROGRESS' ? (
+                <button
+                  type="button"
+                  className="envelop"
+                  onClick={onClickEnvelope}
+                />
+              ) : (
+                <button
+                  type="button"
+                  className="non-lock-envelop"
+                  onClick={onClickEnvelope}
+                />
+              )}
+              <LetterDialog
+                showDialog={openLetter}
+                description={resolution?.data.content}
+                onClose={onCloseLetter}
+              />
+            </div>
+            <div className="d-day-wrapper">
+              {resolution?.data.status === 'INPROGRESS' ? (
+                <span className="d-day d-day-title">뱉은 말 회수까지</span>
+              ) : (
+                <span className="d-day d-day-title">뱉은 말도 다시 보자 !</span>
+              )}
+              {resolution?.data.status === 'INPROGRESS' ? (
+                <span className="d-day d-day-value"> D-{resolution?.data.dday}h</span>
+              ) : null}
+            </div>
+            <div className="letter-line" />
+          </div>
+          <CheerRelay isHost={resolution?.data.userId == currentUserId} />
+          <CheerDialog />
+        </>
+      )}
     </>
   )
 }
