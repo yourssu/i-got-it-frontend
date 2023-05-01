@@ -3,7 +3,7 @@ import { PostLetterResponse } from '@/Types/letter'
 import api from '../api'
 
 export const postLetters = async (params: {
-  resolutionId: number
+  resolutionId: string
   nickname: string
   content: string
 }): Promise<PostLetterResponse> => {

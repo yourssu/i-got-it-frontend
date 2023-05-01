@@ -3,7 +3,7 @@ import { GetLetterResponse } from '@/Types/letter'
 import api from '../api'
 
 export const getLetters = async (
-  resolutionId: number,
+  resolutionId: string,
   userId: number
 ): Promise<GetLetterResponse> => {
   const data = await api({

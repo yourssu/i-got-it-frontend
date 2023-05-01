@@ -37,7 +37,7 @@ const MyPage = () => {
   const [currentUserId] = useRecoilState(userIdState)
   const [resolutionId, setResolutionId] = useRecoilState(resolutionIdState)
   const paramsId = useParams()
-  const { data: resolution } = useGetResolution(Number(paramsId.resolutionId))
+  const { data: resolution } = useGetResolution(String(paramsId.resolutionId))
   const { mutate: deleteResolution } = useDeleteResolution()
   const navigate = useNavigate()
 
@@ -51,7 +51,7 @@ const MyPage = () => {
 
   const onDeleteConfirm = () => {
     setResoultionDelete(false)
-    setResolutionId(-1)
+    setResolutionId('')
     deleteResolution(resolutionId)
   }
 

@@ -1,7 +1,7 @@
 import api from '../api'
 
 interface IDeleteLetters {
-  resolutionId: number
+  resolutionId: string
   letterId: number
 }
 

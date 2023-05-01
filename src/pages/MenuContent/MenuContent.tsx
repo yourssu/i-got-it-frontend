@@ -27,7 +27,6 @@ const MenuContent = ({
   const [nameState, setNameState] = useRecoilState(nicknameState)
   const [, setUserId] = useRecoilState(userIdState)
   const [, setResolutionId] = useRecoilState(resolutionIdState)
-  const naviage = useNavigate()
 
   const handleClose = async (e: any) => {
     if (!outside.current.contains(e.target) && !showDialog2 && !showDialog1 && !showLogout) {
@@ -70,7 +69,7 @@ const MenuContent = ({
     cookies.remove('accessToken')
     setNameState('')
     setUserId(-1)
-    setResolutionId(-1)
+    setResolutionId('')
     navigate('/login')
   }
 
