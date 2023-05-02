@@ -31,8 +31,6 @@ const Home = () => {
     } else if (userId === -1) {
       navigate('/login')
     }
-    console.log(userId)
-    console.log(resolutionId)
   })
 
   return (
