@@ -13,13 +13,21 @@ const EmailDialog = ({
   onReject: () => void
 }) => {
   const [email, setEmail] = useState('')
+  const [emailCheck, setEmailCheck] = useState(true)
 
   const handleChangeInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     setEmail(e.target.value)
   }
 
   const handleConfirm = () => {
-    onConfirm(email)
+    if (email == '') setEmailCheck(false)
+    else if (email.indexOf('@') != -1 && email.indexOf('.') != -1) {
+      setEmailCheck(true)
+      onConfirm(email)
+    } else {
+      setEmailCheck(true)
+      onReject()
+    }
   }
 
   return (
@@ -34,7 +42,7 @@ const EmailDialog = ({
           </Dialog.Description>
           <fieldset className="Fieldset">
             <input
-              className="Input"
+              className={`Input ${emailCheck ? 'positive' : 'negative'}`}
               id="name"
               defaultValue="Pedro Duarte"
               value={email}
