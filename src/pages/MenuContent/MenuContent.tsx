@@ -19,7 +19,7 @@ const MenuContent = ({
   openMenu: boolean
   setOpenMenu: (openMenu: boolean) => void
 }) => {
-  const outside = useRef<any>() // type 변경해야 함
+  const outside = useRef<HTMLDivElement>(null)
   const navigate = useNavigate()
   const [showDialog1, setShowDialog1] = useState(false)
   const [showDialog2, setShowDialog2] = useState(false)
@@ -28,12 +28,24 @@ const MenuContent = ({
   const [userId, setUserId] = useRecoilState(userIdState)
   const [, setResolutionId] = useRecoilState(resolutionIdState)
 
-  const handleClose = async (e: any) => {
-    if (!outside.current.contains(e.target) && !showDialog2 && !showDialog1 && !showLogout) {
-      // => Dialog가 떠있을 때 menu bar가 닫기지 않게 함
-      setOpenMenu(false)
+  useEffect(() => {
+    if (openMenu) {
+      const handleClose = (e: MouseEvent) => {
+        if (
+          !outside.current?.contains(e.target as HTMLDivElement) &&
+          !showDialog2 &&
+          !showDialog1 &&
+          !showLogout
+        ) {
+          setOpenMenu(false) // => Dialog가 떠있을 때 menu bar가 닫기지 않게 함
+        }
+      }
+      document.addEventListener('mousedown', handleClose)
+      return () => {
+        document.removeEventListener('mousedown', handleClose)
+      }
     }
-  }
+  }, [openMenu])
 
   const onClickLogin = () => {
     navigate('/login')
@@ -81,14 +93,6 @@ const MenuContent = ({
     setShowLogout(false)
     setOpenMenu(true)
   }
-
-  useEffect(() => {
-    document.addEventListener('mousedown', handleClose)
-
-    return () => {
-      document.removeEventListener('mousedown', handleClose)
-    }
-  })
 
   return (
     <div

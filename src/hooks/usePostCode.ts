@@ -14,8 +14,6 @@ export const usePostCode = () => {
   const [, setResolutionId] = useRecoilState(resolutionIdState)
 
   return useMutation(postCode, {
-    // eslint-disable-next-line @typescript-eslint/no-empty-function
-    onMutate() {},
     onSuccess: (data) => {
       setUserId(data.userId)
       if (data.nickname === null) {
@@ -27,7 +25,6 @@ export const usePostCode = () => {
       if (data.resolutionId !== null) {
         setResolutionId(data.resolutionId)
       }
-      console.log(data) // console.log는 추후에 삭제할 예정
     },
     onError: (err) => {
       console.log(err)

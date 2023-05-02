@@ -29,8 +29,6 @@ const CreateLetter = () => {
   }
 
   const handleConfirm = (email: string) => {
-    console.log(email)
-
     postResolution({ period: 3, content: resolutionValue, letter: message, mail: email })
   }
 
