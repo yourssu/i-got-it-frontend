@@ -84,6 +84,7 @@ const Create = () => {
       <BoxButton
         type="submit"
         text="다음"
+        isDisabled={!resolution}
         onClick={handleSubmit}
       />
     </>
