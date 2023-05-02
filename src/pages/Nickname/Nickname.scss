@@ -48,7 +48,7 @@
     }
 
     .rule-negative {
-      color: #ff5252;
+      color: var(--text-negative);
     }
 
     .input-positive {
@@ -56,7 +56,7 @@
     }
 
     .input-negative {
-      border-color: #ff5252;
+      border-color: var(--button-negative);
     }
 
     .nickname-warning {

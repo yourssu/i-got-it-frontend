@@ -58,7 +58,7 @@ fieldset
     }
 
     .RuleNegative {
-      color: #ff5252;
+      color: var(--text-negative);
     }
 
     .RulePositive {
@@ -66,7 +66,7 @@ fieldset
     }
 
     .InputNegative {
-      border: 2px solid #ff5252;
+      border: 2px solid var(--button-negative);
     }
 
     .InputPositive {
