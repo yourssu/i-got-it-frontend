@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 import { useNavigate } from 'react-router-dom'
-import { useSetRecoilState } from 'recoil'
+import { useRecoilState } from 'recoil'
 
 import { resolutionState } from '@/State/resolutionState'
 import BoxButton from '@/components/Button/BoxButton/BoxButton'
@@ -11,9 +11,9 @@ import './Create.scss'
 
 const Create = () => {
   const navigate = useNavigate()
-  const [resolution, setLesolution] = useState('')
+  const [resolutionInfo, setResolutionRecoilState] = useRecoilState(resolutionState)
+  const [resolution, setLesolution] = useState(resolutionInfo)
   const [inputCount, setInputCount] = useState(0)
-  const setResolutionRecoilState = useSetRecoilState(resolutionState)
 
   const onClickBack = () => {
     navigate('/')
