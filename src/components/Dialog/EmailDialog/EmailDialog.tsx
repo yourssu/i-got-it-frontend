@@ -43,6 +43,7 @@ const EmailDialog = ({
             </fieldset>
             <div className="wapper-dialog-botton">
               <button
+                type="button"
                 onClick={handleReject}
                 className="dialog-button"
               >
