@@ -5,29 +5,24 @@ import './EmailDialog.scss'
 
 const EmailDialog = ({
   showDialog,
-  onConfirm,
-  onReject,
+  onSubmit,
 }: {
   showDialog: boolean
-  onConfirm: (email: string) => void
-  onReject: () => void
+  onSubmit: (email?: string) => void
 }) => {
-  const [email, setEmail] = useState('')
-  const [emailCheck, setEmailCheck] = useState(true)
+  const [email, setEmail] = useState<undefined | string>(undefined)
 
   const handleChangeInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     setEmail(e.target.value)
   }
 
-  const handleConfirm = () => {
-    if (email == '') setEmailCheck(false)
-    else if (email.indexOf('@') != -1 && email.indexOf('.') != -1) {
-      setEmailCheck(true)
-      onConfirm(email)
-    } else {
-      setEmailCheck(true)
-      onReject()
-    }
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    onSubmit(email)
+  }
+
+  const handleReject = () => {
+    onSubmit()
   }
 
   return (
@@ -40,30 +35,32 @@ const EmailDialog = ({
             {`정.확.한. 메일 주소를 입력하신다면요.
             메일 주소를 입력해 주세요.`}
           </Dialog.Description>
-          <fieldset className="Fieldset">
-            <input
-              className={`Input ${emailCheck ? 'positive' : 'negative'}`}
-              id="name"
-              defaultValue="Pedro Duarte"
-              value={email}
-              onChange={handleChangeInput}
-              placeholder="soongsill@ssu.ac.kr"
-            />
-          </fieldset>
-          <div className="wapper-dialog-botton">
-            <button
-              onClick={onReject}
-              className="dialog-button"
-            >
-              갠.찬아.요
-            </button>
-            <button
-              onClick={handleConfirm}
-              className="dialog-button"
-            >
-              완료
-            </button>
-          </div>
+          <form onSubmit={handleSubmit}>
+            <fieldset className="Fieldset">
+              <input
+                className={'Input'}
+                id="email"
+                type="email"
+                value={email}
+                onChange={handleChangeInput}
+                placeholder="soongsill@ssu.ac.kr"
+              />
+            </fieldset>
+            <div className="wapper-dialog-botton">
+              <button
+                onClick={handleReject}
+                className="dialog-button"
+              >
+                갠.찬아.요
+              </button>
+              <button
+                type="submit"
+                className="dialog-button"
+              >
+                완료
+              </button>
+            </div>
+          </form>
         </Dialog.Content>
       </Dialog.Portal>
     </Dialog.Root>
