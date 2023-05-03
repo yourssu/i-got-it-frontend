@@ -10,11 +10,7 @@ const EmailDialog = ({
   showDialog: boolean
   onSubmit: (email?: string) => void
 }) => {
-  const [email, setEmail] = useState<undefined | string>(undefined)
-
-  const handleChangeInput = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setEmail(e.target.value)
-  }
+  const [email, setEmail] = useState<string>('')
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -38,11 +34,10 @@ const EmailDialog = ({
           <form onSubmit={handleSubmit}>
             <fieldset className="Fieldset">
               <input
-                className={'Input'}
-                id="email"
+                className="Input"
                 type="email"
                 value={email}
-                onChange={handleChangeInput}
+                onChange={(e) => setEmail(e.target.value)}
                 placeholder="soongsill@ssu.ac.kr"
               />
             </fieldset>
