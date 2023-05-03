@@ -1,10 +1,6 @@
 import { atom } from 'recoil'
-import { recoilPersist } from 'recoil-persist'
 
-const { persistAtom } = recoilPersist({
-  key: 'nicknameState',
-  storage: sessionStorage,
-})
+import persistAtom from './persistAtom'
 
 export const nicknameState = atom<string>({
   key: 'nicknameState',
