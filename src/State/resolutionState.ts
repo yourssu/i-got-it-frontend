@@ -4,7 +4,8 @@ import persistAtom from './persistAtom'
 
 export const resolutionState = atom<string>({
   key: 'resolutionState',
-  default: localStorage.getItem('resolution') || '',
+  default: '',
+  effects: [persistAtom],
 })
 
 export const resolutionIdState = atom<string>({

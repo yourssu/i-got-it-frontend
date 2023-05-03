@@ -19,7 +19,6 @@ const Create = () => {
 
   const handleSubmit = () => {
     setResolution(resolution)
-    localStorage.setItem('resolution', resolution)
     navigate('/create-letter')
   }
 
@@ -29,7 +28,6 @@ const Create = () => {
 
   const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     setResolution(event.target.value)
-    localStorage.setItem('resolution', resolution)
   }
 
   return (

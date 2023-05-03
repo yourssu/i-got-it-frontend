@@ -16,8 +16,6 @@ export const usePostResolution = () => {
       console.log('success-post-resolution')
       setResolutionRecoilState('')
       navigate(`/resolutions/${res.data.resolutionId}`)
-      localStorage.removeItem('resolution')
-      localStorage.removeItem('letter')
     },
     onError: (err) => {
       console.log(err)
