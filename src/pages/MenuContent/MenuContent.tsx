@@ -11,6 +11,7 @@ import BasicDialog from '@/components/Dialog/BasicDialog/BasicDialog'
 import IntroductionDialog from '@/components/Dialog/IntroductionDialog/IntroductionDialog'
 import ProducerDialog from '@/components/Dialog/ProducerDialog/ProducerDialog'
 import './MenuContent.scss'
+import TokenService from '@/services/TokenService'
 
 const MenuContent = ({
   openMenu,
@@ -83,6 +84,7 @@ const MenuContent = ({
     const cookies = new Cookies()
     sessionStorage.clear()
     cookies.remove('accessToken')
+    TokenService.logout()
     setNameState('')
     setUserId(-1)
     setResolutionId('')

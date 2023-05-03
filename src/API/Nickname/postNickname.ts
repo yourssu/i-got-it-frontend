@@ -1,3 +1,5 @@
+import TokenService from '@/services/TokenService'
+
 import api from '../api'
 
 export const postNickname = async (nickname: string) => {
@@ -6,6 +8,9 @@ export const postNickname = async (nickname: string) => {
     url: '/api/v1/auth/sign-in/info',
     data: {
       nickname,
+    },
+    headers: {
+      Authorization: `Bearer ${TokenService.get()}`,
     },
   })
 
