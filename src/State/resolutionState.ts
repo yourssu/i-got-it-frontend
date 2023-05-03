@@ -11,5 +11,5 @@ export const resolutionState = atom<string>({
 export const resolutionIdState = atom<string>({
   key: 'resolutionIdState',
   default: '',
-  effects_UNSTABLE: [persistAtom],
+  effects: [persistAtom],
 })
