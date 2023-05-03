@@ -25,8 +25,6 @@ export const postResolution = async ({
       letter,
       mail,
     },
-    headers: {
-      Authorization: `Bearer ${TokenService.get()}`,
-    },
+    headers: TokenService.headers,
   })
 }

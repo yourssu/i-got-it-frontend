@@ -1,14 +1,24 @@
+import { Cookies } from 'react-cookie'
+
 class TokenService {
+  cookie = new Cookies()
+
   set(accessToken: string) {
-    sessionStorage.setItem('accessToken', accessToken)
+    this.cookie.set('accessToken', accessToken, { path: '/' })
   }
 
   get() {
-    return sessionStorage.getItem('accessToken')
+    return this.cookie.get('accessToken')
   }
 
   logout() {
-    sessionStorage.removeItem('accessToken')
+    this.cookie.remove('accessToken')
+  }
+
+  get headers() {
+    return {
+      Authorization: `Bearer ${this.get()}`,
+    }
   }
 }
 

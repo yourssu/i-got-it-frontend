@@ -16,9 +16,7 @@ export const postLetters = async (params: {
       nickname,
       content,
     },
-    headers: {
-      Authorization: `Bearer ${TokenService.get()}`,
-    },
+    headers: TokenService.headers,
   })
 
   return data.data

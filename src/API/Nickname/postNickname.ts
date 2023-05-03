@@ -9,9 +9,7 @@ export const postNickname = async (nickname: string) => {
     data: {
       nickname,
     },
-    headers: {
-      Authorization: `Bearer ${TokenService.get()}`,
-    },
+    headers: TokenService.headers,
   })
 
   return data.data
