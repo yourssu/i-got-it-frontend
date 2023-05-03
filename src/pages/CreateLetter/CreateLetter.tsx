@@ -17,7 +17,6 @@ const CreateLetter = () => {
   const navigate = useNavigate()
   const [message, setMessage] = useRecoilState(letterState)
   const [showDialog, setShowDialog] = useState(false)
-  const [inputCount, setInputCounte] = useState(0)
   const resolutionValue = useRecoilValue(resolutionState)
   const { mutate: postResolution } = usePostResolution()
 
@@ -39,7 +38,6 @@ const CreateLetter = () => {
 
   const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     setMessage(event.target.value)
-    setInputCounte(event.target.value.length)
   }
 
   return (
@@ -72,7 +70,7 @@ const CreateLetter = () => {
                 e.target.value = e.target.value.slice(0, e.target.maxLength)
             }}
           />
-          <span className="letter-text-count">{inputCount} / 133</span>
+          <span className="letter-text-count">{message.length} / 133</span>
         </div>
       </form>
       <BoxButton
