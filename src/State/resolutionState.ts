@@ -8,7 +8,7 @@ const { persistAtom } = recoilPersist({
 
 export const resolutionState = atom<string>({
   key: 'resolutionState',
-  default: '',
+  default: localStorage.getItem('resolution') || '',
 })
 
 export const resolutionIdState = atom<string>({

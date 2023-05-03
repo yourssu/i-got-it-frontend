@@ -14,7 +14,7 @@ import './CreateLetter.scss'
 
 const CreateLetter = () => {
   const navigate = useNavigate()
-  const [message, setMessage] = useState('')
+  const [message, setMessage] = useState(localStorage.getItem('letter') || '')
   const [showDialog, setShowDialog] = useState(false)
   const [inputCount, setInputCounte] = useState(0)
   const resolutionValue = useRecoilValue(resolutionState)
@@ -38,6 +38,7 @@ const CreateLetter = () => {
 
   const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     setMessage(event.target.value)
+    localStorage.setItem('letter', event.target.value)
     setInputCounte(event.target.value.length)
   }
 
