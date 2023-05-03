@@ -1,3 +1,5 @@
+import TokenService from '@/services/TokenService'
+
 import api from '../api'
 
 export const postNickname = async (nickname: string) => {
@@ -7,6 +9,7 @@ export const postNickname = async (nickname: string) => {
     data: {
       nickname,
     },
+    headers: TokenService.headers,
   })
 
   return data.data

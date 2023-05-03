@@ -1,4 +1,5 @@
 import { IpostResolutionResponse } from '@/Types/resolution'
+import TokenService from '@/services/TokenService'
 
 import api from '../api'
 
@@ -24,5 +25,6 @@ export const postResolution = async ({
       letter,
       mail,
     },
+    headers: TokenService.headers,
   })
 }

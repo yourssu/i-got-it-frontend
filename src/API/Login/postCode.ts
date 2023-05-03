@@ -1,10 +1,8 @@
-import { Cookies } from 'react-cookie'
-
 import { PostKakaoLoginResponse } from '@/Types/login'
+import TokenService from '@/services/TokenService'
 
 import api from '../api'
 
-const cookies = new Cookies()
 export const postCode = async (code: string): Promise<PostKakaoLoginResponse> => {
   const data = await api({
     method: 'post',
@@ -14,6 +12,7 @@ export const postCode = async (code: string): Promise<PostKakaoLoginResponse> =>
     },
   })
 
-  cookies.set('accessToken', data.data.accessToken)
+  TokenService.set(data.data.accessToken)
+
   return data.data
 }

@@ -1,4 +1,5 @@
 import { PostLetterResponse } from '@/Types/letter'
+import TokenService from '@/services/TokenService'
 
 import api from '../api'
 
@@ -15,6 +16,7 @@ export const postLetters = async (params: {
       nickname,
       content,
     },
+    headers: TokenService.headers,
   })
 
   return data.data
