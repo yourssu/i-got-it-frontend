@@ -28,8 +28,13 @@ const CreateLetter = () => {
     setShowDialog(true)
   }
 
-  const handleConfirm = (email?: string) => {
-    postResolution({ period: 3, content: resolutionValue, letter: message, mail: email })
+  const handlePostResolution = (email?: string) => {
+    postResolution({
+      period: 3,
+      content: resolutionValue,
+      letter: message,
+      mail: email,
+    })
   }
 
   const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
@@ -39,7 +44,7 @@ const CreateLetter = () => {
   return (
     <>
       <EmailDialog
-        onSubmit={handleConfirm}
+        onSubmit={handlePostResolution}
         showDialog={showDialog}
       />
       <BackHeader onClick={onCickBack} />
