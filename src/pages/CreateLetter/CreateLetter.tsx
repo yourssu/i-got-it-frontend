@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 
 import { useNavigate } from 'react-router-dom'
-import { useRecoilValue } from 'recoil'
+import { useRecoilState, useRecoilValue } from 'recoil'
 
+import { letterState } from '@/State/letterState'
 import { resolutionState } from '@/State/resolutionState'
 import BoxButton from '@/components/Button/BoxButton/BoxButton'
 import EmailDialog from '@/components/Dialog/EmailDialog/EmailDialog'
@@ -14,7 +15,7 @@ import './CreateLetter.scss'
 
 const CreateLetter = () => {
   const navigate = useNavigate()
-  const [message, setMessage] = useState(localStorage.getItem('letter') || '')
+  const [message, setMessage] = useRecoilState(letterState)
   const [showDialog, setShowDialog] = useState(false)
   const [inputCount, setInputCounte] = useState(0)
   const resolutionValue = useRecoilValue(resolutionState)
@@ -38,7 +39,6 @@ const CreateLetter = () => {
 
   const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     setMessage(event.target.value)
-    localStorage.setItem('letter', event.target.value)
     setInputCounte(event.target.value.length)
   }
 
