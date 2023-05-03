@@ -2,8 +2,8 @@ import { atom } from 'recoil'
 
 import persistAtom from './persistAtom'
 
-export const nicknameState = atom<string>({
-  key: 'nicknameState',
+export const letterState = atom<string>({
+  key: 'letterState',
   default: '',
   effects: [persistAtom],
 })

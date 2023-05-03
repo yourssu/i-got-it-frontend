@@ -11,26 +11,23 @@ import './Create.scss'
 
 const Create = () => {
   const navigate = useNavigate()
-  const [resolutionInfo, setResolutionRecoilState] = useRecoilState(resolutionState)
-  const [resolution, setLesolution] = useState(resolutionInfo)
-  const [inputCount, setInputCount] = useState(0)
+  const [resolution, setResolution] = useRecoilState(resolutionState)
 
   const onClickBack = () => {
     navigate('/')
   }
 
   const handleSubmit = () => {
-    setResolutionRecoilState(resolution)
+    setResolution(resolution)
     navigate('/create-letter')
   }
 
   const onClickClear = () => {
-    setLesolution('')
+    setResolution('')
   }
 
   const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
-    setLesolution(event.target.value)
-    setInputCount(event.target.value.length)
+    setResolution(event.target.value)
   }
 
   return (
@@ -78,7 +75,7 @@ const Create = () => {
             className="clear-button"
             onClick={onClickClear}
           />
-          <span className="resolutioin-text-count">{inputCount} / 33</span>
+          <span className="resolutioin-text-count">{resolution.length} / 33</span>
         </div>
       </form>
       <BoxButton
