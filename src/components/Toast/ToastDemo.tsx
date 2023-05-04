@@ -12,14 +12,16 @@ interface Iprop {
 
 const ToastDemo = ({ title, open, setOpen }: Iprop) => {
   return (
-    <Toast.Root
-      className="ToastRoot"
-      open={open}
-      onOpenChange={setOpen}
-      // duration={100000000}  // 테스트용 코드
-    >
-      <Toast.Title className="ToastTitle">{title}</Toast.Title>
-    </Toast.Root>
+    <Toast.Provider duration={1500}>
+      <Toast.Root
+        className="ToastRoot"
+        open={open}
+        onOpenChange={setOpen}
+      >
+        <Toast.Title className="ToastTitle">{title}</Toast.Title>
+      </Toast.Root>
+      <Toast.Viewport className="ToastViewport" />
+    </Toast.Provider>
   )
 }
 
