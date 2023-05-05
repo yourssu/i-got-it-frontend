@@ -19,7 +19,7 @@ import './App.scss'
 function App() {
   return (
     <div className="App">
-      <Toast.Provider>
+      <Toast.Provider duration={1500}>
         <BrowserRouter>
           <Routes>
             <Route
