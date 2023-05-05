@@ -43,6 +43,9 @@
   color: var(--text-teritary);
   white-space: pre-line;
   line-height: 1.5;
+  &:focus {
+    color: var(--text-secondary);
+  }
 }
 
 .letter-text-count {
