@@ -34,6 +34,11 @@ const Nickname = () => {
       }
     }
   }
+
+  const onClickClear = () => {
+    setNickname('')
+  }
+
   return (
     <>
       <div className="nickname-wrapper">
@@ -64,6 +69,11 @@ const Nickname = () => {
               if (e.target.value.length > e.target.maxLength)
                 e.target.value = e.target.value.slice(0, e.target.maxLength)
             }}
+          />
+          <button
+            type="button"
+            className="clear-button"
+            onClick={onClickClear}
           />
           <div className="nickname-warning">닉네임은 이후 수정이 불가하니 신중히 정해주세요!</div>
         </div>
