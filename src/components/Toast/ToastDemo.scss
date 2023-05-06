@@ -14,6 +14,7 @@ ol {
   box-sizing: border-box;
   width: 100vw;
   max-width: 390px;
+  min-width: 350px;
   padding: var(--viewport-padding);
   display: flex;
   flex-direction: column;
