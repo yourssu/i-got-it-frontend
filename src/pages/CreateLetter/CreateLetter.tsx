@@ -63,7 +63,6 @@ const CreateLetter = () => {
             maxLength={133}
             value={message}
             onChange={handleChange}
-            cols={17}
             rows={10}
             onInput={(e: React.ChangeEvent<HTMLTextAreaElement>) => {
               if (e.target.value.length > e.target.maxLength)

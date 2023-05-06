@@ -11,17 +11,18 @@
   padding-top: 10px;
   padding-bottom: 80px;
   .cheer-title {
-    font-family: 'GothicA1-Regular';
+    font-family: 'Gothic A1', sans-serif;
     font-weight: 700;
-    font-size: 25px;
+    font-size: 24px;
     color: var(--pointColor-red100);
     -webkit-text-stroke: 1px black;
   }
 
   .no-cheer {
+    font-family: 'Gothic A1', sans-serif;
     color: var(--text-disabled);
     font-weight: 400;
-    font-size: 15px;
+    font-size: 16px;
     padding-top: 10px;
     display: flex;
     flex-direction: column;
@@ -56,8 +57,10 @@
       }
 
       .tag-name {
-        position: absolute;
+        font-family: 'Gothic A1', sans-serif;
+        font-weight: 600;
         font-size: 16px;
+        position: absolute;
         top: 29px;
         left: 0px;
         right: 0px;
@@ -65,6 +68,9 @@
     }
 
     .bubble-wrapper {
+      font-family: 'Gothic A1', sans-serif;
+      font-weight: 400;
+      font-size: 16px;
       position: relative;
       display: flex;
       justify-content: center;

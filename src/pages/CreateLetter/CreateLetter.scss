@@ -30,17 +30,18 @@
 }
 
 .letter-input {
-  resize: none;
+  width: 260px;
   position: absolute;
   background-color: transparent;
   outline: none;
   border: none;
   margin-top: 30px;
-  padding-left: 60px;
+  padding-left: 70px;
   font-family: 'Pretendard';
   font-weight: 400;
   font-size: 15px;
   color: var(--text-teritary);
+  caret-color: var(--pointColor-pink100);
   white-space: pre-line;
   line-height: 1.5;
   &:focus {
