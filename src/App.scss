@@ -1,7 +1,8 @@
 #root {
   width: 100%;
+  min-width: 350px;
   max-width: 390px;
-  @media screen and (max-width: 480px) {
+  @media screen and (max-width: 350px) {
     width: 100%;
   }
   margin: 0 auto;
@@ -12,4 +13,5 @@
 .App {
   min-height: calc(var(--vh, 1vh) * 100);
   overflow: auto;
+  background-color: aqua;
 }
