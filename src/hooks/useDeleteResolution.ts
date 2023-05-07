@@ -7,11 +7,8 @@ export const useDeleteResolution = () => {
   const navigate = useNavigate()
   return useMutation(deleteResolution, {
     onSuccess: () => {
-      console.log('success-delete-resolution')
       navigate('/')
     },
-    onError: (err) => {
-      console.log(err)
-    },
+    onError: (err) => {},
   })
 }
