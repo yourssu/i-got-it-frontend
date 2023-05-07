@@ -30,7 +30,7 @@ const CreateLetter = () => {
 
   const handlePostResolution = (email?: string) => {
     postResolution({
-      period: 3,
+      period: 21,
       content: resolutionValue,
       letter: message,
       mail: email,
