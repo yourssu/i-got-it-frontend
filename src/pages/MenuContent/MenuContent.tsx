@@ -25,6 +25,7 @@ const MenuContent = ({
   const [showDialog1, setShowDialog1] = useState(false)
   const [showDialog2, setShowDialog2] = useState(false)
   const [showLogout, setShowLogout] = useState(false)
+  const [showWithdraw, setShowWithdraw] = useState(false)
   const [nameState, setNameState] = useRecoilState(nicknameState)
   const [userId, setUserId] = useRecoilState(userIdState)
   const [, setResolutionId] = useRecoilState(resolutionIdState)
@@ -80,6 +81,10 @@ const MenuContent = ({
     setShowLogout(true)
   }
 
+  const onClickWithdraw = () => {
+    setShowWithdraw(true)
+  }
+
   const onClickConfirmLogout = () => {
     const cookies = new Cookies()
     sessionStorage.clear()
@@ -93,6 +98,15 @@ const MenuContent = ({
 
   const onClickRejectLogout = () => {
     setShowLogout(false)
+    setOpenMenu(true)
+  }
+
+  const onClickConfirmWithdraw = () => {
+    // 탈퇴하는 로직 넣기
+  }
+
+  const onClickRejectWithdraw = () => {
+    setShowWithdraw(false)
     setOpenMenu(true)
   }
 
@@ -164,7 +178,22 @@ const MenuContent = ({
             reject="그.럴.리.가"
           />
         </ul>
-        <li className="menu-content-withdraw">서비스 탈퇴하기</li>
+        <li
+          className="menu-content-withdraw"
+          onClick={onClickWithdraw}
+        >
+          서비스 탈퇴하기
+        </li>
+        <BasicDialog
+          showDialog={showWithdraw}
+          title="정말 탈퇴하시겠어요...?"
+          description={`탈퇴할 경우 서비스를 더이상 이용하실 수 없어요ㅠ
+          우리의 인연.... 여기까지인가요...?`}
+          onConfirm={onClickConfirmWithdraw}
+          onReject={onClickRejectWithdraw}
+          confirm="탈퇴ㅠ"
+          reject="취소"
+        />
       </div>
     </div>
   )
