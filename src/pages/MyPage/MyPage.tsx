@@ -1,9 +1,9 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import { useNavigate, useParams } from 'react-router-dom'
-import { useRecoilState } from 'recoil'
+import { useRecoilState, useRecoilValue } from 'recoil'
 
-import { resolutionIdState } from '@/State/resolutionState'
+import { resolutionIdState, resolutionIsExistedState } from '@/State/resolutionState'
 import { userIdState } from '@/State/userIdState'
 import BoxButton from '@/components/Button/BoxButton/BoxButton'
 import BasicDialog from '@/components/Dialog/BasicDialog/BasicDialog'
@@ -24,6 +24,7 @@ const ToastMessages = {
   ENVELOPE_NOT_MINE: '쉿, 제 마음은 열 수 있어도\n이 편지는 열 수 없어요...☆',
   SUCCESS_SHARE: '링크가 복사되었습니다.\n어서 친구들에게 공유하세요!',
   ERROR_SHARE: '클립보드 복사가 지원되지 않습니다.\n상단 url을 복사해주세요!',
+  OVERLAP_RESOLUTION: '계정 당 결심은 하나만 생성 가능합니다.',
 }
 
 const domain = 'i-got-it.soomsil.de'
@@ -37,6 +38,7 @@ const MyPage = () => {
   const [resolutionDelete, setResoultionDelete] = useState(false)
   const [currentUserId] = useRecoilState(userIdState)
   const [resolutionId, setResolutionId] = useRecoilState(resolutionIdState)
+  const resolutionIsExisted = useRecoilValue(resolutionIsExistedState)
   const paramsId = useParams()
   const { data: resolution } = useGetResolution(String(paramsId.resolutionId))
   const { mutate: deleteResolution } = useDeleteResolution()
@@ -96,6 +98,12 @@ const MyPage = () => {
       showToast(ToastMessages.ERROR_SHARE)
     }
   }
+
+  useEffect(() => {
+    if (resolutionIsExisted == true) {
+      showToast(ToastMessages.OVERLAP_RESOLUTION)
+    }
+  })
 
   return (
     <>

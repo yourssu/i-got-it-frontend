@@ -1,5 +1,5 @@
 export interface IpostResolutionResponse {
-  data: { resolutionId: string }
+  data: { resolutionId: string; isExisted: boolean }
 }
 
 export interface IGetResolutionResponse {
