@@ -23,6 +23,8 @@
     "indent": ["error", 2],
     "quotes": ["error", "single"],
     "semi": ["error", "never"],
+    "no-console": "error",
+    "@typescript-eslint/no-empty-function": ["error", { "allow": ["arrowFunctions"] }],
     "import/order": [
       "error",
       {

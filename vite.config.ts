@@ -13,4 +13,7 @@ export default defineConfig({
   define: {
     'import.meta.env.PACKAGE_VERSION': JSON.stringify(packageJson.version),
   },
+  esbuild: {
+    drop: ['console', 'debugger'],
+  },
 })
