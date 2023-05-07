@@ -47,7 +47,7 @@ const Create = () => {
             htmlFor="date3"
             className="button-date"
           >
-            작심 3일
+            작심 3주
           </label>
         </div>
         <label className="title">결심</label>

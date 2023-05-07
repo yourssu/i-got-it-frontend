@@ -181,7 +181,7 @@ const MyPage = () => {
                 <span className="d-day d-day-title">뱉은 말도 다시 보자 !</span>
               )}
               {resolution?.data.status === 'INPROGRESS' ? (
-                <span className="d-day d-day-value"> D-{resolution?.data.dday}h</span>
+                <span className="d-day d-day-value"> D-{resolution?.data.dday}</span>
               ) : null}
             </div>
             <div className="letter-line" />
