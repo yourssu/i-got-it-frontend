@@ -103,8 +103,11 @@ const MenuContent = ({
       }}
       className="menu-wrapper"
     >
-      <div ref={outside}>
-        <ul className={openMenu ? 'menu-list show-menu' : 'menu-list hide-menu'}>
+      <div
+        className={openMenu ? 'menu-list show-menu' : 'menu-list hide-menu'}
+        ref={outside}
+      >
+        <ul>
           {userId !== -1 ? (
             <li className="nickname">{nameState}</li>
           ) : (
@@ -161,6 +164,7 @@ const MenuContent = ({
             reject="그.럴.리.가"
           />
         </ul>
+        <li className="menu-content-withdraw">서비스 탈퇴하기</li>
       </div>
     </div>
   )
