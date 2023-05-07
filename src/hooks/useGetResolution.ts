@@ -9,9 +9,7 @@ export const useGetResolution = (resolutionId: string) => {
     () => getResolution(resolutionId),
     {
       enabled: true,
-      onSuccess: () => {
-        console.log('success-get-resolution')
-      },
+      onSuccess: () => {},
     }
   )
 }

@@ -26,8 +26,6 @@ export const usePostCode = () => {
         setResolutionId(data.resolutionId)
       }
     },
-    onError: (err) => {
-      console.log(err)
-    },
+    onError: (err) => {},
   })
 }
