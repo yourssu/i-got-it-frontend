@@ -51,6 +51,8 @@ fieldset
     .NicknameInput {
       padding: 12px;
       width: 150px;
+      font-size: 16px;
+      caret-color: var(--pointColor-pink100);
     }
 
     .NicknameInput:focus {
@@ -87,7 +89,8 @@ fieldset
         border: none;
         font-family: 'NeoDunggeunmo';
         font-weight: 400;
-        font-size: 15px;
+        font-size: 16px;
+        caret-color: var(--pointColor-pink100);
         color: black;
         white-space: pre-line;
         line-height: 1.2;
