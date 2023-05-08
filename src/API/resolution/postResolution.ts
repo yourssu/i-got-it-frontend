@@ -4,7 +4,7 @@ import TokenService from '@/services/TokenService'
 import api from '../api'
 
 interface IPostResolution {
-  period: 3 | 30
+  period: 21
   content: string
   letter: string
   mail?: string

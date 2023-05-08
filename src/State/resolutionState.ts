@@ -13,3 +13,8 @@ export const resolutionIdState = atom<string>({
   default: '',
   effects: [persistAtom],
 })
+
+export const resolutionIsExistedState = atom<boolean>({
+  key: 'resolutionIsExistedState',
+  default: false,
+})
