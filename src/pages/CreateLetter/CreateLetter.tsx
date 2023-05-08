@@ -1,14 +1,11 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 import { useNavigate } from 'react-router-dom'
-import { useRecoilState, useRecoilValue } from 'recoil'
+import { useRecoilState } from 'recoil'
 
 import { letterState } from '@/State/letterState'
-import { resolutionState } from '@/State/resolutionState'
 import BoxButton from '@/components/Button/BoxButton/BoxButton'
-import EmailDialog from '@/components/Dialog/EmailDialog/EmailDialog'
 import BackHeader from '@/components/Header/BackHeader'
-import { usePostResolution } from '@/hooks/usePostResolution'
 import Letter from '@/images/Letter'
 
 import './CreateLetter.scss'
@@ -16,9 +13,6 @@ import './CreateLetter.scss'
 const CreateLetter = () => {
   const navigate = useNavigate()
   const [message, setMessage] = useRecoilState(letterState)
-  // const [showDialog, setShowDialog] = useState(false)
-  // const resolutionValue = useRecoilValue(resolutionState)
-  // const { mutate: postResolution } = usePostResolution()
 
   const onCickBack = () => {
     navigate('/create')
@@ -28,25 +22,12 @@ const CreateLetter = () => {
     navigate('/email')
   }
 
-  // const handlePostResolution = (email?: string) => {
-  //   postResolution({
-  //     period: 21,
-  //     content: resolutionValue,
-  //     letter: message,
-  //     mail: email,
-  //   })
-  // }
-
   const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     setMessage(event.target.value)
   }
 
   return (
     <>
-      {/* <EmailDialog
-        onSubmit={handlePostResolution}
-        showDialog={showDialog}
-      /> */}
       <BackHeader onClick={onCickBack} />
       <form
         className="create-letter-form"
