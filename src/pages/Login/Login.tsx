@@ -42,13 +42,13 @@ const Login = () => {
           alt={speech_bubble}
         />
         <div className="title-description">
-          <span>아가리에 다짐을 외치면,</span>
-          <span>N일 후 뱉은 말을 돌려드려요.</span>
+          <span>또... 말뿐인가요...?</span>
         </div>
       </div>
       <div className="home-title">아가릿!</div>
-      <div className="home-title-description">{`말로만 다짐하는 사람들을 위한 
-      본격 공개 처형 프로젝트`}</div>
+      <div className="home-title-description">
+        {'미래의 나에게 편지를 써보세요!\n다만 결심을 곁들인,,'}
+      </div>
       <img
         className="login-character"
         src={character}

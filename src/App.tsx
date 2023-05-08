@@ -15,6 +15,7 @@ import Terms from '@/pages/Terms_of_Service/Terms'
 import KakaoRedirect from '@/pages/atoms/KakaoRedirect'
 
 import './App.scss'
+import Email from './pages/Email/Email'
 
 function App() {
   return (
@@ -45,6 +46,10 @@ function App() {
             <Route
               path="/create-letter"
               element={<CreateLetter />}
+            />
+            <Route
+              path="/email"
+              element={<Email />}
             />
             <Route
               path="/resolutions/:resolutionId"
