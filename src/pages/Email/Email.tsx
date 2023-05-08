@@ -14,6 +14,7 @@ import styles from './Email.module.scss'
 const Email = () => {
   const navigate = useNavigate()
   const [email, setEmail] = useState<string>('')
+  const [isChecked, setIsChecked] = useState<boolean>(false)
   const [letter] = useRecoilState(letterState)
   const resolutionValue = useRecoilValue(resolutionState)
   const { mutate: postResolution } = usePostResolution()
@@ -59,6 +60,8 @@ const Email = () => {
         <input
           type="checkbox"
           id="email-check"
+          checked={isChecked}
+          onChange={(e) => setIsChecked(e.target.checked)}
         />
         <label htmlFor="email-check"></label>
         <div className={styles.terms_of_email}>
@@ -74,7 +77,7 @@ const Email = () => {
         <BoxButton
           type="button"
           text="완료"
-          isDisabled={!email}
+          isDisabled={!email || !isChecked}
           onClick={handleSubmit}
         />
       </div>
