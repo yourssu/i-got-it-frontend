@@ -35,7 +35,7 @@ const Create = () => {
       <BackHeader onClick={onClickBack} />
       <form className="create-form">
         <label className="title">기간</label>
-        <div className="description">선택한 기간 경과 시 뱉은 말을 돌려드립니다.</div>
+        <div className="description">그거... 아시나요..? 3주 후가... 시험 기간이라는 거...</div>
         <div className="wrapper-date-button">
           <input
             type="radio"
