@@ -43,6 +43,7 @@ const Email = () => {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="i-got-it@example.com"
+            pattern=".+@.+\..+"
           ></input>
         </fieldset>
       </form>
