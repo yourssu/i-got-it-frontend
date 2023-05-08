@@ -19,6 +19,10 @@ export const usePostResolution = () => {
       setLetterState('')
       navigate(`/resolutions/${res.data.resolutionId}`)
     },
-    onError: (err) => {},
+    onError: (err: any) => {
+      if (err.response.status === 401) {
+        navigate('/login')
+      }
+    },
   })
 }
