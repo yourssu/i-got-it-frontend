@@ -31,7 +31,7 @@ const Home = () => {
   useEffect(() => {
     if (userId === -1 || TokenService.get() === undefined) {
       navigate('/login')
-    } else if (userId !== -1 && TokenService.get() !== undefined) {
+    } else {
       postRefresh()
       if (resolutionId !== '' && resolutionId !== undefined) {
         navigate(`/resolutions/${resolutionId}`)
