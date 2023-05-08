@@ -58,7 +58,9 @@ const CreateLetter = () => {
           <Letter />
           <textarea
             className="letter-input"
-            placeholder={'미래의 나에게 전하고 싶은 메시지를 입력하세요.'}
+            placeholder={
+              '3주 후 미래의 나에게\n전하고 싶은 메세지를 입력하세요.\n살짝.. 뜨끔..할..지..도...?'
+            }
             required
             maxLength={133}
             value={message}
