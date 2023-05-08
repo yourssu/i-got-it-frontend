@@ -4,3 +4,7 @@ export type PostKakaoLoginResponse = {
   resolutionId: string
   accessToken: string
 }
+
+export type PostRefreshResponse = {
+  accessToken: string
+}

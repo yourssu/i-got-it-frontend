@@ -9,6 +9,7 @@ import {
   resolutionIsExistedState,
   resolutionState,
 } from '@/State/resolutionState'
+import { ErrorType } from '@/Types/error'
 
 export const usePostResolution = () => {
   const navigate = useNavigate()
@@ -25,6 +26,10 @@ export const usePostResolution = () => {
       setResolutionIsExistedState(res.data.isExisted)
       navigate(`/resolutions/${res.data.resolutionId}`)
     },
-    onError: (err) => {},
+    onError: (err: ErrorType) => {
+      if (err.response.status === 401) {
+        navigate('/login')
+      }
+    },
   })
 }
