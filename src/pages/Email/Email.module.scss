@@ -1,0 +1,33 @@
+.emailForm {
+  .emailTitle {
+    font-family: 'Pretendard';
+    font-weight: 400;
+    font-size: 20px;
+    color: var(--text-secondary);
+    white-space: pre-line;
+  }
+  .inputTitle {
+    font-family: 'NeoDunggeunmo';
+    font-weight: 400;
+    font-size: 20px;
+    color: var(--text-secondary);
+  }
+  .emailFieldset {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    margin: 12px 16px 12px 16px;
+    .emailInput {
+      width: 100%;
+      flex: 1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 8px;
+      padding: 0 10px;
+      font-size: 15px;
+      line-height: 1;
+      height: 35px;
+    }
+  }
+}

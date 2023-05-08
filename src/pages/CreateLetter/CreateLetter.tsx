@@ -16,26 +16,26 @@ import './CreateLetter.scss'
 const CreateLetter = () => {
   const navigate = useNavigate()
   const [message, setMessage] = useRecoilState(letterState)
-  const [showDialog, setShowDialog] = useState(false)
-  const resolutionValue = useRecoilValue(resolutionState)
-  const { mutate: postResolution } = usePostResolution()
+  // const [showDialog, setShowDialog] = useState(false)
+  // const resolutionValue = useRecoilValue(resolutionState)
+  // const { mutate: postResolution } = usePostResolution()
 
   const onCickBack = () => {
     navigate('/create')
   }
 
   const handleSubmit = () => {
-    setShowDialog(true)
+    navigate('/email')
   }
 
-  const handlePostResolution = (email?: string) => {
-    postResolution({
-      period: 21,
-      content: resolutionValue,
-      letter: message,
-      mail: email,
-    })
-  }
+  // const handlePostResolution = (email?: string) => {
+  //   postResolution({
+  //     period: 21,
+  //     content: resolutionValue,
+  //     letter: message,
+  //     mail: email,
+  //   })
+  // }
 
   const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     setMessage(event.target.value)
@@ -43,10 +43,10 @@ const CreateLetter = () => {
 
   return (
     <>
-      <EmailDialog
+      {/* <EmailDialog
         onSubmit={handlePostResolution}
         showDialog={showDialog}
-      />
+      /> */}
       <BackHeader onClick={onCickBack} />
       <form
         className="create-letter-form"
