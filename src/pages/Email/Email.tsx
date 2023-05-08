@@ -6,6 +6,7 @@ import { useRecoilState, useRecoilValue } from 'recoil'
 import { letterState } from '@/State/letterState'
 import { resolutionState } from '@/State/resolutionState'
 import BoxButton from '@/components/Button/BoxButton/BoxButton'
+import EmailDialog from '@/components/Dialog/EmailDialog/EmailDialog'
 import BackHeader from '@/components/Header/BackHeader'
 import { usePostResolution } from '@/hooks/usePostResolution'
 
@@ -15,6 +16,7 @@ const Email = () => {
   const navigate = useNavigate()
   const [email, setEmail] = useState<string>('')
   const [isChecked, setIsChecked] = useState<boolean>(false)
+  const [showDialog, setShowDialog] = useState(false)
   const [letter] = useRecoilState(letterState)
   const resolutionValue = useRecoilValue(resolutionState)
   const { mutate: postResolution } = usePostResolution()
@@ -36,8 +38,20 @@ const Email = () => {
     navigate('/create-letter')
   }
 
+  const onClickShowDialog = () => {
+    setShowDialog(true)
+  }
+
+  const onClose = () => {
+    setShowDialog(false)
+  }
+
   return (
     <>
+      <EmailDialog
+        showDialog={showDialog}
+        onClose={onClose}
+      />
       <BackHeader onClick={onClickBack} />
       <form
         className={styles.emailForm}
@@ -68,7 +82,7 @@ const Email = () => {
           {' '}
           <button
             className={styles.link}
-            // href="/terms-email"
+            onClick={onClickShowDialog}
           >
             이메일 수집 및 이용
           </button>
