@@ -186,12 +186,14 @@ const MenuContent = ({
             reject="그.럴.리.가"
           />
         </ul>
-        <li
-          className="menu-content-withdraw"
-          onClick={onClickWithdraw}
-        >
-          서비스 탈퇴하기
-        </li>
+        {userId !== -1 ? (
+          <li
+            className="menu-content-withdraw"
+            onClick={onClickWithdraw}
+          >
+            서비스 탈퇴하기
+          </li>
+        ) : null}
         <BasicDialog
           showDialog={showWithdraw}
           title="정말 탈퇴하시겠어요...?"
