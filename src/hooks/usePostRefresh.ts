@@ -2,6 +2,7 @@ import { useMutation } from 'react-query'
 import { useNavigate } from 'react-router-dom'
 
 import { postRefresh } from '@/API/Login/postRefresh'
+import { ErrorType } from '@/Types/error'
 import TokenService from '@/services/TokenService'
 
 export const usePostRefresh = () => {
@@ -10,7 +11,7 @@ export const usePostRefresh = () => {
     onSuccess: (data) => {
       TokenService.set(data.accessToken)
     },
-    onError: (err: any) => {
+    onError: (err: ErrorType) => {
       if (err.response.status === 401) {
         navigate('/login')
       }

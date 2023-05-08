@@ -2,6 +2,7 @@ import { useMutation } from 'react-query'
 import { useNavigate } from 'react-router-dom'
 
 import { deleteResolution } from '@/API/resolution/deleteResolution'
+import { ErrorType } from '@/Types/error'
 
 export const useDeleteResolution = () => {
   const navigate = useNavigate()
@@ -9,7 +10,7 @@ export const useDeleteResolution = () => {
     onSuccess: () => {
       navigate('/')
     },
-    onError: (err: any) => {
+    onError: (err: ErrorType) => {
       if (err.response.status === 401) {
         navigate('/login')
       }

@@ -5,6 +5,7 @@ import { useRecoilState } from 'recoil'
 import { postResolution } from '@/API/resolution/postResolution'
 import { letterState } from '@/State/letterState'
 import { resolutionIdState, resolutionState } from '@/State/resolutionState'
+import { ErrorType } from '@/Types/error'
 
 export const usePostResolution = () => {
   const navigate = useNavigate()
@@ -19,7 +20,7 @@ export const usePostResolution = () => {
       setLetterState('')
       navigate(`/resolutions/${res.data.resolutionId}`)
     },
-    onError: (err: any) => {
+    onError: (err: ErrorType) => {
       if (err.response.status === 401) {
         navigate('/login')
       }

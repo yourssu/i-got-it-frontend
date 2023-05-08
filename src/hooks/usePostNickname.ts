@@ -4,6 +4,7 @@ import { useRecoilState } from 'recoil'
 
 import { postNickname } from '@/API/Nickname/postNickname'
 import { nicknameState } from '@/State/nicknameState'
+import { ErrorType } from '@/Types/error'
 
 export const usePostNickname = () => {
   const [, setNicknameState] = useRecoilState(nicknameState)
@@ -12,7 +13,7 @@ export const usePostNickname = () => {
     onSuccess: () => {
       navigate('/')
     },
-    onError: (err: any) => {
+    onError: (err: ErrorType) => {
       setNicknameState('')
       if (err.response.status === 401) {
         navigate('/login')
