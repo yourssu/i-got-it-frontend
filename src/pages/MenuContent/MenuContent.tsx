@@ -11,6 +11,7 @@ import BasicDialog from '@/components/Dialog/BasicDialog/BasicDialog'
 import IntroductionDialog from '@/components/Dialog/IntroductionDialog/IntroductionDialog'
 import ProducerDialog from '@/components/Dialog/ProducerDialog/ProducerDialog'
 import './MenuContent.scss'
+import { useDeleteWithdraw } from '@/hooks/useDeleteWithdraw'
 import TokenService from '@/services/TokenService'
 
 const MenuContent = ({
@@ -29,6 +30,7 @@ const MenuContent = ({
   const [nameState, setNameState] = useRecoilState(nicknameState)
   const [userId, setUserId] = useRecoilState(userIdState)
   const [, setResolutionId] = useRecoilState(resolutionIdState)
+  const { mutate: deleteWithdraw } = useDeleteWithdraw()
 
   useEffect(() => {
     if (openMenu) {
@@ -102,7 +104,13 @@ const MenuContent = ({
   }
 
   const onClickConfirmWithdraw = () => {
-    // 탈퇴하는 로직 넣기
+    deleteWithdraw()
+    sessionStorage.clear()
+    TokenService.logout
+    setNameState('')
+    setUserId(-1)
+    setResolutionId('')
+    navigate('/login')
   }
 
   const onClickRejectWithdraw = () => {
