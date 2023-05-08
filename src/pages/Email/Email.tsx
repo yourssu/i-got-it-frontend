@@ -1,15 +1,18 @@
 import React, { useState } from 'react'
 
+import { useNavigate } from 'react-router'
 import { useRecoilState, useRecoilValue } from 'recoil'
 
 import { letterState } from '@/State/letterState'
 import { resolutionState } from '@/State/resolutionState'
 import BoxButton from '@/components/Button/BoxButton/BoxButton'
+import BackHeader from '@/components/Header/BackHeader'
 import { usePostResolution } from '@/hooks/usePostResolution'
 
 import styles from './Email.module.scss'
 
 const Email = () => {
+  const navigate = useNavigate()
   const [email, setEmail] = useState<string>('')
   const [letter] = useRecoilState(letterState)
   const resolutionValue = useRecoilValue(resolutionState)
@@ -28,8 +31,13 @@ const Email = () => {
     handlePostResolution(email)
   }
 
+  const onClickBack = () => {
+    navigate('/create-letter')
+  }
+
   return (
     <>
+      <BackHeader onClick={onClickBack} />
       <form
         className={styles.emailForm}
         onSubmit={handleSubmit}
@@ -47,22 +55,29 @@ const Email = () => {
           ></input>
         </fieldset>
       </form>
-      <div className={styles.terms_of_email}>
-        {''}
-        <a
-          className="link"
-          // href="/terms-email"
-        >
-          이메일 수집 및 이용
-        </a>
-        에 동의합니다.
+      <div>
+        <input
+          type="checkbox"
+          id="email-check"
+        />
+        <label htmlFor="email-check"></label>
+        <div className={styles.terms_of_email}>
+          {' '}
+          <button
+            className={styles.link}
+            // href="/terms-email"
+          >
+            이메일 수집 및 이용
+          </button>
+          에 동의합니다.
+        </div>
+        <BoxButton
+          type="button"
+          text="완료"
+          isDisabled={!email}
+          onClick={handleSubmit}
+        />
       </div>
-      <BoxButton
-        type="button"
-        text="완료"
-        isDisabled={!email}
-        onClick={handleSubmit}
-      />
     </>
   )
 }
