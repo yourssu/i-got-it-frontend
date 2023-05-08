@@ -29,14 +29,15 @@ const Home = () => {
   }
 
   useEffect(() => {
-    if (resolutionId !== '' && resolutionId !== undefined) {
-      navigate(`/resolutions/${resolutionId}`)
-    } else if (userId === -1 || TokenService.get() === undefined) {
+    if (userId === -1 || TokenService.get() === undefined) {
       navigate('/login')
     } else if (userId !== -1 && TokenService.get() !== undefined) {
       postRefresh()
+      if (resolutionId !== '' && resolutionId !== undefined) {
+        navigate(`/resolutions/${resolutionId}`)
+      }
     }
-  })
+  }, [])
 
   return (
     <>

@@ -11,8 +11,7 @@ export const usePostRefresh = () => {
       TokenService.set(data.accessToken)
     },
     onError: (err: any) => {
-      if (err.response.status === 500) {
-        // 500을 401로 수정해야함.
+      if (err.response.status === 401) {
         navigate('/login')
       }
     },

@@ -12,8 +12,11 @@ export const usePostNickname = () => {
     onSuccess: () => {
       navigate('/')
     },
-    onError: (err) => {
+    onError: (err: any) => {
       setNicknameState('')
+      if (err.response.status === 401) {
+        navigate('/login')
+      }
     },
   })
 }
