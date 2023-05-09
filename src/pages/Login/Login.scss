@@ -3,42 +3,12 @@
   flex-direction: column;
   align-items: center;
   position: relative;
+  padding-top: 100px;
 
   .twinkle1 {
     position: absolute;
-    top: 10px;
-    left: 32px;
-  }
-
-  .twinkle2 {
-    position: absolute;
-    top: 60px;
-    right: 22px;
-  }
-
-  .title-description-bubble {
-    display: flex;
-    margin-top: 70px;
-    justify-content: center;
-    position: relative;
-    margin-bottom: 17px;
-
-    .bubble {
-      margin-right: 30px;
-    }
-
-    .title-description {
-      display: flex;
-      flex-direction: column;
-      text-align: center;
-      margin-left: 30px;
-      position: absolute;
-      top: 40px;
-      color: var(--text-secondary);
-      font-family: 'Gothic A1', sans-serif;
-      font-weight: 400;
-      font-size: 15px;
-    }
+    top: 33px;
+    left: 26px;
   }
 
   .home-title {
@@ -59,8 +29,49 @@
     color: var(--text-primary);
   }
 
-  .login-character {
-    margin: 20px 0px 30px 0px;
+  .inner-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    margin-top: 30px;
+    width: 100%;
+
+    .twinkle2 {
+      position: absolute;
+      top: 0px;
+      right: 25px;
+    }
+
+    .twinkle3 {
+      position: absolute;
+      top: 100px;
+      left: 20px;
+    }
+
+    .bubble {
+      width: 97px;
+      height: auto;
+      margin-top: 40px;
+      margin-bottom: 15px;
+    }
+
+    .title-description {
+      position: absolute;
+      top: 52px;
+      color: var(--text-secondary);
+      font-family: 'Gothic A1', sans-serif;
+      font-weight: 400;
+      font-size: 16px;
+    }
+
+    .count-users {
+      color: var(--text-teritary);
+      font-weight: 400;
+      font-size: 15px;
+      font-family: 'Pretendard';
+      margin-top: 10px;
+    }
   }
 
   .login-bottom-wrapper {
@@ -71,13 +82,6 @@
     align-items: center;
     width: 90%;
 
-    .count-users {
-      color: var(--text-teritary);
-      font-weight: 400;
-      font-size: 15px;
-      font-family: 'Pretendard';
-      margin-bottom: 10px;
-    }
     .kakao-button {
       display: flex;
       flex-direction: row;
