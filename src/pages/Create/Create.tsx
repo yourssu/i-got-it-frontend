@@ -83,6 +83,7 @@ const Create = () => {
         text="다음"
         isDisabled={!resolution}
         onClick={handleSubmit}
+        buttonStyle="filled"
       />
     </>
   )

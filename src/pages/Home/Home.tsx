@@ -63,6 +63,7 @@ const Home = () => {
         type="button"
         text="결심하기"
         onClick={onClick}
+        buttonStyle="filled"
       />
     </>
   )

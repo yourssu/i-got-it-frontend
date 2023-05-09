@@ -135,6 +135,7 @@ const MyPage = () => {
             onClick={
               resolution?.data.userId !== currentUserId ? onClickResolution : onClickShareLink
             }
+            buttonStyle={resolution?.data.userId !== currentUserId ? 'line' : 'filled'}
           />
           <MenuContent
             openMenu={openMenu}

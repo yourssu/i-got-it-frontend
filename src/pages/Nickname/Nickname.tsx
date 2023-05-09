@@ -83,6 +83,7 @@ const Nickname = () => {
         text="저장"
         isDisabled={!checkNickname}
         onClick={handleSubmit}
+        buttonStyle="filled"
       />
     </>
   )
