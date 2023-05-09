@@ -25,6 +25,7 @@ const MenuContent = ({
   const [showDialog1, setShowDialog1] = useState(false)
   const [showDialog2, setShowDialog2] = useState(false)
   const [showLogout, setShowLogout] = useState(false)
+  const [showPolicyDialog, setShowPolicyDialog] = useState(false)
   const [nameState, setNameState] = useRecoilState(nicknameState)
   const [userId, setUserId] = useRecoilState(userIdState)
   const [, setResolutionId] = useRecoilState(resolutionIdState)
@@ -96,6 +97,16 @@ const MenuContent = ({
     setOpenMenu(true)
   }
 
+  const onClickPolicy = () => {
+    setShowPolicyDialog(true)
+    setOpenMenu(true)
+  }
+
+  const onClosePolicy = () => {
+    setShowPolicyDialog(false)
+    setOpenMenu(true) // 다이얼로그가 외부 영역으로 인식되어 Menu가 닫기는 현상 방지
+  }
+
   return (
     <div
       style={{
@@ -143,6 +154,12 @@ const MenuContent = ({
             onClick={onClickList3}
           >
             이용약관
+          </li>
+          <li
+            className="menu-content-policy"
+            onClick={onClickPolicy}
+          >
+            개인정보 처리방침
           </li>
           {userId !== -1 ? (
             <li
