@@ -30,7 +30,6 @@
       font-family: 'Pretendard';
       font-size: 12px;
       font-weight: 400;
-      color: var(--text-teritary);
     }
 
     .nickname-input {
@@ -38,26 +37,35 @@
       height: 48px;
       padding: 0px 15px;
       margin: 10px 0px;
+      font-family: 'Pretendard';
+      font-size: 16px;
+      font-weight: 400;
+      color: var(--text-primary);
+      caret-color: var(--pointColor-pink100);
     }
 
     .nickname-input:focus {
       outline: none;
     }
 
+    .nickname-input::placeholder {
+      color: var(--text-teritary);
+    }
+
     .rule-positive {
-      color: black;
+      color: var(--text-teritary);
     }
 
     .rule-negative {
-      color: var(--text-negative);
+      color: var(--text-pointed);
     }
 
     .input-positive {
-      border-color: black;
+      border-color: var(--text-disabled);
     }
 
     .input-negative {
-      border-color: var(--button-negative);
+      border-color: var(--pointColor-red100);
     }
 
     .clear-button {
@@ -67,6 +75,10 @@
       width: 12px;
       height: 12px;
       background-image: url('../../images/ic_cancle.svg');
+    }
+
+    .hidden {
+      visibility: hidden;
     }
 
     .nickname-warning {

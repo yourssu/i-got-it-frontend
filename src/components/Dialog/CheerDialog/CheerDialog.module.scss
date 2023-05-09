@@ -42,7 +42,6 @@ fieldset
     .NicknameInputRule {
       position: relative;
       font-family: 'Pretendard';
-      color: var(--text-teritary);
       font-weight: 400;
       font-size: 12px;
       margin: 5px;
@@ -51,22 +50,31 @@ fieldset
     .NicknameInput {
       padding: 12px;
       width: 150px;
+      caret-color: var(--pointColor-pink100);
+      font-family: 'Pretendard';
+      font-size: 16px;
+      font-weight: 400;
+      color: var(--text-primary);
     }
 
     .NicknameInput:focus {
       outline: none;
     }
 
+    .NicknameInput::placeholder {
+      color: var(--text-teritary);
+    }
+
     .RuleNegative {
-      color: var(--text-negative);
+      color: var(--text-pointed);
     }
 
     .RulePositive {
-      color: black;
+      color: var(--text-teritary);
     }
 
     .InputNegative {
-      border: 2px solid var(--button-negative);
+      border: 2px solid var(--pointColor-red100);
     }
 
     .InputPositive {
@@ -79,6 +87,7 @@ fieldset
       align-items: center;
       width: 290px;
       margin-top: 17px;
+      caret-color: var(--pointColor-pink100);
 
       .CheerInput {
         resize: none;
@@ -87,11 +96,16 @@ fieldset
         border: none;
         font-family: 'NeoDunggeunmo';
         font-weight: 400;
-        font-size: 15px;
+        font-size: 16px;
+        caret-color: var(--pointColor-pink100);
         color: black;
         white-space: pre-line;
         line-height: 1.2;
         min-height: 10px;
+      }
+
+      .CheerInput::placeholder {
+        color: var(--text-teritary);
       }
 
       .InputCount {
@@ -99,6 +113,7 @@ fieldset
         font-family: 'Pretendard';
         font-weight: 400;
         font-size: 12px;
+        margin-right: 13px;
         margin-left: auto;
       }
     }

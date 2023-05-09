@@ -24,8 +24,9 @@ export const usePostCode = () => {
       }
       if (data.resolutionId !== null) {
         setResolutionId(data.resolutionId)
+        navigate(`/resolutions/${data.resolutionId}`)
       }
     },
-    onError: (err) => {},
+    onError: () => {},
   })
 }

@@ -28,7 +28,7 @@ const Nickname = () => {
       setCheckNickname(false)
     }
     for (const item of words) {
-      if (!item.match(/[ㄱ-ㅎ가-힣0-9a-z,A-Z._]/)) {
+      if (!item.match(/[ㄱ-ㅎㅏ-ㅣ가-힣0-9a-zA-Z,._]/)) {
         setCheckNickname(false)
         break
       }
@@ -53,7 +53,7 @@ const Nickname = () => {
               !checkNickname && nickname != '' ? 'rule-negative' : 'rule-positive'
             }`}
           >
-            최대 3자까지, 한글, 영어, 숫자, (, . _) 가능
+            최대 7자까지, 한글, 영어, 숫자, (, . _) 가능
           </div>
           <input
             className={`nickname-input ${
@@ -62,7 +62,7 @@ const Nickname = () => {
             type="text"
             placeholder="닉네임"
             required
-            maxLength={3}
+            maxLength={7}
             value={nickname}
             onChange={handleChange}
             onInput={(e: React.ChangeEvent<HTMLInputElement>) => {
@@ -72,7 +72,7 @@ const Nickname = () => {
           />
           <button
             type="button"
-            className="clear-button"
+            className={`clear-button ${nickname === '' || checkNickname ? 'hidden' : ''}`}
             onClick={onClickClear}
           />
           <div className="nickname-warning">닉네임은 이후 수정이 불가하니 신중히 정해주세요!</div>
@@ -83,6 +83,7 @@ const Nickname = () => {
         text="저장"
         isDisabled={!checkNickname}
         onClick={handleSubmit}
+        buttonStyle="filled"
       />
     </>
   )
