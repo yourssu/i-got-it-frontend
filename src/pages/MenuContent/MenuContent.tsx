@@ -105,7 +105,7 @@ const MenuContent = ({
 
   const onClosePolicy = () => {
     setShowPolicyDialog(false)
-    setOpenMenu(true) // 다이얼로그가 외부 영역으로 인식되어 Menu가 닫기는 현상 방지
+    setOpenMenu(true)
   }
 
   return (
