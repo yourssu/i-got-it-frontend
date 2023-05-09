@@ -12,6 +12,7 @@ import LetterDialog from '@/components/Dialog/LetterDialog/LetterDialog'
 import MenuHeader from '@/components/Header/MenuHeader'
 import ToastDemo from '@/components/Toast/ToastDemo'
 import { useDeleteResolution } from '@/hooks/useDeleteResolution'
+import { useGetLetters } from '@/hooks/useGetLetters'
 import { useGetResolution } from '@/hooks/useGetResolution'
 import CheerRelay from '@/pages/Cheer/CheerRelay'
 import MenuContent from '@/pages/MenuContent/MenuContent'
@@ -41,6 +42,7 @@ const MyPage = () => {
   const resolutionIsExisted = useRecoilValue(resolutionIsExistedState)
   const paramsId = useParams()
   const { data: resolution } = useGetResolution(String(paramsId.resolutionId))
+  const { data: letters } = useGetLetters(String(paramsId.resolutionId), currentUserId)
   const { mutate: deleteResolution } = useDeleteResolution()
   const navigate = useNavigate()
 
@@ -170,7 +172,7 @@ const MyPage = () => {
               )}
               <LetterDialog
                 showDialog={openLetter}
-                description={resolution?.data.content}
+                description={letters?.letters[0].content}
                 onClose={onCloseLetter}
               />
             </div>
