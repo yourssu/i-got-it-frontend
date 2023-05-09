@@ -9,6 +9,7 @@ import { resolutionIdState } from '@/State/resolutionState'
 import { userIdState } from '@/State/userIdState'
 import BasicDialog from '@/components/Dialog/BasicDialog/BasicDialog'
 import IntroductionDialog from '@/components/Dialog/IntroductionDialog/IntroductionDialog'
+import PolicyDialog from '@/components/Dialog/PolicyDialog/PolicyDialog'
 import ProducerDialog from '@/components/Dialog/ProducerDialog/ProducerDialog'
 import './MenuContent.scss'
 import TokenService from '@/services/TokenService'
@@ -161,6 +162,10 @@ const MenuContent = ({
           >
             개인정보 처리방침
           </li>
+          <PolicyDialog
+            showDialog={showPolicyDialog}
+            onClose={onClosePolicy}
+          />
           {userId !== -1 ? (
             <li
               className="menu-content"
