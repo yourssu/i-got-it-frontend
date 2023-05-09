@@ -9,6 +9,7 @@ import { resolutionIdState } from '@/State/resolutionState'
 import { userIdState } from '@/State/userIdState'
 import BasicDialog from '@/components/Dialog/BasicDialog/BasicDialog'
 import IntroductionDialog from '@/components/Dialog/IntroductionDialog/IntroductionDialog'
+import PolicyDialog from '@/components/Dialog/PolicyDialog/PolicyDialog'
 import ProducerDialog from '@/components/Dialog/ProducerDialog/ProducerDialog'
 import './MenuContent.scss'
 import TokenService from '@/services/TokenService'
@@ -25,6 +26,7 @@ const MenuContent = ({
   const [showDialog1, setShowDialog1] = useState(false)
   const [showDialog2, setShowDialog2] = useState(false)
   const [showLogout, setShowLogout] = useState(false)
+  const [showPolicyDialog, setShowPolicyDialog] = useState(false)
   const [nameState, setNameState] = useRecoilState(nicknameState)
   const [userId, setUserId] = useRecoilState(userIdState)
   const [, setResolutionId] = useRecoilState(resolutionIdState)
@@ -96,6 +98,16 @@ const MenuContent = ({
     setOpenMenu(true)
   }
 
+  const onClickPolicy = () => {
+    setShowPolicyDialog(true)
+    setOpenMenu(true)
+  }
+
+  const onClosePolicy = () => {
+    setShowPolicyDialog(false)
+    setOpenMenu(true)
+  }
+
   return (
     <div
       style={{
@@ -144,6 +156,16 @@ const MenuContent = ({
           >
             이용약관
           </li>
+          <li
+            className="menu-content-policy"
+            onClick={onClickPolicy}
+          >
+            개인정보 처리방침
+          </li>
+          <PolicyDialog
+            showDialog={showPolicyDialog}
+            onClose={onClosePolicy}
+          />
           {userId !== -1 ? (
             <li
               className="menu-content"
