@@ -93,6 +93,7 @@ const Email = () => {
           text="완료"
           isDisabled={!email || !isChecked}
           onClick={handleSubmit}
+          buttonStyle="filled"
         />
       </div>
     </>

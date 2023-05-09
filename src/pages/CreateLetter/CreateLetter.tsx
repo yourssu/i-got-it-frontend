@@ -60,6 +60,7 @@ const CreateLetter = () => {
         text="작성 완료"
         isDisabled={!message}
         onClick={handleSubmit}
+        buttonStyle="filled"
       />
     </>
   )

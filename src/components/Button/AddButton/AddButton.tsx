@@ -3,8 +3,7 @@ import React from 'react'
 import { useRecoilState } from 'recoil'
 
 import { addCheerState } from '@/State/resolutionCheerState'
-import AddIcon from '@/images/Cheer/add_icon.svg'
-import Bubble from '@/images/Cheer/comment_bubble.svg'
+import AddBtn from '@/images/Cheer/add_button.svg'
 
 import './AddButton.scss'
 
@@ -19,14 +18,8 @@ const AddButton = () => {
       onClick={onClick}
     >
       <img
-        className="add-button-icon"
-        src={AddIcon}
-        alt={AddIcon}
-      />
-      <img
-        className="add-button-bubble"
-        src={Bubble}
-        alt={Bubble}
+        src={AddBtn}
+        alt={AddBtn}
       />
     </div>
   )

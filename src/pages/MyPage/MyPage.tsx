@@ -129,12 +129,15 @@ const MyPage = () => {
           />
           <BoxButton
             text={
-              resolution?.data.userId !== currentUserId ? '나도 결심 외치기' : '링크 공유하러 가기'
+              resolution?.data.userId !== currentUserId
+                ? '로그인하고 결심 외치기!!'
+                : '링크 공유하러 가기'
             }
             type="button"
             onClick={
               resolution?.data.userId !== currentUserId ? onClickResolution : onClickShareLink
             }
+            buttonStyle={resolution?.data.userId !== currentUserId ? 'line' : 'filled'}
           />
           <MenuContent
             openMenu={openMenu}
