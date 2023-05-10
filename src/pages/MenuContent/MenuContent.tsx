@@ -83,9 +83,7 @@ const MenuContent = ({
   }
 
   const onClickConfirmLogout = () => {
-    const cookies = new Cookies()
     sessionStorage.clear()
-    cookies.remove('accessToken')
     TokenService.logout()
     setNameState('')
     setUserId(-1)
