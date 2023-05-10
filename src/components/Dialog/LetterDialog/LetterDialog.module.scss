@@ -17,8 +17,9 @@ fieldset
 .DialogContent {
   display: flex;
   position: fixed;
+  z-index: 50;
   top: 40%;
-  left: 55%;
+  left: 50%;
   transform: translate(-50%, -50%);
   padding: 25px 25px 0px 25px;
   min-width: 300px;

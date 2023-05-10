@@ -1,14 +1,15 @@
 import { useMutation } from 'react-query'
 import { useNavigate } from 'react-router-dom'
 
-import { deleteResolution } from '@/API/resolution/deleteResolution'
+import { postRefresh } from '@/API/Login/postRefresh'
 import { ErrorType } from '@/Types/error'
+import TokenService from '@/services/TokenService'
 
-export const useDeleteResolution = () => {
+export const usePostRefresh = () => {
   const navigate = useNavigate()
-  return useMutation(deleteResolution, {
-    onSuccess: () => {
-      navigate('/')
+  return useMutation(postRefresh, {
+    onSuccess: (data) => {
+      TokenService.set(data.accessToken)
     },
     onError: (err: ErrorType) => {
       if (err.response.status === 401) {

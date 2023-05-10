@@ -45,7 +45,7 @@ const CheerDialog = () => {
       setCheckNickname(false)
     }
     for (const item of words) {
-      if (!item.match(/[ㄱ-ㅎㅏ-ㅣ가-힣]/)) {
+      if (!item.match(/[ㄱ-ㅎㅏ-ㅣ가-힣a-zA-Z]/)) {
         setCheckNickname(false)
         break
       }
@@ -75,7 +75,7 @@ const CheerDialog = () => {
                   !checkNickname && nickname != '' ? styles.RuleNegative : styles.RulePositive
                 }`}
               >
-                한글 석자 이하만 가능
+                한글, 영어 최대 5자까지
               </div>
               <input
                 className={`${styles.NicknameInput} ${
@@ -84,7 +84,7 @@ const CheerDialog = () => {
                 id="Nickname"
                 value={nickname}
                 placeholder="보낸 사람 이름"
-                maxLength={3}
+                maxLength={5}
                 onChange={handleNicknameChange}
                 onInput={(e: React.ChangeEvent<HTMLInputElement>) => {
                   if (e.target.value.length > e.target.maxLength)
@@ -98,7 +98,7 @@ const CheerDialog = () => {
                 required
                 maxLength={133}
                 value={content}
-                placeholder="친구에게 응원의 한마디를 전해주세요."
+                placeholder={'친구에게 응원의 한마디를\n전해주세요.'}
                 onChange={handleContentChange}
                 rows={10}
                 onInput={(e: React.ChangeEvent<HTMLTextAreaElement>) => {
@@ -112,8 +112,9 @@ const CheerDialog = () => {
           <BoxButton
             type="button"
             text="작성 완료"
-            isDisabled={!content && !checkNickname}
+            isDisabled={!content || !checkNickname}
             onClick={handleSubmit}
+            buttonStyle="filled"
           />
         </Dialog.Content>
       </Dialog.Portal>

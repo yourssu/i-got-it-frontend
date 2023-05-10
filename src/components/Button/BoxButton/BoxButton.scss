@@ -14,14 +14,24 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--text-white);
     font-family: 'NeoDunggeunmo';
     font-size: 16px;
-    background-color: var(--button-pointed);
+    box-sizing: border-box;
 
     &:disabled {
       color: var(--button-disabled);
       background-color: var(--button-disabled-background);
     }
+  }
+
+  .filled {
+    color: var(--text-white);
+    background-color: var(--button-pointed);
+  }
+
+  .line {
+    color: var(--pointColor-pink100);
+    background-color: var(--button-normal-1);
+    border: solid 2px var(--button-pointed);
   }
 }

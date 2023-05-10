@@ -7,7 +7,9 @@ import { resolutionIdState } from '@/State/resolutionState'
 import { userIdState } from '@/State/userIdState'
 import BoxButton from '@/components/Button/BoxButton/BoxButton'
 import MenuHeader from '@/components/Header/MenuHeader'
+import { usePostRefresh } from '@/hooks/usePostRefresh'
 import MenuContent from '@/pages/MenuContent/MenuContent'
+import TokenService from '@/services/TokenService'
 
 import './Home.scss'
 
@@ -16,6 +18,7 @@ const Home = () => {
   const [openMenu, setOpenMenu] = useState(false)
   const resolutionId = useRecoilValue(resolutionIdState)
   const userId = useRecoilValue(userIdState)
+  const { mutate: postRefresh } = usePostRefresh()
 
   const onClickMenu = () => {
     setOpenMenu((openMenu) => !openMenu)
@@ -26,12 +29,15 @@ const Home = () => {
   }
 
   useEffect(() => {
-    if (resolutionId !== '' && resolutionId !== undefined) {
-      navigate(`/resolutions/${resolutionId}`)
-    } else if (userId === -1) {
+    if (userId === -1 || TokenService.get() === undefined) {
       navigate('/login')
+    } else {
+      postRefresh()
+      if (resolutionId !== '' && resolutionId !== undefined) {
+        navigate(`/resolutions/${resolutionId}`)
+      }
     }
-  })
+  }, [])
 
   return (
     <>
@@ -57,6 +63,7 @@ const Home = () => {
         type="button"
         text="결심하기"
         onClick={onClick}
+        buttonStyle="filled"
       />
     </>
   )
