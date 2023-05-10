@@ -51,7 +51,7 @@ const MenuContent = ({
         document.removeEventListener('mousedown', handleClose)
       }
     }
-  }, [openMenu, showDialog1, showDialog2, showLogout, showPolicyDialog])
+  }, [openMenu, showDialog2, showLogout, showPolicyDialog, showWithdraw])
 
   const onClickLogin = () => {
     navigate('/login')
@@ -101,11 +101,11 @@ const MenuContent = ({
   const onClickRejectLogout = () => {
     setShowLogout(false)
   }
-  
+
   const onClickWithdraw = () => {
     setShowWithdraw(true)
   }
-  
+
   const onClickConfirmWithdraw = () => {
     deleteWithdraw()
     sessionStorage.clear()
