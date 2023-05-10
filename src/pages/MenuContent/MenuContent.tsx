@@ -11,6 +11,7 @@ import IntroductionDialog from '@/components/Dialog/IntroductionDialog/Introduct
 import PolicyDialog from '@/components/Dialog/PolicyDialog/PolicyDialog'
 import ProducerDialog from '@/components/Dialog/ProducerDialog/ProducerDialog'
 import './MenuContent.scss'
+import { useDeleteWithdraw } from '@/hooks/useDeleteWithdraw'
 import TokenService from '@/services/TokenService'
 
 const MenuContent = ({
@@ -25,10 +26,12 @@ const MenuContent = ({
   const [showDialog1, setShowDialog1] = useState(false)
   const [showDialog2, setShowDialog2] = useState(false)
   const [showLogout, setShowLogout] = useState(false)
+  const [showWithdraw, setShowWithdraw] = useState(false)
   const [showPolicyDialog, setShowPolicyDialog] = useState(false)
   const [nameState, setNameState] = useRecoilState(nicknameState)
   const [userId, setUserId] = useRecoilState(userIdState)
   const [, setResolutionId] = useRecoilState(resolutionIdState)
+  const { mutate: deleteWithdraw } = useDeleteWithdraw()
 
   useEffect(() => {
     if (openMenu) {
@@ -98,6 +101,24 @@ const MenuContent = ({
   const onClickRejectLogout = () => {
     setShowLogout(false)
   }
+  
+  const onClickWithdraw = () => {
+    setShowWithdraw(true)
+  }
+  
+  const onClickConfirmWithdraw = () => {
+    deleteWithdraw()
+    sessionStorage.clear()
+    TokenService.logout()
+    setNameState('')
+    setUserId(-1)
+    setResolutionId('')
+    navigate('/login')
+  }
+
+  const onClickRejectWithdraw = () => {
+    setShowWithdraw(false)
+  }
 
   return (
     <div
@@ -106,8 +127,11 @@ const MenuContent = ({
       }}
       className="menu-wrapper"
     >
-      <div ref={outside}>
-        <ul className={openMenu ? 'menu-list show-menu' : 'menu-list hide-menu'}>
+      <div
+        className={openMenu ? 'menu-list show-menu' : 'menu-list hide-menu'}
+        ref={outside}
+      >
+        <ul>
           {userId !== -1 ? (
             <li className="nickname">{nameState}</li>
           ) : (
@@ -174,6 +198,24 @@ const MenuContent = ({
             reject="그.럴.리.가"
           />
         </ul>
+        {userId !== -1 ? (
+          <li
+            className="menu-content-withdraw"
+            onClick={onClickWithdraw}
+          >
+            서비스 탈퇴하기
+          </li>
+        ) : null}
+        <BasicDialog
+          showDialog={showWithdraw}
+          title="정말 탈퇴하시겠어요...?"
+          description={`탈퇴할 경우 서비스를 더이상 이용하실 수 없어요ㅠ
+          우리의 인연.... 여기까지인가요...?`}
+          onConfirm={onClickConfirmWithdraw}
+          onReject={onClickRejectWithdraw}
+          confirm="탈퇴ㅠ"
+          reject="취소"
+        />
       </div>
     </div>
   )
