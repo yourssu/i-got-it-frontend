@@ -19,7 +19,7 @@ const IntroductionDialog = ({
             e.stopPropagation
             onClose()
           }}
-          className="DialogOverlay"
+          className={styles.DialogOverlay}
         />
         <Dialog.Content className={styles.DialogContent}>
           <button
