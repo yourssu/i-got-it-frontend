@@ -2,7 +2,6 @@ import React, { useEffect, useRef, useState } from 'react'
 
 import { useNavigate } from 'react-router-dom'
 import { useRecoilState } from 'recoil'
-import Cookies from 'universal-cookie'
 
 import { nicknameState } from '@/State/nicknameState'
 import { resolutionIdState } from '@/State/resolutionState'
@@ -38,7 +37,8 @@ const MenuContent = ({
           !outside.current?.contains(e.target as HTMLDivElement) &&
           !showDialog2 &&
           !showDialog1 &&
-          !showLogout
+          !showLogout &&
+          !showPolicyDialog
         ) {
           setOpenMenu(false) // => Dialog가 떠있을 때 menu bar가 닫기지 않게 함
         }
@@ -48,7 +48,7 @@ const MenuContent = ({
         document.removeEventListener('mousedown', handleClose)
       }
     }
-  }, [openMenu])
+  }, [openMenu, showDialog1, showDialog2, showLogout, showPolicyDialog])
 
   const onClickLogin = () => {
     navigate('/login')
@@ -56,26 +56,30 @@ const MenuContent = ({
 
   const onClickList1 = () => {
     setShowDialog1(true)
-    setOpenMenu(true)
   }
 
   const onCloseList1 = () => {
     setShowDialog1(false)
-    setOpenMenu(true) // 다이얼로그가 외부 영역으로 인식되어 Menu가 닫기는 현상 방지
   }
 
   const onClickList2 = () => {
     setShowDialog2(true)
-    setOpenMenu(true)
   }
 
   const onCloseList2 = () => {
     setShowDialog2(false)
-    setOpenMenu(true)
   }
 
   const onClickList3 = () => {
     navigate('/terms')
+  }
+
+  const onClickPolicy = () => {
+    setShowPolicyDialog(true)
+  }
+
+  const onClosePolicy = () => {
+    setShowPolicyDialog(false)
   }
 
   const onClickLogout = () => {
@@ -93,17 +97,6 @@ const MenuContent = ({
 
   const onClickRejectLogout = () => {
     setShowLogout(false)
-    setOpenMenu(true)
-  }
-
-  const onClickPolicy = () => {
-    setShowPolicyDialog(true)
-    setOpenMenu(true)
-  }
-
-  const onClosePolicy = () => {
-    setShowPolicyDialog(false)
-    setOpenMenu(true)
   }
 
   return (
