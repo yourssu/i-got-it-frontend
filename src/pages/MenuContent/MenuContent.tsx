@@ -37,13 +37,8 @@ const MenuContent = ({
   useEffect(() => {
     if (openMenu) {
       const handleClose = (e: MouseEvent) => {
-        if (
-          !outside.current?.contains(e.target as HTMLDivElement) &&
-          !showDialog2 &&
-          !showDialog1 &&
-          !showLogout
-        ) {
-          setOpenMenu(false) // => Dialog가 떠있을 때 menu bar가 닫기지 않게 함
+        if (outside.current && !outside.current?.contains(e.target as HTMLDivElement)) {
+          setOpenMenu(false)
         }
       }
       document.addEventListener('mousedown', handleClose)
@@ -54,22 +49,25 @@ const MenuContent = ({
   }, [openMenu])
 
   const onClickLogin = () => {
-    navigate('/login')
+    if (!showDialog1 && !showDialog2 && !showLogout && !showWithdraw && !showPolicyDialog) {
+      navigate('/login')
+    }
   }
 
   const onClickList1 = () => {
-    setShowDialog1(true)
-    setOpenMenu(true)
+    if (!showDialog2 && !showLogout && !showWithdraw && !showPolicyDialog) {
+      setShowDialog1(true)
+    }
   }
 
   const onCloseList1 = () => {
     setShowDialog1(false)
-    setOpenMenu(true) // 다이얼로그가 외부 영역으로 인식되어 Menu가 닫기는 현상 방지
   }
 
   const onClickList2 = () => {
-    setShowDialog2(true)
-    setOpenMenu(true)
+    if (!showDialog1 && !showLogout && !showWithdraw && !showPolicyDialog) {
+      setShowDialog2(true)
+    }
   }
 
   const onCloseList2 = () => {
@@ -78,15 +76,21 @@ const MenuContent = ({
   }
 
   const onClickList3 = () => {
-    navigate('/terms')
+    if (!showDialog1 && !showDialog2 && !showLogout && !showWithdraw && !showPolicyDialog) {
+      navigate('/terms')
+    }
   }
 
   const onClickLogout = () => {
-    setShowLogout(true)
+    if (!showDialog1 && !showDialog2 && !showWithdraw && !showPolicyDialog) {
+      setShowLogout(true)
+    }
   }
 
   const onClickWithdraw = () => {
-    setShowWithdraw(true)
+    if (!showDialog1 && !showDialog2 && !showLogout && !showPolicyDialog) {
+      setShowWithdraw(true)
+    }
   }
 
   const onClickConfirmLogout = () => {
@@ -119,10 +123,11 @@ const MenuContent = ({
     setShowWithdraw(false)
     setOpenMenu(true)
   }
-    
+
   const onClickPolicy = () => {
-    setShowPolicyDialog(true)
-    setOpenMenu(true)
+    if (!showDialog1 && !showDialog2 && !showLogout && !showWithdraw) {
+      setShowPolicyDialog(true)
+    }
   }
 
   const onClosePolicy = () => {
@@ -139,7 +144,11 @@ const MenuContent = ({
     >
       <div
         className={openMenu ? 'menu-list show-menu' : 'menu-list hide-menu'}
-        ref={outside}
+        ref={
+          showDialog1 || showDialog2 || showLogout || showWithdraw || showPolicyDialog
+            ? null
+            : outside
+        }
       >
         <ul>
           {userId !== -1 ? (
@@ -173,7 +182,16 @@ const MenuContent = ({
             onClose={onCloseList2}
           />
           <li className="menu-content">
-            <a href="https://pf.kakao.com/_viUxkxj">문의 및 제안</a>
+            <a
+              href="https://pf.kakao.com/_viUxkxj"
+              onClick={(e) => {
+                if (showDialog1 || showDialog2 || showLogout || showWithdraw || showPolicyDialog) {
+                  e.preventDefault()
+                }
+              }}
+            >
+              문의 및 제안
+            </a>
           </li>
           <li
             className="menu-content"
