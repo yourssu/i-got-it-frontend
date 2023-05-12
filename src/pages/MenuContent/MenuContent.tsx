@@ -49,15 +49,11 @@ const MenuContent = ({
   }, [openMenu])
 
   const onClickLogin = () => {
-    if (!showDialog1 && !showDialog2 && !showLogout && !showWithdraw && !showPolicyDialog) {
-      navigate('/login')
-    }
+    navigate('/login')
   }
 
   const onClickList1 = () => {
-    if (!showDialog2 && !showLogout && !showWithdraw && !showPolicyDialog) {
-      setShowDialog1(true)
-    }
+    setShowDialog1(true)
   }
 
   const onCloseList1 = () => {
@@ -65,9 +61,7 @@ const MenuContent = ({
   }
 
   const onClickList2 = () => {
-    if (!showDialog1 && !showLogout && !showWithdraw && !showPolicyDialog) {
-      setShowDialog2(true)
-    }
+    setShowDialog2(true)
   }
 
   const onCloseList2 = () => {
@@ -76,21 +70,15 @@ const MenuContent = ({
   }
 
   const onClickList3 = () => {
-    if (!showDialog1 && !showDialog2 && !showLogout && !showWithdraw && !showPolicyDialog) {
-      navigate('/terms')
-    }
+    navigate('/terms')
   }
 
   const onClickLogout = () => {
-    if (!showDialog1 && !showDialog2 && !showWithdraw && !showPolicyDialog) {
-      setShowLogout(true)
-    }
+    setShowLogout(true)
   }
 
   const onClickWithdraw = () => {
-    if (!showDialog1 && !showDialog2 && !showLogout && !showPolicyDialog) {
-      setShowWithdraw(true)
-    }
+    setShowWithdraw(true)
   }
 
   const onClickConfirmLogout = () => {
@@ -125,9 +113,7 @@ const MenuContent = ({
   }
 
   const onClickPolicy = () => {
-    if (!showDialog1 && !showDialog2 && !showLogout && !showWithdraw) {
-      setShowPolicyDialog(true)
-    }
+    setShowPolicyDialog(true)
   }
 
   const onClosePolicy = () => {
