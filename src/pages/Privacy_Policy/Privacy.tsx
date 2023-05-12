@@ -9,7 +9,7 @@ const PolicyArr = [
     <div style='padding-left:10px;'>유어슈는 다음의 목적을 위하여 개인정보를 처리하고 있으며, 개인정보는 다음의 목적 이외의 용도로는 이용하지 않습니다. 이용목적이 변경 및 추가될 경우에는 사전에 이용자의 동의를 받은 후 처리 및 이용합니다.
     <div style='padding-left:10px;'><div style='margin-bottom:8px; margin-top:5px;'>1. 서비스 내 이용자 식별, 회원 관리 및 서비스 제공을 목적으로 다음과 같은 개인정보를 처리합니다.
     <span style='font-weight:600; padding-left:10px;'>카카오 계정 이메일</span>(필수), <span style='font-weight:600;'>닉네임</span>(선택)
-    2. 서비스 기능 중 결심편지 이베일 발송을 목적으로 다음과 같은 개인정보를 처리합니다.
+    2. 서비스 기능 중 결심 편지 이메일 발송을 목적으로 다음과 같은 개인정보를 처리합니다.
     <span style='font-weight:600; padding-left:10px;'>이메일</span>(필수)
     </div></div><div style='margin-bottom: 8px'>개인정보의 수집 방법으로는 이용자가 유어슈의 서비스 이용을 위해 개인정보 수집에 대해 동의를 하고 소셜 로그인하는 시점과 이용 과정에서 이용자가 직접 정보를 입력하는 경우가 있습니다.
     </div>또한, 서비스 이용과정에서 로그분석을 통해 생성 정보가 수집될 수 있으며, 쿠키에 의한 정보 등이 자동으로 생성되어 수집될 수 있습니다.
