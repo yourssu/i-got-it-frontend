@@ -119,7 +119,7 @@ const MenuContent = ({
     setShowWithdraw(false)
     setOpenMenu(true)
   }
-    
+
   const onClickPolicy = () => {
     setShowPolicyDialog(true)
     setOpenMenu(true)
