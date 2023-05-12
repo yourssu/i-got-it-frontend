@@ -74,7 +74,7 @@ const Privacy = () => {
         className={styles.closeButton}
         onClick={onClickClose}
       />
-      <div className={styles.title}>개인정보 처리방침</div>
+      <div className={styles.title}>아가릿! 개인정보 처리방침</div>
       <div className={styles.description}>
         &ensp;유어슈는 이용자의 자유와 권리 보호를 위해 &#34;개인정보 보호법&#34; 및 관계 법령이
         정한 바를 준수하여 이용자에게 개인정보 처리에 관한 절차 및 기준을 안내하고, 이와 관련한
