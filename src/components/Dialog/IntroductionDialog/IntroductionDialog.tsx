@@ -29,7 +29,7 @@ const IntroductionDialog = ({
           <div className={styles.wrapper1}>
             <Dialog.Title className={styles.DialogTitle}>궁금해요. 아가릿!</Dialog.Title>
             <Dialog.Description className={styles.DialogDescription}>
-              {'🐴🐴🐴 말로만 다짐하는 사람들을 위한\n본격 공개 처형! 작심삼일 퇴치! 프로젝트'}
+              {'🐴🐴🐴 말로만 다짐하는 사람들을 위한\n본격 공개 처형! 작심 3주 퇴치! 프로젝트'}
             </Dialog.Description>
             <div className={styles.boldText}>아가릿! (I got it)</div>
           </div>
@@ -37,7 +37,7 @@ const IntroductionDialog = ({
             <div className={styles.boldText}>활용 방법</div>
             <div className={styles.wayText}>
               {
-                '1. 미래의 나에게 편지를 쓴다.\n2. 세상에 외친다!\n3. 과거에서 온 편지를 읽고\n다시 에너지를 얻는다.\n4. 그렇게 작심삼일을 무한 반복한다.'
+                '1. 미래의 나에게 편지를 쓴다.\n2. 세상에 외친다!\n3. 과거에서 온 편지를 읽고\n다시 에너지를 얻는다.\n4. 그렇게 작심 3주를 무한 반복한다.'
               }
             </div>
           </div>

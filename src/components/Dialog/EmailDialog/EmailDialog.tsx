@@ -24,7 +24,7 @@ const EmailDialog = ({ showDialog, onClose }: { showDialog: boolean; onClose: ()
             <Dialog.Title className={styles.DialogTitle}>이메일 수집 및 이용</Dialog.Title>
           </div>
           <Dialog.Description className={styles.DialogDescription}>
-            {`결심편지 발송을 위해 이메일을\n수집하고자 합니다.\n\n수집된 이메일은 본인이 쓴 작심편지 발송 외 다른 목적으로 이용되지 않으며,
+            {`결심 편지 발송을 위해 이메일을\n수집하고자 합니다.\n\n수집된 이메일은 본인이 쓴 결심 편지 발송 외 다른 목적으로 이용되지 않으며,
                 서비스 종료 혹은 회원님이 탈퇴할 경우\n즉시 파기됩니다.`}
           </Dialog.Description>
         </Dialog.Content>
