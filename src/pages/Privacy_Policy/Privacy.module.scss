@@ -1,0 +1,17 @@
+.closeButton {
+  width: 20px;
+  height: 20px;
+  background-image: url('../../images/ic_close.svg');
+  float: right;
+  margin-top: 14px;
+}
+
+.title {
+  font-family: 'NeoDunggeunmo';
+  font-weight: 400;
+  font-size: 20px;
+  color: var(--text-primary);
+  text-align: center;
+  padding-top: 15px;
+  clear: both;
+}
