@@ -119,7 +119,7 @@ const MenuContent = ({
   }
 
   const onClickPolicy = () => {
-    // 개인정보 처리방침 페이지로 이동시키기
+    navigate('/privacy-policy')
   }
 
   return (
