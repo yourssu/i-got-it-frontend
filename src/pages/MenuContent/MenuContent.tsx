@@ -2,7 +2,6 @@ import React, { useEffect, useRef, useState } from 'react'
 
 import { useNavigate } from 'react-router-dom'
 import { useRecoilState } from 'recoil'
-import Cookies from 'universal-cookie'
 
 import { nicknameState } from '@/State/nicknameState'
 import { resolutionIdState } from '@/State/resolutionState'
@@ -37,13 +36,8 @@ const MenuContent = ({
   useEffect(() => {
     if (openMenu) {
       const handleClose = (e: MouseEvent) => {
-        if (
-          !outside.current?.contains(e.target as HTMLDivElement) &&
-          !showDialog2 &&
-          !showDialog1 &&
-          !showLogout
-        ) {
-          setOpenMenu(false) // => Dialog가 떠있을 때 menu bar가 닫기지 않게 함
+        if (outside.current && !outside.current?.contains(e.target as HTMLDivElement)) {
+          setOpenMenu(false)
         }
       }
       document.addEventListener('mousedown', handleClose)
@@ -59,40 +53,38 @@ const MenuContent = ({
 
   const onClickList1 = () => {
     setShowDialog1(true)
-    setOpenMenu(true)
   }
 
   const onCloseList1 = () => {
     setShowDialog1(false)
-    setOpenMenu(true) // 다이얼로그가 외부 영역으로 인식되어 Menu가 닫기는 현상 방지
   }
 
   const onClickList2 = () => {
     setShowDialog2(true)
-    setOpenMenu(true)
   }
 
   const onCloseList2 = () => {
     setShowDialog2(false)
-    setOpenMenu(true)
   }
 
   const onClickList3 = () => {
     navigate('/terms')
   }
 
+  const onClickPolicy = () => {
+    setShowPolicyDialog(true)
+  }
+
+  const onClosePolicy = () => {
+    setShowPolicyDialog(false)
+  }
+
   const onClickLogout = () => {
     setShowLogout(true)
   }
 
-  const onClickWithdraw = () => {
-    setShowWithdraw(true)
-  }
-
   const onClickConfirmLogout = () => {
-    const cookies = new Cookies()
     sessionStorage.clear()
-    cookies.remove('accessToken')
     TokenService.logout()
     setNameState('')
     setUserId(-1)
@@ -102,13 +94,16 @@ const MenuContent = ({
 
   const onClickRejectLogout = () => {
     setShowLogout(false)
-    setOpenMenu(true)
+  }
+
+  const onClickWithdraw = () => {
+    setShowWithdraw(true)
   }
 
   const onClickConfirmWithdraw = () => {
     deleteWithdraw()
     sessionStorage.clear()
-    TokenService.logout
+    TokenService.logout()
     setNameState('')
     setUserId(-1)
     setResolutionId('')
@@ -117,17 +112,6 @@ const MenuContent = ({
 
   const onClickRejectWithdraw = () => {
     setShowWithdraw(false)
-    setOpenMenu(true)
-  }
-
-  const onClickPolicy = () => {
-    setShowPolicyDialog(true)
-    setOpenMenu(true)
-  }
-
-  const onClosePolicy = () => {
-    setShowPolicyDialog(false)
-    setOpenMenu(true)
   }
 
   return (
@@ -139,7 +123,11 @@ const MenuContent = ({
     >
       <div
         className={openMenu ? 'menu-list show-menu' : 'menu-list hide-menu'}
-        ref={outside}
+        ref={
+          showDialog1 || showDialog2 || showLogout || showWithdraw || showPolicyDialog
+            ? null
+            : outside
+        }
       >
         <ul>
           {userId !== -1 ? (
@@ -173,7 +161,16 @@ const MenuContent = ({
             onClose={onCloseList2}
           />
           <li className="menu-content">
-            <a href="https://pf.kakao.com/_viUxkxj">문의 및 제안</a>
+            <a
+              href="https://pf.kakao.com/_viUxkxj"
+              onClick={(e) => {
+                if (showDialog1 || showDialog2 || showLogout || showWithdraw || showPolicyDialog) {
+                  e.preventDefault()
+                }
+              }}
+            >
+              문의 및 제안
+            </a>
           </li>
           <li
             className="menu-content"

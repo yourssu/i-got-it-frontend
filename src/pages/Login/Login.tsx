@@ -1,11 +1,13 @@
 import React from 'react'
 
+import { useGetCount } from '@/hooks/useGetCount'
 import speech_bubble from '@/images/Login/bubble.svg'
 import character from '@/images/Login/character.svg'
 import kakao_symbol from '@/images/Login/kakao_symbol.svg'
 import twinkle_1 from '@/images/Login/twinkle_1.svg'
 import twinkle_2 from '@/images/Login/twinkle_2.svg'
 import twinkle_3 from '@/images/Login/twinkle_3.svg'
+
 import './Login.scss'
 
 declare global {
@@ -23,6 +25,8 @@ const Login = () => {
     const redirectUri = `${window.location.origin}/callback/kakaotalk`
     window.Kakao.Auth.authorize({ redirectUri })
   }
+
+  const { data: resolutionCount } = useGetCount()
 
   return (
     <div className="login-wrapper">
@@ -57,7 +61,9 @@ const Login = () => {
           src={character}
           alt={character}
         />
-        {/* <div className="count-users">현재까지 00명이 아가릿!에 외쳤어요!</div> */}
+        <div className="count-users">
+          현재까지 {resolutionCount?.data.count}개의 결심이 아가릿에 모였어요!
+        </div>
       </div>
       <div className="login-bottom-wrapper">
         <button
