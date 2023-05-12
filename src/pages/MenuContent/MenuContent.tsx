@@ -9,7 +9,6 @@ import { resolutionIdState } from '@/State/resolutionState'
 import { userIdState } from '@/State/userIdState'
 import BasicDialog from '@/components/Dialog/BasicDialog/BasicDialog'
 import IntroductionDialog from '@/components/Dialog/IntroductionDialog/IntroductionDialog'
-import PolicyDialog from '@/components/Dialog/PolicyDialog/PolicyDialog'
 import ProducerDialog from '@/components/Dialog/ProducerDialog/ProducerDialog'
 import './MenuContent.scss'
 import { useDeleteWithdraw } from '@/hooks/useDeleteWithdraw'
@@ -28,7 +27,6 @@ const MenuContent = ({
   const [showDialog2, setShowDialog2] = useState(false)
   const [showLogout, setShowLogout] = useState(false)
   const [showWithdraw, setShowWithdraw] = useState(false)
-  const [showPolicyDialog, setShowPolicyDialog] = useState(false)
   const [nameState, setNameState] = useRecoilState(nicknameState)
   const [userId, setUserId] = useRecoilState(userIdState)
   const [, setResolutionId] = useRecoilState(resolutionIdState)
@@ -119,15 +117,9 @@ const MenuContent = ({
     setShowWithdraw(false)
     setOpenMenu(true)
   }
-    
-  const onClickPolicy = () => {
-    setShowPolicyDialog(true)
-    setOpenMenu(true)
-  }
 
-  const onClosePolicy = () => {
-    setShowPolicyDialog(false)
-    setOpenMenu(true)
+  const onClickPolicy = () => {
+    // 개인정보 처리방침 페이지로 이동시키기
   }
 
   return (
@@ -187,10 +179,6 @@ const MenuContent = ({
           >
             개인정보 처리방침
           </li>
-          <PolicyDialog
-            showDialog={showPolicyDialog}
-            onClose={onClosePolicy}
-          />
           {userId !== -1 ? (
             <li
               className="menu-content"
