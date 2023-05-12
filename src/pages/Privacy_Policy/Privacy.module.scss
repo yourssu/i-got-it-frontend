@@ -1,17 +1,42 @@
-.closeButton {
-  width: 20px;
-  height: 20px;
-  background-image: url('../../images/ic_close.svg');
-  float: right;
+.wrapper {
   margin-top: 14px;
-}
+  margin: 10px;
 
-.title {
-  font-family: 'NeoDunggeunmo';
-  font-weight: 400;
-  font-size: 20px;
-  color: var(--text-primary);
-  text-align: center;
-  padding-top: 15px;
-  clear: both;
+  .closeButton {
+    width: 20px;
+    height: 20px;
+    background-image: url('../../images/ic_close.svg');
+    float: right;
+  }
+
+  .title {
+    font-family: 'NeoDunggeunmo';
+    font-weight: 400;
+    font-size: 20px;
+    color: var(--text-primary);
+    text-align: center;
+    padding: 15px 0px;
+    clear: both;
+  }
+
+  .description {
+    white-space: pre-line;
+    text-align: justify;
+    font-family: 'Pretendard';
+    font-weight: 400;
+    font-size: 15px;
+    color: var(--text-secondary);
+    line-height: 22.5px;
+  }
+
+  .policy {
+    margin-top: 20px;
+    white-space: pre-line;
+    text-align: justify;
+    font-family: 'Pretendard';
+    font-weight: 400;
+    font-size: 15px;
+    color: var(--text-secondary);
+    line-height: 22.5px;
+  }
 }

@@ -30,3 +30,9 @@ button {
   font-family: inherit;
   cursor: pointer;
 }
+
+h4 {
+  all: unset;
+  font-weight: 700;
+  font-size: 16px;
+}
