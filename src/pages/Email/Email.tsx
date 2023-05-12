@@ -108,7 +108,7 @@ const Email = () => {
         <BoxButton
           type="button"
           text="완료"
-          isDisabled={!email || !isChecked}
+          isDisabled={!email || !isChecked || !emailCheck}
           onClick={handleSubmit}
           buttonStyle="filled"
         />
