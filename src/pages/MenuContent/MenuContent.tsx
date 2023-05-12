@@ -2,7 +2,6 @@ import React, { useEffect, useRef, useState } from 'react'
 
 import { useNavigate } from 'react-router-dom'
 import { useRecoilState } from 'recoil'
-import Cookies from 'universal-cookie'
 
 import { nicknameState } from '@/State/nicknameState'
 import { resolutionIdState } from '@/State/resolutionState'
@@ -66,25 +65,26 @@ const MenuContent = ({
 
   const onCloseList2 = () => {
     setShowDialog2(false)
-    setOpenMenu(true)
   }
 
   const onClickList3 = () => {
     navigate('/terms')
   }
 
+  const onClickPolicy = () => {
+    setShowPolicyDialog(true)
+  }
+
+  const onClosePolicy = () => {
+    setShowPolicyDialog(false)
+  }
+
   const onClickLogout = () => {
     setShowLogout(true)
   }
 
-  const onClickWithdraw = () => {
-    setShowWithdraw(true)
-  }
-
   const onClickConfirmLogout = () => {
-    const cookies = new Cookies()
     sessionStorage.clear()
-    cookies.remove('accessToken')
     TokenService.logout()
     setNameState('')
     setUserId(-1)
@@ -94,13 +94,16 @@ const MenuContent = ({
 
   const onClickRejectLogout = () => {
     setShowLogout(false)
-    setOpenMenu(true)
+  }
+
+  const onClickWithdraw = () => {
+    setShowWithdraw(true)
   }
 
   const onClickConfirmWithdraw = () => {
     deleteWithdraw()
     sessionStorage.clear()
-    TokenService.logout
+    TokenService.logout()
     setNameState('')
     setUserId(-1)
     setResolutionId('')
@@ -109,16 +112,6 @@ const MenuContent = ({
 
   const onClickRejectWithdraw = () => {
     setShowWithdraw(false)
-    setOpenMenu(true)
-  }
-
-  const onClickPolicy = () => {
-    setShowPolicyDialog(true)
-  }
-
-  const onClosePolicy = () => {
-    setShowPolicyDialog(false)
-    setOpenMenu(true)
   }
 
   return (
