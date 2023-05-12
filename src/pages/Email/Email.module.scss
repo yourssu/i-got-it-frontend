@@ -17,9 +17,9 @@
   }
   .emailFieldset {
     display: flex;
-    gap: 20px;
     align-items: center;
     margin-top: 5px;
+    position: relative;
     .emailInput {
       width: 100%;
       border: solid 1px;
@@ -37,6 +37,15 @@
       &:invalid {
         border-color: var(--text-negative);
       }
+    }
+
+    .clearButton {
+      position: absolute;
+      top: 18px;
+      right: 15px;
+      width: 12px;
+      height: 12px;
+      background-image: url('../../images/ic_cancle.svg');
     }
   }
 }

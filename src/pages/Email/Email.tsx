@@ -47,6 +47,10 @@ const Email = () => {
     setShowDialog(false)
   }
 
+  const onClickClear = () => {
+    setEmail('')
+  }
+
   return (
     <>
       <EmailDialog
@@ -76,6 +80,11 @@ const Email = () => {
             placeholder="i-got-it@example.com"
             pattern=".+@.+\..+"
           ></input>
+          <button
+            type="button"
+            className={!emailCheck && email != '' ? styles.clearButton : undefined}
+            onClick={onClickClear}
+          />
         </fieldset>
       </form>
       <div>
