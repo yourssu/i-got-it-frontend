@@ -42,7 +42,8 @@
   font-weight: 400;
   font-size: 15px;
   color: var(--text-primary);
-  padding-top: 28px;
+  margin-top: 28px;
+  width: max-content;
 }
 
 .menu-content-withdraw {
@@ -59,5 +60,6 @@
   font-weight: 600;
   font-size: 15px;
   color: var(--text-primary);
-  padding-top: 28px;
+  margin-top: 28px;
+  width: max-content;
 }

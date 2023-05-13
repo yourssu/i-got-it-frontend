@@ -15,6 +15,7 @@ import styles from './Email.module.scss'
 const Email = () => {
   const navigate = useNavigate()
   const [email, setEmail] = useState<string>('')
+  const [emailCheck, setEmailCheck] = useState<boolean>(false)
   const [isChecked, setIsChecked] = useState<boolean>(false)
   const [showDialog, setShowDialog] = useState(false)
   const [letter] = useRecoilState(letterState)
@@ -46,6 +47,10 @@ const Email = () => {
     setShowDialog(false)
   }
 
+  const onClickClear = () => {
+    setEmail('')
+  }
+
   return (
     <>
       <EmailDialog
@@ -64,10 +69,22 @@ const Email = () => {
             className={styles.emailInput}
             type="email"
             value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={(e) => {
+              if (e.target.value.match(/.+@.+\..+/)) {
+                setEmailCheck(true)
+              } else {
+                setEmailCheck(false)
+              }
+              setEmail(e.target.value)
+            }}
             placeholder="i-got-it@example.com"
             pattern=".+@.+\..+"
           ></input>
+          <button
+            type="button"
+            className={!emailCheck && email != '' ? styles.clearButton : undefined}
+            onClick={onClickClear}
+          />
         </fieldset>
       </form>
       <div>
@@ -91,7 +108,7 @@ const Email = () => {
         <BoxButton
           type="button"
           text="완료"
-          isDisabled={!email || !isChecked}
+          isDisabled={!email || !isChecked || !emailCheck}
           onClick={handleSubmit}
           buttonStyle="filled"
         />
