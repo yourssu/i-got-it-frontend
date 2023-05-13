@@ -33,7 +33,11 @@ const ProducerDialog = ({ showDialog, onClose }: { showDialog: boolean; onClose:
             디자인 💗Rozy 🐻Mishika
             Web Front 🐥Mina 😎Hanna
             Back end ☁️Haneul
-            그리고 🐴 뿌슝이\n\n우리는 숭실대학교 유어슈`}</div>
+            Legal 🍀Julia 🫡Rhea
+
+            Thanks to
+            ⚽️Jay 🧞‍♂️Dino 🧸Ted 🌱Mint
+            🐴 뿌슝이 🦄 숭실대학교 유어슈`}</div>
           </div>
         </Dialog.Content>
       </Dialog.Portal>
