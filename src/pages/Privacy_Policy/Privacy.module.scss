@@ -18,8 +18,7 @@
     clear: both;
   }
 
-  .terms {
-    margin-bottom: 15px;
+  .description {
     white-space: pre-line;
     text-align: justify;
     font-family: 'Pretendard';
@@ -29,7 +28,18 @@
     line-height: 22.5px;
   }
 
-  .description {
+  .policy {
+    margin-top: 15px;
+    white-space: pre-line;
+    text-align: justify;
+    font-family: 'Pretendard';
+    font-weight: 400;
+    font-size: 15px;
+    color: var(--text-secondary);
+    line-height: 22.5px;
+  }
+
+  .description2 {
     white-space: pre-line;
     text-align: justify;
     font-family: 'Pretendard';
@@ -37,16 +47,6 @@
     font-size: 15px;
     color: var(--text-secondary);
     line-height: 22.5px;
-    margin: 8px 0px;
-  }
-
-  .description2 {
-    white-space: pre-line;
-    text-align: justify;
-    font-family: 'Pretendard';
-    font-weight: 400;
-    font-size: 15px;
-    color: var(--text-secondary);
-    line-height: 22.5px;
+    padding-top: 20px;
   }
 }

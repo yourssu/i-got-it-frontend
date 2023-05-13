@@ -8,7 +8,6 @@ import { resolutionIdState } from '@/State/resolutionState'
 import { userIdState } from '@/State/userIdState'
 import BasicDialog from '@/components/Dialog/BasicDialog/BasicDialog'
 import IntroductionDialog from '@/components/Dialog/IntroductionDialog/IntroductionDialog'
-import PolicyDialog from '@/components/Dialog/PolicyDialog/PolicyDialog'
 import ProducerDialog from '@/components/Dialog/ProducerDialog/ProducerDialog'
 import './MenuContent.scss'
 import { useDeleteWithdraw } from '@/hooks/useDeleteWithdraw'
@@ -27,7 +26,6 @@ const MenuContent = ({
   const [showDialog2, setShowDialog2] = useState(false)
   const [showLogout, setShowLogout] = useState(false)
   const [showWithdraw, setShowWithdraw] = useState(false)
-  const [showPolicyDialog, setShowPolicyDialog] = useState(false)
   const [nameState, setNameState] = useRecoilState(nicknameState)
   const [userId, setUserId] = useRecoilState(userIdState)
   const [, setResolutionId] = useRecoilState(resolutionIdState)
@@ -71,14 +69,6 @@ const MenuContent = ({
     navigate('/terms')
   }
 
-  const onClickPolicy = () => {
-    setShowPolicyDialog(true)
-  }
-
-  const onClosePolicy = () => {
-    setShowPolicyDialog(false)
-  }
-
   const onClickLogout = () => {
     setShowLogout(true)
   }
@@ -114,6 +104,10 @@ const MenuContent = ({
     setShowWithdraw(false)
   }
 
+  const onClickPolicy = () => {
+    navigate('/privacy-policy')
+  }
+
   return (
     <div
       style={{
@@ -123,11 +117,7 @@ const MenuContent = ({
     >
       <div
         className={openMenu ? 'menu-list show-menu' : 'menu-list hide-menu'}
-        ref={
-          showDialog1 || showDialog2 || showLogout || showWithdraw || showPolicyDialog
-            ? null
-            : outside
-        }
+        ref={showDialog1 || showDialog2 || showLogout || showWithdraw ? null : outside}
       >
         <ul>
           {userId !== -1 ? (
@@ -161,16 +151,7 @@ const MenuContent = ({
             onClose={onCloseList2}
           />
           <li className="menu-content">
-            <a
-              href="https://pf.kakao.com/_viUxkxj"
-              onClick={(e) => {
-                if (showDialog1 || showDialog2 || showLogout || showWithdraw || showPolicyDialog) {
-                  e.preventDefault()
-                }
-              }}
-            >
-              문의 및 제안
-            </a>
+            <a href="https://pf.kakao.com/_viUxkxj">문의 및 제안</a>
           </li>
           <li
             className="menu-content"
@@ -184,10 +165,6 @@ const MenuContent = ({
           >
             개인정보 처리방침
           </li>
-          <PolicyDialog
-            showDialog={showPolicyDialog}
-            onClose={onClosePolicy}
-          />
           {userId !== -1 ? (
             <li
               className="menu-content"

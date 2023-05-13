@@ -1,0 +1,28 @@
+h4 {
+  all: unset;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.wrapper {
+  margin-left: 10px;
+
+  .terms-item {
+    margin-bottom: 8px;
+  }
+
+  .terms-item-list {
+    margin-bottom: 4px;
+  }
+}
+
+.list-wrapper {
+  margin-bottom: 4px;
+  margin-left: 10px;
+  display: flex;
+  flex-direction: column;
+
+  .list-item {
+    margin-bottom: 4px;
+  }
+}

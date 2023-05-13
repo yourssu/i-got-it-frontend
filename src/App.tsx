@@ -17,6 +17,7 @@ import KakaoRedirect from '@/pages/atoms/KakaoRedirect'
 import './App.scss'
 import RouteChangeTracker from './RouteChangeTracker'
 import Email from './pages/Email/Email'
+import Privacy from './pages/Privacy_Policy/Privacy'
 
 function App() {
   RouteChangeTracker()
@@ -59,6 +60,10 @@ function App() {
           <Route
             path="/terms"
             element={<Terms />}
+          />
+          <Route
+            path="/privacy-policy"
+            element={<Privacy />}
           />
         </Routes>
         <Toast.Viewport className="ToastViewport" />
