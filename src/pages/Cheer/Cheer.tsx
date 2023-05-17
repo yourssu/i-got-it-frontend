@@ -19,7 +19,7 @@ const Cheer = ({ isHost, letters }: CheerProps) => {
   return (
     <div className="cheer">
       {!isHost ? <AddButton /> : null}
-      {letters?.map((data: GetLetterInfo, index: number) => {
+      {letters?.reverse().map((data: GetLetterInfo, index: number) => {
         if (index % 2 == 0) {
           return (
             <section
